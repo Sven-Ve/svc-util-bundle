@@ -1,13 +1,12 @@
 <?php
 
-$version = "v0.0.1";
-$message = "initial checkin";
+$version = "v0.1.0";
+$message = "initial push to satis";
 
 
 $res = shell_exec('git add .');
 $res = shell_exec('git commit -m "' . $message . '"');
 $res = shell_exec('git push');
-exit;
 
 $res = shell_exec('git tag -a ' . $version . ' -m "' . $message . '"');
 $res = shell_exec('git push origin ' . $version);
