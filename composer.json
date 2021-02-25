@@ -1,6 +1,6 @@
 {
   "name": "svc/util-bundle",
-  "description": "Private package twith some utilities ...",
+  "description": "Private package with some utilities ...",
   "type": "symfony-bundle",
   "license": "MIT",
   "authors": [
