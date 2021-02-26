@@ -12,5 +12,12 @@
       </service>
       <service id="Svc\UtilBundle\Service\EnvInfoHelper" alias="svc_util.service.env-info-helper" />
 
+      <service id="svc_util.service.mailhelper" class="Svc\UtilBundle\Service\MailerHelper" public="true">
+        <argument  />
+        <argument  />
+        <argument type="service" id="mailer.mailer" />
+      </service>
+      <service id="Svc\UtilBundle\Service\MailerHelper" alias="svc_util.service.mailhelper" />
+
     </services>
 </container>

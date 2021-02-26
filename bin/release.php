@@ -1,8 +1,9 @@
 <?php
 
-$version = "v0.2.0";
-$message = "added new service EnvInfoHelper";
+$version = "v0.3.0";
+$message = "added new service MailHelper";
 
+file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 
 $res = shell_exec('git add .');
 $res = shell_exec('git commit -m "' . $message . '"');

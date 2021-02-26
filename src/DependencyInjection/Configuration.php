@@ -13,13 +13,21 @@ class Configuration implements ConfigurationInterface
     $rootNode = $treeBuilder->getRootNode();
 
     $rootNode
-      ->children()
-        ->booleanNode('run_git')->defaultTrue()->info('Should git runs after version increase?')->end()
-        ->booleanNode('run_deploy')->defaultTrue()->info('Should deploy runs after git?')->end()
-        ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('dev@sv-systems.com')->info('Default sender mail address')->end()
-      ->end();
-    return $treeBuilder;
+    ->children()
+      ->arrayNode('general')
+        ->children()
+          ->booleanNode('debug')->defaultFalse()->info('Should we debug a little bit?')->end()
+        ->end()
+      ->end()
+      ->arrayNode('mailer')
+        ->children()
+          ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('dev@sv-systems.com')->info('Default sender mail address')->end()
+          ->scalarNode('mail_name')->info('Default sender name')->end()
+        ->end()
+      ->end()
+    ->end();
 
+    return $treeBuilder;
     }
 
 }
