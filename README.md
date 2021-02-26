@@ -1,1 +1,6 @@
-kommt noch
+**Services:**
+* EnvInfoHelper
+  * getRootURL()
+  * getURLtoIndexPhp()
+  * getRootURLandPrefix()
+* NetworkHelper
