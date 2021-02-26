@@ -6,7 +6,11 @@
     <services>
       <service id="svc_util.service.networkhelper" class="Svc\UtilBundle\Service\NetworkHelper" public="true">
       </service>
-    <service id="Svc\UtilBundle\Service\NetworkHelper" alias="svc_util.service.networkhelper" />
+      <service id="Svc\UtilBundle\Service\NetworkHelper" alias="svc_util.service.networkhelper" />
+
+      <service id="svc_util.service.env-info-helper" class="Svc\UtilBundle\Service\EnvInfoHelper" public="true">
+      </service>
+      <service id="Svc\UtilBundle\Service\EnvInfoHelper" alias="svc_util.service.env-info-helper" />
 
     </services>
 </container>

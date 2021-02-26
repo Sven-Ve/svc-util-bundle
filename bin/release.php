@@ -1,7 +1,7 @@
 <?php
 
-$version = "v0.1.0";
-$message = "initial push to satis";
+$version = "v0.2.0";
+$message = "added new service EnvInfoHelper";
 
 
 $res = shell_exec('git add .');

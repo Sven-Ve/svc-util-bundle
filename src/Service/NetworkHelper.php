@@ -28,6 +28,12 @@ class NetworkHelper
     return null;
   }
   
+  public static function getReferer() {
+    return $_SERVER["HTTP_REFERER"] ?? null;
+  }
+
+  
+
   public static function getLocationInfoByIp($ip = null){
     if (!$ip) {
       $ip = static::getIP();
