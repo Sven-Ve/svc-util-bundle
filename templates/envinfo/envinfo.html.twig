@@ -3,38 +3,35 @@
 {% block title %}{% trans %}Admin Info{% endtrans %}{% endblock %}
 
 {% block body %}
-<h1>Hallo 2</h1>
 <h2>{% trans %}Admin Info{% endtrans %}</h2>
 
+<h4>Server</h4>
 <table class='table'>
-  <tr>
-    <th>DOCUMENT_ROOT</th><td> {{ server.DOCUMENT_ROOT }}
-  </tr>
-  <tr>
-    <th>SERVER_SIGNATURE</th><td> {{ server.SERVER_SIGNATURE }}
-  </tr>
-  <tr>
-    <th>SERVER_SOFTWARE</th><td> {{ server.SERVER_SOFTWARE }}
-  </tr>
-  <tr>
-    <th>SERVER_ADMIN</th><td> {{ server.SERVER_ADMIN }}
-  </tr>
-  <tr>
-    <th>APP_ENV</th><td> {{ server.APP_ENV }}
-  </tr>
-  <tr>
-    <th>SYMFONY_DOTENV_VARS</th><td> {{ server.SYMFONY_DOTENV_VARS }}
-  </tr>
-  <tr>
-    <th>APP_LOG_DIR (Env)</th><td> {{ server.APP_LOG_DIR }}
-  </tr>
-  <tr>
-    <th>APP_CACHE_DIR (Env)</th><td> {{ server.APP_CACHE_DIR }}
-  </tr>
-  <tr>
-    <th>APP_DEBUG</th><td> {{ server.APP_DEBUG }}
-  </tr>
+  <tr><th>DOCUMENT_ROOT</th><td> {{ server.DOCUMENT_ROOT }}</tr>
+  <tr><th>SERVER_SIGNATURE</th><td> {{ server.SERVER_SIGNATURE }}</tr>
+  <tr><th>SERVER_SOFTWARE</th><td> {{ server.SERVER_SOFTWARE }}</tr>
+  <tr><th>SERVER_ADMIN</th><td> {{ server.SERVER_ADMIN }}</tr>
+  <tr><th>PHP OS</th><td>{{ constant('PHP_OS') }}</tr>
+  <tr><th>PHP version</th><td>{{ constant('PHP_VERSION') }}</tr>
+  <tr><th>PHP binary</th><td>{{ constant('PHP_BINARY') }}</tr>
+</table>
+
+<h4>Application</h4>
+<table class='table'>
+  <tr><th>APP_ENV</th><td> {{ server.APP_ENV }}</tr>
+  <tr><th>SYMFONY_DOTENV_VARS</th><td> {{ server.SYMFONY_DOTENV_VARS }}</tr>
+  <tr><th>APP_LOG_DIR (Env)</th><td> {{ server.APP_LOG_DIR }}</tr>
+  <tr><th>APP_CACHE_DIR (Env)</th><td> {{ server.APP_CACHE_DIR }}</tr>
+  <tr><th>APP_DEBUG</th><td> {{ server.APP_DEBUG }}</tr>
   <tr><th>Symfony version</th><td> {{ symfonyversion }}</tr>
-  <tr><th>PHP version</th><td> {{ phpversion }}</tr>
+</table>
+
+<h4>Client</h4>
+<table class='table'>
+  <tr><th>IP</th><td> {{ netInfo.ip }}</tr>
+  <tr><th>Country</th><td> {{ netInfo.country }}</tr>
+  <tr><th>City</th><td> {{ netInfo.city }}</tr>
+  <tr><th>User agent</th><td> {{ netInfo.ua }}</tr>
+  <tr><th>Referer</th><td> {{ netInfo.referer }}</tr>
 </table>
 {% endblock %}

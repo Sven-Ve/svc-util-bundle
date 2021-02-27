@@ -48,4 +48,16 @@ class NetworkHelper
     }
     return $result;
   }
+
+  public static function getAll() {
+    $ip=static::getIP();
+    $loc=static::getLocationInfoByIp($ip);
+    $ret = [];
+    $ret['ip'] = $ip;
+    $ret['country'] = $loc['country'];
+    $ret['city'] = $loc['city'];
+    $ret['ua'] = static::getUserAgent();
+    $ret['referer'] = static::getReferer();
+    return $ret;
+  }
 }

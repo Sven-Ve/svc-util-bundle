@@ -1,7 +1,8 @@
+#!/usr/bin/env php
 <?php
 
-$version = "v0.3.0";
-$message = "added new service MailHelper";
+$version = "v0.4.0";
+$message = "added EnvInfoController";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

@@ -3,6 +3,7 @@
 namespace Svc\UtilBundle\Controller;
 
 use App\Kernel;
+use Svc\UtilBundle\Service\NetworkHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 #use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +17,7 @@ class EnvInfoController extends AbstractController
     return $this->render('@SvcUtil/envinfo/envinfo.html.twig', [
       'server' => $_SERVER,
       'symfonyversion' => Kernel::VERSION,
-      'phpversion' => phpversion()
+      'netInfo' => NetworkHelper::getAll()
     ]);
   }
 

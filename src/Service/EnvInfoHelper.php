@@ -4,10 +4,6 @@ namespace Svc\UtilBundle\Service;
 
 class EnvInfoHelper
 {
-  
-  public static function dumpServerInfo() {
-    dump($_SERVER);
-  }
 
   // only Protokoll and Servername
   public static function getRootURL() {
