@@ -4,6 +4,7 @@
   * getURLtoIndexPhp()
   * getRootURLandPrefix()
 * NetworkHelper
+* MailHelper
 
 
 **Versioning:**

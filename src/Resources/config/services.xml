@@ -17,6 +17,14 @@
         <argument  />
         <argument type="service" id="mailer.mailer" />
       </service>
+
+      <service id="svc_util.controller.envinfo" class="Svc\UtilBundle\Controller\EnvInfoController" public="true">
+        <call method="setContainer">
+            <argument type="service" id="Psr\Container\ContainerInterface"/>
+        </call>
+        <tag name="container.service_subscriber"/>
+      </service>
+
       <service id="Svc\UtilBundle\Service\MailerHelper" alias="svc_util.service.mailhelper" />
 
     </services>
