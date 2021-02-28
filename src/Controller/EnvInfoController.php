@@ -6,8 +6,6 @@ use App\Kernel;
 use Svc\UtilBundle\Service\NetworkHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-#use Symfony\Component\Routing\Annotation\Route;
-
 
 class EnvInfoController extends AbstractController
 {

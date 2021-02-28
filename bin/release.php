@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.4.0";
-$message = "added EnvInfoController";
+$version = "v0.4.1";
+$message = "fixed typos, change route to /admin/...";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 
