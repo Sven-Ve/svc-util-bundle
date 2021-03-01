@@ -44,8 +44,13 @@ class MailerHelper
       ->text($text)
     ;
 
+    try {
+      $this->mailer->send($email);
+    } catch (\Exception $e) {
+      return false;
+    }
 
-    $this->mailer->send($email);
+    return true;
   }
 
 }

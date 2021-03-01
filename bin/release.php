@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.4.1";
-$message = "fixed typos, change route to /admin/...";
+$version = "v0.4.2";
+$message = "Exception handling and return value in SendMail";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 
