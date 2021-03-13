@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.4.2";
+$version = "v0.4.3";
 $message = "request php >7.4.0 or >8.0.0";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
