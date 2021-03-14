@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.4.3";
-$message = "request php >7.4.0 or >8.0.0";
+$version = "v0.4.4";
+$message = "Show real cache dir in EnvInfo";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 
