@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.4.4";
-$message = "Show real cache dir in EnvInfo";
+$version = "v0.5.0";
+$message = "integrating a contact form";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

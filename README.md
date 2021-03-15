@@ -15,3 +15,4 @@
 * Version v0.4.2: request php >7.4.0 or >8.0.0
 * Version v0.4.3: request php >7.4.0 or >8.0.0
 * Version v0.4.4: Show real cache dir in EnvInfo
+* Version v0.5.0: integrating a contact form

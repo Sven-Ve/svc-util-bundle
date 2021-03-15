@@ -20,24 +20,34 @@ class SvcUtilExtension extends Extension
     $configuration = $this->getConfiguration($configs, $container);
     $config = $this->processConfiguration($configuration, $configs);
 
-    // set arguments for __construct in services
+    // set arguments for __construct in services (mailhelper)
     $definition = $container->getDefinition('svc_util.service.mailhelper');
     $definition->setArgument(0, $config["mailer"]['mail_address']);
     $definition->setArgument(1, $config["mailer"]['mail_name'] ?? null);
+
+    // set arguments for __construct in services (contact form)
+    $definition = $container->getDefinition('svc_util.controller.contact');
+    $definition->setArgument(0, $config["contact_form"]['enable_captcha']);
+    $definition->setArgument(1, $config["contact_form"]['contact_mail']);
+    $definition->setArgument(2, $config["contact_form"]['route_after_send']);
   }
 
   private function createConfigIfNotExists($rootPath) {
     $fileName= $rootPath . "/config/packages/svc_util.yaml";
     if (!file_exists($fileName)) {
       $text="svc_util:\n";
-      $text.="    general:\n";
-      $text.="        # Should we debug a little bit?\n";
-      $text.="        debug:                false\n";
       $text.="    mailer:\n";
       $text.="        # Default sender mail address\n";
       $text.="        mail_address:         dev@sv-systems.com\n";
       $text.="        # Default sender name\n";
       $text.="        mail_name:\n";
+      $text.="    contact_form:\n";
+      $text.="        # Enable captcha for contact form?\n";
+      $text.="        enable_captcha:       false\n";
+      $text.="        # Email adress for contact mails\n";
+      $text.="        contact_mail:         dev@sv-systems.com\n";
+      $text.="        # Which route should by called after mail sent\n";
+      $text.="        route_after_send:     index\n";
       file_put_contents($fileName, $text);
       dump ("Please adapt config file $fileName");
     }

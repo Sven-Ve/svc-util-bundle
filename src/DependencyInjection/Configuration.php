@@ -14,19 +14,20 @@ class Configuration implements ConfigurationInterface
 
     $rootNode
     ->children()
-      ->arrayNode('general')
+      ->arrayNode('contact_form')->addDefaultsIfNotSet()
         ->children()
-          ->booleanNode('debug')->defaultFalse()->info('Should we debug a little bit?')->end()
+          ->scalarNode('contact_mail')->cannotBeEmpty()->defaultValue('dev@sv-systems.com')->info('Email adress for contact mails')->end()
+          ->scalarNode('route_after_send')->cannotBeEmpty()->defaultValue('index')->info('Which route should by called after amil sent')->end()
+          ->booleanNode('enable_captcha')->defaultFalse()->info('Enable captcha for contact form?')->end()
         ->end()
       ->end()
-      ->arrayNode('mailer')
+      ->arrayNode('mailer')->addDefaultsIfNotSet()
         ->children()
           ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('dev@sv-systems.com')->info('Default sender mail address')->end()
           ->scalarNode('mail_name')->info('Default sender name')->end()
         ->end()
       ->end()
     ->end();
-
     return $treeBuilder;
     }
 
