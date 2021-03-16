@@ -56,7 +56,7 @@ class SvcUtilExtension extends Extension
     if (!file_exists($fileName)) {
       $text="_svc_util:\n";
       $text.="    resource: '@SvcUtilBundle/src/Resources/config/routes.xml'\n";
-      $text.="    prefix: /admin/envinfo\n";
+      $text.="    prefix: /svc-util\n";
       file_put_contents($fileName, $text);
     }
   }
