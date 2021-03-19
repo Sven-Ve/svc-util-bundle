@@ -19,7 +19,10 @@ class ContactType extends AbstractType
       $builder
         ->add('subject', TextType::class, ['label' => 'Subject', "attr" => ["autofocus"=>true]])
         ->add('text', TextareaType::class, ['label' => 'Your message', "attr" => ["rows"=>6]])
-        ->add('name', TextType::class, ['label' => 'Your name'])
+        ->add('name', TextType::class, [
+          'label' => 'Your name', 
+          'attr' => ['placeholder' => 'Firstname Lastname']
+        ])
         ->add('email', EmailType::class, ['label' => 'Your mail'])
       ;
 
@@ -37,6 +40,9 @@ class ContactType extends AbstractType
 
   public function configureOptions(OptionsResolver $resolver)
   {
-    $resolver->setDefaults(['enableCaptcha' => null]);
+    $resolver->setDefaults([
+      'enableCaptcha' => null,
+      'translation_domain' => 'UtilBundle'
+    ]);
   }
 }

@@ -7,6 +7,7 @@ use Svc\UtilBundle\Service\MailerHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Controller to create a contact form and send the mail
@@ -19,12 +20,14 @@ class ContactController extends AbstractController
   private $enableCaptcha;
   private $contactMail;
   private $routeAfterSend;
+  private $translator;
 
-  public function __construct($enableCaptcha, $contactMail, $routeAfterSend)
+  public function __construct($enableCaptcha, $contactMail, $routeAfterSend, TranslatorInterface $translator)
   {
     $this->enableCaptcha = $enableCaptcha;
     $this->routeAfterSend = $routeAfterSend;
     $this->contactMail = $contactMail;
+    $this->translator = $translator;
   }
 
 
@@ -44,11 +47,11 @@ class ContactController extends AbstractController
       $html=$this->renderView("@SvcUtil/contact/MT_contact.html.twig", ["content" => $content, "name" => $name, "email" => $email]);
       $text=$this->renderView("@SvcUtil/contact/MT_contact.text.twig", ["content" => $content, "name" => $name, "email" => $email]);
 
-      if ($mailHelper->send($this->contactMail, "Contact form request: " . $subject, $html, $text)) {
-        $this->addFlash("success", "Contact request sent.");
+      if ($mailHelper->send($this->contactMail, $this->t("Contact form request") .": " . $subject, $html, $text)) {
+        $this->addFlash("success", $this->t("Contact request sent."));
         return $this->redirectToRoute($this->routeAfterSend);
       } else {
-        $this->addFlash("error", "Cannot send contact request, please try it again.");
+        $this->addFlash("error", $this->t("Cannot send contact request, please try it again."));
       }
     }
 
@@ -64,4 +67,10 @@ class ContactController extends AbstractController
     ]);
   }
 
+  /**
+   * private function to translate content in namespace 'ProfileBundle'
+   */
+  private function t($text, $placeholder = []) {
+    return $this->translator->trans($text, $placeholder, 'UtilBundle');
+  }
 }

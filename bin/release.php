@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.5.1";
-$message = "changed routing to /svc-util as default";
+$version = "v0.6.0";
+$message = "translation to german";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

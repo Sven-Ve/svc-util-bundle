@@ -1,3 +1,9 @@
+Overview
+========
+
+* [installation](docs/installation.md)
+* [Usage](docs/usage.md)
+
 **Services:**
 * EnvInfoHelper
   * getRootURL()
@@ -5,6 +11,7 @@
   * getRootURLandPrefix()
 * NetworkHelper
 * MailHelper
+* ContactForm
 
 
 **Versioning:**
@@ -17,3 +24,4 @@
 * Version v0.4.4: Show real cache dir in EnvInfo
 * Version v0.5.0: integrating a contact form
 * Version v0.5.1: changed routing to /svc-util as default
+* Version v0.6.0: translation to german

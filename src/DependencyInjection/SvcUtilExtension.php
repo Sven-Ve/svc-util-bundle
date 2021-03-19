@@ -56,7 +56,8 @@ class SvcUtilExtension extends Extension
     if (!file_exists($fileName)) {
       $text="_svc_util:\n";
       $text.="    resource: '@SvcUtilBundle/src/Resources/config/routes.xml'\n";
-      $text.="    prefix: /svc-util\n";
+      $text.="    prefix: /svc-util/{_locale}\n";
+      $text.='    requirements: {"_locale": "%app.supported_locales%"}\n';
       file_put_contents($fileName, $text);
     }
   }

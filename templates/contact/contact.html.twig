@@ -1,10 +1,12 @@
+{% trans_default_domain 'UtilBundle' %}
 {% extends 'base.html.twig' %}
 
 {% block title %}{% trans %}Contact{% endtrans %}{% endblock %}
+{% trans_default_domain 'UtilBundle' %}
 
 {% block body %}
-<div class='form-small'>
-<h3>Contact</h3>
+<div class='form-md'>
+<h3>{% trans %}Contact{% endtrans %}</h3>
 
 {{ form(form) }}
 </div>
