@@ -12,11 +12,25 @@ _svc_util:
 ```
 
 * integrate the contact controller via path "svc_util.controller.contact"
-* enable captcha (if installed and configured), default = false
+* Configure in /config/packages/svc_util.yaml
+  * enable captcha (if installed and configured), default = false
+  * ...
 
 ```yaml
 # /config/packages/svc_util.yaml
 svc_util:
-    # Enable captcha for contact form?
-    enableCaptcha: true
+    mailer:
+        # Default sender mail address
+        mail_address:       dev@sv-systems.com
+        # Default sender name
+        mail_name:          TestBundle Sender
+    contact_form:
+        # Enable captcha for contact form?
+        enable_captcha:      true
+        # Enable sending a copy of the contact request to me too?
+        enable_copy_to_me:  true
+        # Email adress for contact mails
+        contact_mail:       dev@sv-systems.com
+        # Which route should by called after mail sent
+        route_after_send:   index
 ```

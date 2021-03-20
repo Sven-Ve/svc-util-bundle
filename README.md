@@ -25,3 +25,4 @@ Overview
 * Version v0.5.0: integrating a contact form
 * Version v0.5.1: changed routing to /svc-util as default
 * Version v0.6.0: translation to german
+* Version v0.7.0: added 'copy to me' in ContactForm, added a lot of options in MailHelper

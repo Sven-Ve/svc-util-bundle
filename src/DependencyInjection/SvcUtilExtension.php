@@ -30,6 +30,7 @@ class SvcUtilExtension extends Extension
     $definition->setArgument(0, $config["contact_form"]['enable_captcha']);
     $definition->setArgument(1, $config["contact_form"]['contact_mail']);
     $definition->setArgument(2, $config["contact_form"]['route_after_send']);
+    $definition->setArgument(3, $config["contact_form"]['enable_copy_to_me']);
   }
 
   private function createConfigIfNotExists($rootPath) {
@@ -44,6 +45,8 @@ class SvcUtilExtension extends Extension
       $text.="    contact_form:\n";
       $text.="        # Enable captcha for contact form?\n";
       $text.="        enable_captcha:       false\n";
+      $text.="        # Enable sending a copy of the contact request to me too?\n";
+      $text.="        enable_copy_to_me:     true\n";
       $text.="        # Email adress for contact mails\n";
       $text.="        contact_mail:         dev@sv-systems.com\n";
       $text.="        # Which route should by called after mail sent\n";

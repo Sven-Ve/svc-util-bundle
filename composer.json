@@ -10,7 +10,8 @@
       }
   ],
   "require": {
-    "php": "^7.3.0 | ^8.0.0"
+    "php": "^7.3.0 | ^8.0.0",
+    "symfony/options-resolver": "^5"
   },
   "autoload": {
     "psr-4": {

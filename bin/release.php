@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.6.0";
-$message = "translation to german";
+$version = "v0.7.0";
+$message = "added 'copy to me' in ContactForm, added a lot of options in MailHelper";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 
