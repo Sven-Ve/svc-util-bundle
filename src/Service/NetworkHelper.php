@@ -2,9 +2,17 @@
 
 namespace Svc\UtilBundle\Service;
 
+/**
+ * Helper class to give network information
+ * 
+ * @author Sven Vetter <dev@sv-systems.com>
+ */
 class NetworkHelper
 {
 
+  /**
+   * give client IP adress
+   */
   public static function getIP() {
     if (!empty($_SERVER['HTTP_CLIENT_IP']) and filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP)) {
         return $_SERVER['HTTP_CLIENT_IP'];
@@ -21,6 +29,9 @@ class NetworkHelper
     }
   }
 
+  /**
+   * give client user agent
+   */
   public static function getUserAgent() {
     if (!empty($_SERVER['HTTP_USER_AGENT'])) {
       return $_SERVER['HTTP_USER_AGENT'];
@@ -28,12 +39,20 @@ class NetworkHelper
     return null;
   }
   
+  /**
+   * give client referer
+   */
   public static function getReferer() {
     return $_SERVER["HTTP_REFERER"] ?? null;
   }
-
   
-
+  /**
+   * give location info (country and city) based on IP
+   * 
+   * @param string $ip if null, use current IP
+   * 
+   * @return array ['country', 'city']
+   */
   public static function getLocationInfoByIp($ip = null){
     if (!$ip) {
       $ip = static::getIP();
@@ -49,6 +68,11 @@ class NetworkHelper
     return $result;
   }
 
+  /**
+   * give info about current client
+   * 
+   * @return array ['ip', 'country', 'city', 'ua', 'referer']
+   */
   public static function getAll() {
     $ip=static::getIP();
     $loc=static::getLocationInfoByIp($ip);

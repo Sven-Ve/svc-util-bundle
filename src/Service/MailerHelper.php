@@ -8,7 +8,9 @@ use Symfony\Component\Mime\Email;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Helper class to send mails
+ * Helper class to send mails very easy
+ * 
+ * @author Sven Vetter <dev@sv-systems.com>
  */
 class MailerHelper
 {
@@ -26,8 +28,17 @@ class MailerHelper
 
   /**
    * send a mail
+   * 
+   * @param string $to the mail adress I want to send
+   * @param string $subject the subject of this mail
+   * @param string $html the html content of the mail
+   * @param string $text the text version of the mail, recommended for older mail clients
+   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo')
+   * 
+   * @return bool if mail sent
    */
-  public function send($to, $subject, $html, $text=null, $options = []) {
+  public function send
+    (string $to, string $subject, string $html, ?string $text=null, ?array $options = []): bool {
 
     $resolver = new OptionsResolver();
     $this->configureOptions($resolver);
