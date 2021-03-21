@@ -17,5 +17,13 @@
     "psr-4": {
       "Svc\\UtilBundle\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Svc\\UtilBundle\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^5.2"
   }
 }

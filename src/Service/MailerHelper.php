@@ -19,7 +19,7 @@ class MailerHelper
   private $fromAdr;
   private $fromName;
 
-  public function __construct($fromAdr, $fromName, MailerInterface $mailer)
+  public function __construct(string $fromAdr, string $fromName, MailerInterface $mailer)
   {
     $this->fromAdr = $fromAdr;
     $this->fromName = $fromName;
@@ -85,6 +85,11 @@ class MailerHelper
       $email->replyTo($options['replyTo']);
     }
 
+    if ($options['replyTo']) {
+      dump($email);
+      return true;
+    }
+
     try {
       $this->mailer->send($email);
     } catch (\Exception $e) {
@@ -105,6 +110,7 @@ class MailerHelper
       'ccName'   => null,
       'bcc'      => null,
       'replyTo'  => null,
+      'dryRun'   => false,
     ]);
 
     $resolver->setAllowedTypes('priority', 'int');
@@ -113,6 +119,7 @@ class MailerHelper
     $resolver->setAllowedTypes('cc', ['string', 'null']);
     $resolver->setAllowedTypes('bcc', ['string', 'null']);
     $resolver->setAllowedTypes('replyTo', ['string', 'null']);
+    $resolver->setAllowedTypes('dryRun', 'bool');
   }
 
 }
