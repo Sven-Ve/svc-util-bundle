@@ -11,7 +11,14 @@
   ],
   "require": {
     "php": "^7.3.0 | ^8.0.0",
-    "symfony/options-resolver": "^5"
+    "symfony/options-resolver": "^5",
+    "symfony/config": "^5",
+    "symfony/dependency-injection": "^5",
+    "symfony/http-kernel": "^5",
+    "symfony/mailer": "^5",
+    "symfony/framework-bundle": "^5",
+    "symfony/translation": "^5"
+
   },
   "autoload": {
     "psr-4": {

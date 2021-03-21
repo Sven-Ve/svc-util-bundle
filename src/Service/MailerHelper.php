@@ -19,7 +19,7 @@ class MailerHelper
   private $fromAdr;
   private $fromName;
 
-  public function __construct(string $fromAdr, string $fromName, MailerInterface $mailer)
+  public function __construct(string $fromAdr, string $fromName = null, MailerInterface $mailer)
   {
     $this->fromAdr = $fromAdr;
     $this->fromName = $fromName;
@@ -85,8 +85,7 @@ class MailerHelper
       $email->replyTo($options['replyTo']);
     }
 
-    if ($options['replyTo']) {
-      dump($email);
+    if ($options['dryRun']) {
       return true;
     }
 

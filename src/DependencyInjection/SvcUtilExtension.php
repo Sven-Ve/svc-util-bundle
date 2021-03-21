@@ -2,6 +2,7 @@
 
 namespace Svc\UtilBundle\DependencyInjection;
 
+use Exception;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -51,8 +52,12 @@ class SvcUtilExtension extends Extension
       $text.="        contact_mail:         dev@sv-systems.com\n";
       $text.="        # Which route should by called after mail sent\n";
       $text.="        route_after_send:     index\n";
-      file_put_contents($fileName, $text);
-      dump ("Please adapt config file $fileName");
+      try {
+        file_put_contents($fileName, $text);
+        dump ("Please adapt config file $fileName");
+      } catch (Exception $e) {
+        // ignore...
+      }
     }
 
     $fileName= $rootPath . "/config/routes/svc_util.yaml";
@@ -61,7 +66,11 @@ class SvcUtilExtension extends Extension
       $text.="    resource: '@SvcUtilBundle/src/Resources/config/routes.xml'\n";
       $text.="    prefix: /svc-util/{_locale}\n";
       $text.='    requirements: {"_locale": "%app.supported_locales%"}\n';
-      file_put_contents($fileName, $text);
-    }
+      try {
+        file_put_contents($fileName, $text);
+      } catch (Exception $e) {
+        // ignore...
+      }
+  }
   }
 }
