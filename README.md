@@ -27,3 +27,4 @@ Overview
 * Version v0.6.0: translation to german
 * Version v0.7.0: added 'copy to me' in ContactForm, added a lot of options in MailHelper
 * Version v0.7.1: document the helper classes
+* Version v0.8.0: integrate unit and functional tests
