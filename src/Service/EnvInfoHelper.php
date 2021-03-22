@@ -12,8 +12,10 @@ class EnvInfoHelper
 
   /**
    * give protocoll and servername
+   *
+   * @return string
    */
-  public static function getRootURL() {
+  public static function getRootURL(): string {
     $prot = $_SERVER["REQUEST_SCHEME"] ?? null;
     $host = $_SERVER["HTTP_HOST"] ?? null;
     return $prot . "://" . $host;
@@ -21,8 +23,10 @@ class EnvInfoHelper
 
   /**
    * give protokoll, servername and prefix (if server not installed in "/" )
+   *
+   * @return string
    */
-  public static function getRootURLandPrefix() {
+  public static function getRootURLandPrefix(): string {
     if ($_SERVER["CONTEXT_PREFIX"]) {
       return self::getRootURL()  . $_SERVER["CONTEXT_PREFIX"];
     }
@@ -31,8 +35,10 @@ class EnvInfoHelper
 
   /**
    * URL to index.php
+   *
+   * @return string
    */
-  public static function getURLtoIndexPhp() {
+  public static function getURLtoIndexPhp():string {
     if ($_SERVER["SCRIPT_NAME"]) {
       return self::getRootURL()  . $_SERVER["SCRIPT_NAME"];
     }

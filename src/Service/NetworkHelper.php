@@ -13,7 +13,7 @@ class NetworkHelper
   /**
    * give client IP adress
    */
-  public static function getIP() {
+  public static function getIP(): ?string {
     if (!empty($_SERVER['HTTP_CLIENT_IP']) and filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP)) {
         return $_SERVER['HTTP_CLIENT_IP'];
     }
@@ -32,7 +32,7 @@ class NetworkHelper
   /**
    * give client user agent
    */
-  public static function getUserAgent() {
+  public static function getUserAgent(): ?string {
     if (!empty($_SERVER['HTTP_USER_AGENT'])) {
       return $_SERVER['HTTP_USER_AGENT'];
     } 
@@ -42,7 +42,7 @@ class NetworkHelper
   /**
    * give client referer
    */
-  public static function getReferer() {
+  public static function getReferer(): ?string {
     return $_SERVER["HTTP_REFERER"] ?? null;
   }
   
@@ -53,7 +53,7 @@ class NetworkHelper
    * 
    * @return array ['country', 'city']
    */
-  public static function getLocationInfoByIp($ip = null){
+  public static function getLocationInfoByIp($ip = null): array{
     if (!$ip) {
       $ip = static::getIP();
     }
@@ -73,7 +73,7 @@ class NetworkHelper
    * 
    * @return array ['ip', 'country', 'city', 'ua', 'referer']
    */
-  public static function getAll() {
+  public static function getAll(): array {
     $ip=static::getIP();
     $loc=static::getLocationInfoByIp($ip);
     $ret = [];
