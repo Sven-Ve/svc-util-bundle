@@ -27,7 +27,7 @@ class EnvInfoHelper
    * @return string
    */
   public static function getRootURLandPrefix(): string {
-    if ($_SERVER["CONTEXT_PREFIX"]) {
+    if (array_key_exists("CONTEXT_PREFIX", $_SERVER)) {
       return self::getRootURL()  . $_SERVER["CONTEXT_PREFIX"];
     }
     return self::getRootURL();
@@ -39,7 +39,7 @@ class EnvInfoHelper
    * @return string
    */
   public static function getURLtoIndexPhp():string {
-    if ($_SERVER["SCRIPT_NAME"]) {
+    if (array_key_exists("SCRIPT_NAME", $_SERVER)) {
       return self::getRootURL()  . $_SERVER["SCRIPT_NAME"];
     }
     return self::getRootURL();

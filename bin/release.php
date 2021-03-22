@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.8.0";
-$message = "integrate unit and functional tests";
+$version = "v0.8.1";
+$message = "integrate test for EnvInfoHelper too";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

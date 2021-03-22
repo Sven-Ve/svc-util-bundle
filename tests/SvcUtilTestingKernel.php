@@ -23,4 +23,13 @@ class SvcUtilTestingKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
     }
+
+    public function getCacheDir()
+    {
+      return "/Users/svv/temp/var_svc/util/test/cache";
+    }
+    public function getLogDir()
+    {
+      return "/Users/svv/temp/var_svc/util/test/log";
+    }
 }

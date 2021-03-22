@@ -3,6 +3,7 @@
 namespace Svc\UtilBundle\Tests\Service;
 
 use PHPUnit\Framework\TestCase;
+use Svc\UtilBundle\Service\MailerHelper;
 use Svc\UtilBundle\Tests\SvcUtilTestingKernel;
 use Symfony\Component\Mime\Email;
 
@@ -25,6 +26,8 @@ class MailHelperTest extends TestCase
     $kernel->boot();
     $container = $kernel->getContainer();
     $mail = $container->get('svc_util.service.mailhelper');
+
+    $this->assertInstanceOf(MailerHelper::class, $mail);
 
     $result = $mail->send('dev@sv-systems.com','Hallo','<h2>Test</h2>',null, [
       'priority' => Email::PRIORITY_LOW,
