@@ -33,11 +33,18 @@ class ContactController extends AbstractController
   }
 
 
+  /**
+   * display and handlethe contactfrom
+   *
+   * @param Request $request
+   * @param MailerHelper $mailHelper
+   * @return Response
+   */
   public function contactForm(Request $request, MailerHelper $mailHelper): Response
-  { 
-
+  {
     $form = $this->createForm(ContactType::class, null, [
-      'enableCaptcha' => $this->enableCaptcha, 'copyToMe' => $this->copyToMe]);
+      'enableCaptcha' => $this->enableCaptcha, 'copyToMe' => $this->copyToMe
+    ]);
     $form->handleRequest($request);
 
 
@@ -47,17 +54,17 @@ class ContactController extends AbstractController
       $content = trim($form->get('text')->getData());
       $subject = trim($form->get('subject')->getData());
 
-      $html=$this->renderView("@SvcUtil/contact/MT_contact.html.twig", ["content" => $content, "name" => $name, "email" => $email]);
-      $text=$this->renderView("@SvcUtil/contact/MT_contact.text.twig", ["content" => $content, "name" => $name, "email" => $email]);
+      $html = $this->renderView("@SvcUtil/contact/MT_contact.html.twig", ["content" => $content, "name" => $name, "email" => $email]);
+      $text = $this->renderView("@SvcUtil/contact/MT_contact.text.twig", ["content" => $content, "name" => $name, "email" => $email]);
 
-      $options=[];
+      $options = [];
       $options['replyTo'] = $email;
       if ($this->copyToMe and $form->get('copyToMe')->getData()) {
-        $options['cc']=$email;
-        $options['ccName']=$name;
+        $options['cc'] = $email;
+        $options['ccName'] = $name;
       }
 
-      if ($mailHelper->send($this->contactMail, $this->t("Contact form request") .": " . $subject, $html, $text, $options)) {
+      if ($mailHelper->send($this->contactMail, $this->t("Contact form request") . ": " . $subject, $html, $text, $options)) {
         $this->addFlash("success", $this->t("Contact request sent."));
         return $this->redirectToRoute($this->routeAfterSend);
       } else {
@@ -66,12 +73,13 @@ class ContactController extends AbstractController
     }
 
     return $this->render('@SvcUtil/contact/contact.html.twig', [
-        'form' => $form->createView()
+      'form' => $form->createView()
     ]);
   }
 
-  public function mail1Sent(Request $request): Response {
-    $newMail=$_GET['newmail'] ?? '?';
+  public function mail1Sent(Request $request): Response
+  {
+    $newMail = $_GET['newmail'] ?? '?';
     return $this->render('@SvcProfile/profile/changeMail/mail1_sent.html.twig', [
       'newMail' => $newMail
     ]);
@@ -79,8 +87,13 @@ class ContactController extends AbstractController
 
   /**
    * private function to translate content in namespace 'ProfileBundle'
+   *
+   * @param string $text
+   * @param array $placeholder
+   * @return string
    */
-  private function t($text, $placeholder = []) {
+  private function t(string $text, array $placeholder = []): string
+  {
     return $this->translator->trans($text, $placeholder, 'UtilBundle');
   }
 }

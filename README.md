@@ -29,3 +29,4 @@ Overview
 * Version v0.7.1: document the helper classes
 * Version v0.8.0: integrate unit and functional tests
 * Version v0.8.1: integrate test for EnvInfoHelper too
+* Version v0.8.2: fixed error in array access, format code

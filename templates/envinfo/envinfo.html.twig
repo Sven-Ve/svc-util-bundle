@@ -20,8 +20,8 @@
 <table class='table'>
   <tr><th>APP_ENV</th><td> {{ server.APP_ENV }}</tr>
   <tr><th>SYMFONY_DOTENV_VARS</th><td> {{ server.SYMFONY_DOTENV_VARS }}</tr>
-  <tr><th>APP_LOG_DIR (Env)</th><td> {{ server.APP_LOG_DIR }}</tr>
-  <tr><th>APP_CACHE_DIR (Env)</th><td> {{ server.APP_CACHE_DIR }}</tr>
+  <tr><th>APP_LOG_DIR (Env)</th><td> {{ server.APP_LOG_DIR | default('') }}</tr>
+  <tr><th>APP_CACHE_DIR (Env)</th><td> {{ server.APP_CACHE_DIR | default('') }}</tr>
   <tr><th>Cache dir (real)</th><td> {{ cacheDir }}</tr>
   <tr><th>APP_DEBUG</th><td> {{ server.APP_DEBUG }}</tr>
   <tr><th>Symfony version</th><td> {{ symfonyversion }}</tr>

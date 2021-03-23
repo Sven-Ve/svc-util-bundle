@@ -12,6 +12,8 @@ class NetworkHelper
 
   /**
    * give client IP adress
+   *
+   * @return string|null
    */
   public static function getIP(): ?string {
     if (!empty($_SERVER['HTTP_CLIENT_IP']) and filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP)) {
@@ -31,6 +33,8 @@ class NetworkHelper
 
   /**
    * give client user agent
+   *
+   * @return string|null
    */
   public static function getUserAgent(): ?string {
     if (!empty($_SERVER['HTTP_USER_AGENT'])) {
@@ -41,6 +45,8 @@ class NetworkHelper
   
   /**
    * give client referer
+   *
+   * @return string|null
    */
   public static function getReferer(): ?string {
     return $_SERVER["HTTP_REFERER"] ?? null;

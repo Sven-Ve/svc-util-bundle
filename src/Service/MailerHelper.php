@@ -37,25 +37,25 @@ class MailerHelper
    * 
    * @return bool if mail sent
    */
-  public function send
-    (string $to, string $subject, string $html, ?string $text=null, ?array $options = []): bool {
+  public function send(string $to, string $subject, string $html, ?string $text = null, ?array $options = []): bool
+  {
 
     $resolver = new OptionsResolver();
     $this->configureOptions($resolver);
     $options = $resolver->resolve($options);
 
     if ($options['toName']) {
-      $to=new Address($to, $options['toName']);
+      $to = new Address($to, $options['toName']);
     }
-    
+
     if ($this->fromAdr) {
       if ($this->fromName) {
-        $from=new Address($this->fromAdr, $this->fromName);
+        $from = new Address($this->fromAdr, $this->fromName);
       } else {
-        $from=$this->fromAdr;
+        $from = $this->fromAdr;
       }
     } else {
-      $from=new Address('dev@sv-systems.com', "Test User");
+      $from = new Address('dev@sv-systems.com', "Test User");
     }
 
     $email = (new Email())
@@ -63,16 +63,15 @@ class MailerHelper
       ->to($to)
       ->subject($subject)
       ->html($html)
-      ->text($text)
-    ;
+      ->text($text);
 
     if ($options['priority'] != Email::PRIORITY_NORMAL) {
       $email->priority($options['priority']);
     }
-    
+
     if ($options['cc']) {
       if ($options['ccName']) {
-        $email->cc(new Address($options['cc'],$options['ccName']));
+        $email->cc(new Address($options['cc'], $options['ccName']));
       } else {
         $email->cc($options['cc']);
       }
@@ -100,8 +99,12 @@ class MailerHelper
 
   /**
    * define the default values for the options array
+   *
+   * @param OptionsResolver $resolver
+   * @return void
    */
-  private function configureOptions(OptionsResolver $resolver) {
+  private function configureOptions(OptionsResolver $resolver)
+  {
     $resolver->setDefaults([
       'priority' => Email::PRIORITY_NORMAL,
       'toName'   => null,
@@ -120,5 +123,4 @@ class MailerHelper
     $resolver->setAllowedTypes('replyTo', ['string', 'null']);
     $resolver->setAllowedTypes('dryRun', 'bool');
   }
-
 }

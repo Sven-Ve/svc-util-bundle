@@ -19,6 +19,4 @@ class EnvInfoController extends AbstractController
       'cacheDir' => $this->getParameter('kernel.cache_dir')
     ]);
   }
-
-
 }
