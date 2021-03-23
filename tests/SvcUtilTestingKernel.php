@@ -12,10 +12,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
  */
 class SvcUtilTestingKernel extends Kernel
 {
-    /**
-     * @return array
-     */
-    public function registerBundles()
+    public function registerBundles() :array
     {
       return [
         new SvcUtilBundle(),
