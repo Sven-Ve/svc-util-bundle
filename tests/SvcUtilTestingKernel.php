@@ -12,6 +12,9 @@ use Symfony\Component\Config\Loader\LoaderInterface;
  */
 class SvcUtilTestingKernel extends Kernel
 {
+    /**
+     * @return array
+     */
     public function registerBundles()
     {
       return [
@@ -24,12 +27,12 @@ class SvcUtilTestingKernel extends Kernel
     {
     }
 
-    public function getCacheDir()
+/*    public function getCacheDir()
     {
       return "/Users/svv/temp/var_svc/util/test/cache";
     }
     public function getLogDir()
     {
       return "/Users/svv/temp/var_svc/util/test/log";
-    }
+    }*/
 }
