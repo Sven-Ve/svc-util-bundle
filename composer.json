@@ -15,7 +15,6 @@
     "symfony/options-resolver": "^5",
     "symfony/mailer": "^5",
     "symfony/translation": "^5"
-
   },
   "autoload": {
     "psr-4": {
