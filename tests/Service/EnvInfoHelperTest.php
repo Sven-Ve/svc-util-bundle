@@ -4,7 +4,6 @@ namespace Svc\UtilBundle\Tests\Service;
 
 use PHPUnit\Framework\TestCase;
 use Svc\UtilBundle\Service\EnvInfoHelper;
-use Svc\UtilBundle\Service\NetworkHelper;
 
 /**
  * Unit tests for class EnvInfo
@@ -17,7 +16,8 @@ class EnvInfoHelperTest extends TestCase
    *
    * @return void
    */
-  public function getURLtoIndexPhp() {
+  public function getURLtoIndexPhp()
+  {
     $helper = new EnvInfoHelper();
     $result = $helper->getRootURL();
     $this->assertEquals("://", $result); // should be only "://"
@@ -28,7 +28,8 @@ class EnvInfoHelperTest extends TestCase
    *
    * @return void
    */
-  public function testRootUrlAndPrefix() {
+  public function testRootUrlAndPrefix()
+  {
     $helper = new EnvInfoHelper();
     $result = $helper->getRootURLandPrefix();
     $this->assertEquals("://", $result); // should be only "://" because returns getURLtoIndexPhp
@@ -39,7 +40,8 @@ class EnvInfoHelperTest extends TestCase
    *
    * @return void
    */
-  public function testURLtoIndexPhp() {
+  public function testURLtoIndexPhp()
+  {
     $helper = new EnvInfoHelper();
     $result = $helper->getURLtoIndexPhp();
     $this->assertEquals("://vendor/bin/simple-phpunit", $result); // should be path to simple-phpunit
