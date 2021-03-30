@@ -19,7 +19,7 @@ class ChangeMailControllerTest extends KernelTestCase
     $this->assertSame(200, $client->getResponse()->getStatusCode());
   }
 
-  public function testContactContactForm()
+  public function testContactFormContent()
   {
     $kernel = new SvcUtilTestingKernel();
     $client = new KernelBrowser($kernel);
@@ -27,7 +27,7 @@ class ChangeMailControllerTest extends KernelTestCase
     $this->assertStringContainsString("Contact", $client->getResponse()->getContent());
   }
 
-  public function testContactContactFormDE()
+  public function testContactFormContentDE()
   {
     $kernel = new SvcUtilTestingKernel();
     $client = new KernelBrowser($kernel);

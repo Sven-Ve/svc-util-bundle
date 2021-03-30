@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.8.2";
-$message = "fixed error in array access, format code";
+$version = "v0.9.0";
+$message = "added tests for controllers";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

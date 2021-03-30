@@ -30,3 +30,4 @@ Overview
 * Version v0.8.0: integrate unit and functional tests
 * Version v0.8.1: integrate test for EnvInfoHelper too
 * Version v0.8.2: fixed error in array access, format code
+* Version v0.9.0: added tests for controllers

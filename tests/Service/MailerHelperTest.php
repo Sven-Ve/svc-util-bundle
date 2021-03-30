@@ -20,16 +20,16 @@ class MailHelperTest extends TestCase
    *
    * @return void
    */
-  public function testMailOptions() {
-
-    $kernel = new SvcUtilTestingKernel('test', true);
+  public function testMailOptions()
+  {
+    $kernel = new SvcUtilTestingKernel();
     $kernel->boot();
     $container = $kernel->getContainer();
     $mail = $container->get('svc_util.service.mailhelper');
 
     $this->assertInstanceOf(MailerHelper::class, $mail);
 
-    $result = $mail->send('dev@sv-systems.com','Hallo','<h2>Test</h2>',null, [
+    $result = $mail->send('dev@sv-systems.com', 'Hallo', '<h2>Test</h2>', null, [
       'priority' => Email::PRIORITY_LOW,
       'cc' => 'technik@sv-systems.com',
       'bcc' => 'sven@svenvetter.com',
@@ -37,5 +37,25 @@ class MailHelperTest extends TestCase
       'dryRun' => true
     ]);
     $this->assertEquals(true, $result);
+  }
+
+  /**
+   * check call with wrong option (should raise an exception)
+   * 
+   *
+   * @return void
+   */
+  public function testMailWrongOptions()
+  {
+    $kernel = new SvcUtilTestingKernel();
+    $kernel->boot();
+    $container = $kernel->getContainer();
+    $mail = $container->get('svc_util.service.mailhelper');
+
+    $this->expectException("Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException");
+    $mail->send('dev@sv-systems.com', 'Hallo', '<h2>Test</h2>', null, [
+      'WRONGpriority' => Email::PRIORITY_LOW,
+      'dryRun' => true
+    ]);
   }
 }

@@ -2,6 +2,9 @@
 
 namespace Svc\UtilBundle\Tests;
 
+require_once(__dir__ . "/Dummy/AppKernelDummy.php");
+
+use App\Kernel as AppKernel;
 use Symfony\Component\HttpKernel\Kernel;
 use Svc\UtilBundle\SvcUtilBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -67,6 +70,10 @@ class SvcUtilTestingKernel extends Kernel
         ]
       );
       
+      $container->register(AppKernel::class)
+      ->setAutoconfigured(true)
+      ->setAutowired(true);
+
       $container->register('kernel', static::class)->setPublic(true);
 
       $kernelDefinition = $container->getDefinition('kernel');
