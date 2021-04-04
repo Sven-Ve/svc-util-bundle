@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.9.0";
-$message = "added tests for controllers";
+$version = "v0.9.1";
+$message = "default values for not defined env variables";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

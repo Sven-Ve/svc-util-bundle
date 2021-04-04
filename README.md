@@ -31,3 +31,4 @@ Overview
 * Version v0.8.1: integrate test for EnvInfoHelper too
 * Version v0.8.2: fixed error in array access, format code
 * Version v0.9.0: added tests for controllers
+* Version v0.9.1: default values for not defined env variables
