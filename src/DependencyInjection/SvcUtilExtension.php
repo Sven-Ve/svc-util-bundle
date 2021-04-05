@@ -42,7 +42,7 @@ class SvcUtilExtension extends Extension
       $text.="        # Default sender mail address\n";
       $text.="        mail_address:         dev@sv-systems.com\n";
       $text.="        # Default sender name\n";
-      $text.="        mail_name:\n";
+      $text.="        mail_name:            Dev-Test\n";
       $text.="    contact_form:\n";
       $text.="        # Enable captcha for contact form?\n";
       $text.="        enable_captcha:       false\n";
