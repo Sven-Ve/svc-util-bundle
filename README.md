@@ -32,3 +32,4 @@ Overview
 * Version v0.8.2: fixed error in array access, format code
 * Version v0.9.0: added tests for controllers
 * Version v0.9.1: default values for not defined env variables
+* Version v1.0.0: switched from Email class to TemplatedEmail, dont add text parameter to mail send, if parameter is empty

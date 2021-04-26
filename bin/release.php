@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v0.9.1";
-$message = "default values for not defined env variables";
+$version = "v1.0.0";
+$message = "switched from Email class to TemplatedEmail, dont add text parameter to mail send, if parameter is empty";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

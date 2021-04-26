@@ -2,6 +2,7 @@
 
 namespace Svc\UtilBundle\Service;
 
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
@@ -58,12 +59,16 @@ class MailerHelper
       $from = new Address('dev@sv-systems.com', "Test User");
     }
 
-    $email = (new Email())
+    $email = (new TemplatedEmail())
       ->from($from)
       ->to($to)
       ->subject($subject)
       ->html($html)
-      ->text($text);
+    ;
+
+    if ($text) {
+      $email->text($text);
+    }
 
     if ($options['priority'] != Email::PRIORITY_NORMAL) {
       $email->priority($options['priority']);
