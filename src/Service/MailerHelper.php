@@ -20,12 +20,37 @@ class MailerHelper
   private $fromAdr;
   private $fromName;
 
+  private $enableSendWithTemplate = false;
+  private $htmlTemplate = null;
+  private $htmlContext = null;
+
   public function __construct(string $fromAdr, string $fromName = null, MailerInterface $mailer)
   {
     $this->fromAdr = $fromAdr;
     $this->fromName = $fromName;
     $this->mailer = $mailer;
   }
+
+  /**
+   * send a mail with a twig template
+   *
+   * @param string $to the mail adress I want to send
+   * @param string $subject the subject of this mail
+   * @param string $htmlTemplate the name of the html twig template
+   * @param array|null $context the context for the template
+   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo')
+   * 
+   * @return boolean if mail sent
+   */
+  public function sendWithTemplate(string $to, string $subject, string $htmlTemplate, ?array $context = [], ?array $options = []): bool
+  {
+    $this->enableSendWithTemplate = true;
+    $this->htmlTemplate = $htmlTemplate;
+    $this->htmlContext = $context;
+
+    return $this->send($to, $subject, "", null, $options);
+  }
+
 
   /**
    * send a mail
@@ -62,12 +87,18 @@ class MailerHelper
     $email = (new TemplatedEmail())
       ->from($from)
       ->to($to)
-      ->subject($subject)
-      ->html($html)
-    ;
+      ->subject($subject);
 
-    if ($text) {
-      $email->text($text);
+    if ($this->enableSendWithTemplate) {
+      $email
+        ->htmlTemplate($this->htmlTemplate)
+        ->context($this->htmlContext);
+      $this->enableSendWithTemplate = false;
+    } else {
+      $email->html($html);
+      if ($text) {
+        $email->text($text);
+      }
     }
 
     if ($options['priority'] != Email::PRIORITY_NORMAL) {

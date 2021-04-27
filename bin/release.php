@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v1.0.0";
-$message = "switched from Email class to TemplatedEmail, dont add text parameter to mail send, if parameter is empty";
+$version = "v1.1.0";
+$message = "Added function sendWithTemplate to send mails direct with a twig template";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 
