@@ -59,7 +59,7 @@ class MailerHelper
    * @param string $subject the subject of this mail
    * @param string $html the html content of the mail
    * @param string $text the text version of the mail, recommended for older mail clients
-   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo')
+   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo', 'debug')
    * 
    * @return bool if mail sent
    */
@@ -124,6 +124,11 @@ class MailerHelper
       return true;
     }
 
+    if ($options['debug']) { // no catch block for error messages
+      $this->mailer->send($email);
+      return true;
+    }
+
     try {
       $this->mailer->send($email);
     } catch (\Exception $e) {
@@ -149,6 +154,7 @@ class MailerHelper
       'bcc'      => null,
       'replyTo'  => null,
       'dryRun'   => false,
+      'debug'    => false,
     ]);
 
     $resolver->setAllowedTypes('priority', 'int');
@@ -158,5 +164,6 @@ class MailerHelper
     $resolver->setAllowedTypes('bcc', ['string', 'null']);
     $resolver->setAllowedTypes('replyTo', ['string', 'null']);
     $resolver->setAllowedTypes('dryRun', 'bool');
+    $resolver->setAllowedTypes('debug', 'bool');
   }
 }
