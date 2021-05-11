@@ -38,7 +38,7 @@ class MailerHelper
    * @param string $subject the subject of this mail
    * @param string $htmlTemplate the name of the html twig template
    * @param array|null $context the context for the template
-   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo')
+   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo', 'debug', 'attachFromPath')
    * 
    * @return boolean if mail sent
    */
@@ -59,7 +59,7 @@ class MailerHelper
    * @param string $subject the subject of this mail
    * @param string $html the html content of the mail
    * @param string $text the text version of the mail, recommended for older mail clients
-   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo', 'debug')
+   * @param array $options array of options ('priority', 'toName' , 'cc', 'ccName', 'bcc', 'replyTo', 'debug', 'attachFromPath')
    * 
    * @return bool if mail sent
    */
@@ -124,6 +124,10 @@ class MailerHelper
       return true;
     }
 
+    if ($options['attachFromPath']) {
+      $email->attachFromPath($options['attachFromPath']);
+    }
+
     if ($options['debug']) { // no catch block for error messages
       $this->mailer->send($email);
       return true;
@@ -155,6 +159,7 @@ class MailerHelper
       'replyTo'  => null,
       'dryRun'   => false,
       'debug'    => false,
+      'attachFromPath' => null,
     ]);
 
     $resolver->setAllowedTypes('priority', 'int');
@@ -165,5 +170,6 @@ class MailerHelper
     $resolver->setAllowedTypes('replyTo', ['string', 'null']);
     $resolver->setAllowedTypes('dryRun', 'bool');
     $resolver->setAllowedTypes('debug', 'bool');
+    $resolver->setAllowedTypes('attachFromPath', ['string', 'null']);
   }
 }

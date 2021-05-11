@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v1.1.1";
-$message = "Added option debug for sending mail (direct error page, if error occur)";
+$version = "v1.2.0";
+$message = "Added attachFromPath for sending mails with attachements";
 
 file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
 

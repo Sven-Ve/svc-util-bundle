@@ -35,3 +35,4 @@ Overview
 * Version v1.0.0: switched from Email class to TemplatedEmail, dont add text parameter to mail send, if parameter is empty
 * Version v1.1.0: Added function sendWithTemplate to send mails direct with a twig template
 * Version v1.1.1: Added option debug for sending mail (direct error page, if error occur)
+* Version v1.2.0: Added attachFromPath for sending mails with attachements
