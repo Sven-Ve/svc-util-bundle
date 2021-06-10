@@ -1,10 +1,12 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v1.3.0";
-$message = "Moved to my own recipes server";
+$version = "v1.4.0";
+$message = "change project to open source";
 
-file_put_contents("README.md", "\n* Version " . $version . ": " . $message, FILE_APPEND);
+file_put_contents("CHANGELOG.md", "\n\n## Version " . $version, FILE_APPEND);
+file_put_contents("CHANGELOG.md", "\n### " . date("r"), FILE_APPEND);
+file_put_contents("CHANGELOG.md", "\n" . $message . "\n", FILE_APPEND);
 
 $res = shell_exec('git add .');
 $res = shell_exec('git commit -m "' . $message . '"');
