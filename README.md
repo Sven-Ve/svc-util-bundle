@@ -36,3 +36,4 @@ Overview
 * Version v1.1.0: Added function sendWithTemplate to send mails direct with a twig template
 * Version v1.1.1: Added option debug for sending mail (direct error page, if error occur)
 * Version v1.2.0: Added attachFromPath for sending mails with attachements
+* Version v1.3.0: Moved to my own recipes server

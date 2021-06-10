@@ -12,8 +12,8 @@ class SvcUtilExtension extends Extension
 {
   public function load(array $configs, ContainerBuilder $container)
   {
-    $rootPath = $container->getParameter("kernel.project_dir");
-    $this->createConfigIfNotExists($rootPath);
+    // $rootPath = $container->getParameter("kernel.project_dir");
+    // $this->createConfigIfNotExists($rootPath);
 
     $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
     $loader->load('services.xml');
