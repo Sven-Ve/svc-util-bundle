@@ -18,6 +18,13 @@ class EnvInfoHelper
   public static function getRootURL(): string
   {
     $prot = $_SERVER["REQUEST_SCHEME"] ?? null;
+    if ($prot===null) {
+      if (array_key_exists("HTTPS", $_SERVER) and $_SERVER['HTTPS']=="On") {
+        $prot="https";
+      } else {
+        $prot="http";
+      }
+    }
     $host = $_SERVER["HTTP_HOST"] ?? null;
     return $prot . "://" . $host;
   }

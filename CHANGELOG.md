@@ -38,3 +38,8 @@
 ## Version v1.3.0
 *Thu, 10 Jun 2021 17:15:29 +0000*
 - Moved to my own recipes server
+
+
+## Version v1.3.1
+*Fri, 11 Jun 2021 16:21:43 +0000*
+- fixed getRootURL
