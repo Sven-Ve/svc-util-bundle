@@ -5,10 +5,7 @@ Overview
 * [Usage](docs/usage.md)
 
 **Services:**
-* EnvInfoHelper
-  * getRootURL()
-  * getURLtoIndexPhp()
-  * getRootURLandPrefix()
-* NetworkHelper
-* MailHelper
-* ContactForm
+* [EnvInfoHelper](docs/envinfohelper.md)
+* [NetworkHelper](docs/networkhelper.md)
+* [MailHelper](docs/mailhelper.md)
+* [ContactForm](docs/contactform.md)
