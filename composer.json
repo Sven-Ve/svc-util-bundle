@@ -30,5 +30,8 @@
   "require-dev": {
     "symfony/phpunit-bridge": "^5",
     "symfony/browser-kit": "^5"
+  },
+  "scripts": {
+    "test": "vendor/bin/simple-phpunit"
   }
 }
