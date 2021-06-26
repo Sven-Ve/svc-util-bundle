@@ -26,12 +26,6 @@ class SvcUtilExtension extends Extension
     $definition->setArgument(0, $config["mailer"]['mail_address']);
     $definition->setArgument(1, $config["mailer"]['mail_name'] ?? null);
 
-    // set arguments for __construct in services (contact form)
-    $definition = $container->getDefinition('svc_util.controller.contact');
-    $definition->setArgument(0, $config["contact_form"]['enable_captcha']);
-    $definition->setArgument(1, $config["contact_form"]['contact_mail']);
-    $definition->setArgument(2, $config["contact_form"]['route_after_send']);
-    $definition->setArgument(3, $config["contact_form"]['enable_copy_to_me']);
   }
 
   private function createConfigIfNotExists($rootPath) {
@@ -43,15 +37,6 @@ class SvcUtilExtension extends Extension
       $text.="        mail_address:         dev@sv-systems.com\n";
       $text.="        # Default sender name\n";
       $text.="        mail_name:            Dev-Test\n";
-      $text.="    contact_form:\n";
-      $text.="        # Enable captcha for contact form?\n";
-      $text.="        enable_captcha:       false\n";
-      $text.="        # Enable sending a copy of the contact request to me too?\n";
-      $text.="        enable_copy_to_me:     true\n";
-      $text.="        # Email adress for contact mails\n";
-      $text.="        contact_mail:         dev@sv-systems.com\n";
-      $text.="        # Which route should by called after mail sent\n";
-      $text.="        route_after_send:     index\n";
       try {
         file_put_contents($fileName, $text);
         dump ("Please adapt config file $fileName");
@@ -65,7 +50,6 @@ class SvcUtilExtension extends Extension
       $text="_svc_util:\n";
       $text.="    resource: '@SvcUtilBundle/src/Resources/config/routes.xml'\n";
       $text.="    prefix: /svc-util/{_locale}\n";
-      $text.='    requirements: {"_locale": "%app.supported_locales%"}\n';
       try {
         file_put_contents($fileName, $text);
       } catch (Exception $e) {

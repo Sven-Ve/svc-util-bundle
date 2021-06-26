@@ -39,7 +39,12 @@
 *Thu, 10 Jun 2021 17:15:29 +0000*
 - Moved to my own recipes server
 
-
 ## Version v1.3.1
 *Fri, 11 Jun 2021 16:21:43 +0000*
 - fixed getRootURL
+
+
+## Version v1.4.0
+*Sat, 26 Jun 2021 14:46:30 +0000*
+- moved contactform in a new bundle
+- added documentation

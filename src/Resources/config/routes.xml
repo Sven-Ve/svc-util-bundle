@@ -6,8 +6,4 @@
     <route id="svc_envinfo_info" controller="svc_util.controller.envinfo::info" path="/envinfo" >
         <!-- settings -->
     </route>
-
-    <route id="svc_contact_form" controller="svc_util.controller.contact::contactForm" path="/contact" >
-        <!-- settings -->
-    </route>
 </routes>
