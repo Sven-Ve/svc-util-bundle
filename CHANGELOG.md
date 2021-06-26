@@ -48,3 +48,8 @@
 *Sat, 26 Jun 2021 14:46:30 +0000*
 - moved contactform in a new bundle
 - added documentation
+
+
+## Version v1.5.0
+*Sat, 26 Jun 2021 14:56:58 +0000*
+- open bundle to Opensource

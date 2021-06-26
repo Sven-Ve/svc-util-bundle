@@ -1,4 +1,12 @@
 # Mailhelper
+sending easy mails with some important parameters
+
+<br />
+
+## Installation
+symfony/mailer has to be installed and configured.
+
+<br />
 
 ## Sender
 the sender mail address is set in the config file.
