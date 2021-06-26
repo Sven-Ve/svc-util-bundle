@@ -53,3 +53,8 @@
 ## Version v1.5.0
 *Sat, 26 Jun 2021 14:56:58 +0000*
 - open bundle to Opensource
+
+
+## Version v1.5.1
+*Sat, 26 Jun 2021 20:08:42 +0000*
+- fixed licence
