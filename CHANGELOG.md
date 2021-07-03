@@ -58,3 +58,8 @@
 ## Version v1.5.1
 *Sat, 26 Jun 2021 20:08:42 +0000*
 - fixed licence
+
+
+## Version v1.5.2
+*Sat, 03 Jul 2021 17:41:36 +0000*
+- added getSubDomain to EnvInfoHelper

@@ -54,4 +54,21 @@ class EnvInfoHelper
     }
     return self::getRootURL();
   }
+
+  /**
+   * get the subdomain for a url or '' if no subdomain exists
+   *
+   * @param string|null $url if null the current host is used
+   * @return string
+   */
+  public static function getSubDomain(?string $url = null): string
+  {
+    if (!$url) {
+      $url = $_SERVER["HTTP_HOST"];
+    }
+    if (str_starts_with($url, '127.0.0.1')) {
+      return '';
+    }
+    return substr_count($url, '.') > 1 ? substr($url, 0, strpos($url, '.')) : '';
+  }
 }

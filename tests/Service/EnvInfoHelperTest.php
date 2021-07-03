@@ -46,4 +46,34 @@ class EnvInfoHelperTest extends TestCase
     $result = $helper->getURLtoIndexPhp();
     $this->assertEquals("http://vendor/bin/simple-phpunit", $result); // should be path to simple-phpunit
   }
+
+  /**
+   * test getSubDomain with a valid subdomain
+   *
+   * @return void
+   */
+  public function testSubDomain1()
+  {
+    $this->assertEquals('test', EnvInfoHelper::getSubDomain('test.test.de'));
+  }
+
+    /**
+   * test getSubDomain with a non existing subdomain
+   *
+   * @return void
+   */
+  public function testSubDomain2()
+  {
+    $this->assertEmpty(EnvInfoHelper::getSubDomain('test.de'));
+  }
+
+      /**
+   * test getSubDomain with localhost
+   *
+   * @return void
+   */
+  public function testSubDomain3()
+  {
+    $this->assertEmpty(EnvInfoHelper::getSubDomain('127.0.0.1'));
+  }
 }
