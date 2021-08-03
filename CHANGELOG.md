@@ -63,3 +63,8 @@
 ## Version v1.5.2
 *Sat, 03 Jul 2021 17:41:36 +0000*
 - added getSubDomain to EnvInfoHelper
+
+
+## Version v1.5.3
+*Tue, 03 Aug 2021 15:10:04 +0000*
+- added static code analysis (phpstan)
