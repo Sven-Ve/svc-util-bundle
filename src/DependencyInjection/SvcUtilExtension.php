@@ -2,7 +2,6 @@
 
 namespace Svc\UtilBundle\DependencyInjection;
 
-use Exception;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -12,10 +11,7 @@ class SvcUtilExtension extends Extension
 {
   public function load(array $configs, ContainerBuilder $container)
   {
-    # $rootPath = $container->getParameter("kernel.project_dir");
-    # $this->createConfigIfNotExists($rootPath);
-
-    $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+    $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
     $loader->load('services.xml');
 
     $configuration = $this->getConfiguration($configs, $container);
@@ -25,36 +21,5 @@ class SvcUtilExtension extends Extension
     $definition = $container->getDefinition('svc_util.service.mailhelper');
     $definition->setArgument(0, $config["mailer"]['mail_address']);
     $definition->setArgument(1, $config["mailer"]['mail_name'] ?? null);
-
-  }
-
-  private function createConfigIfNotExists($rootPath) {
-    $fileName= $rootPath . "/config/packages/svc_util.yaml";
-    if (!file_exists($fileName)) {
-      $text="svc_util:\n";
-      $text.="    mailer:\n";
-      $text.="        # Default sender mail address\n";
-      $text.="        mail_address:         dev@sv-systems.com\n";
-      $text.="        # Default sender name\n";
-      $text.="        mail_name:            Dev-Test\n";
-      try {
-        file_put_contents($fileName, $text);
-        dump ("Please adapt config file $fileName");
-      } catch (Exception $e) {
-        // ignore...
-      }
-    }
-
-    $fileName= $rootPath . "/config/routes/svc_util.yaml";
-    if (!file_exists($fileName)) {
-      $text="_svc_util:\n";
-      $text.="    resource: '@SvcUtilBundle/src/Resources/config/routes.xml'\n";
-      $text.="    prefix: /svc-util/{_locale}\n";
-      try {
-        file_put_contents($fileName, $text);
-      } catch (Exception $e) {
-        // ignore...
-      }
-  }
   }
 }

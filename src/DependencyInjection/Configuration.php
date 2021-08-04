@@ -16,7 +16,7 @@ class Configuration implements ConfigurationInterface
     ->children()
       ->arrayNode('mailer')->addDefaultsIfNotSet()
         ->children()
-          ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('dev@sv-systems.com')->info('Default sender mail address')->end()
+          ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('test@test.com')->info('Default sender mail address')->end()
           ->scalarNode('mail_name')->cannotBeEmpty()->defaultValue('Test User')->info('Default sender name')->end()
         ->end()
       ->end()

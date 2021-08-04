@@ -68,3 +68,8 @@
 ## Version v1.5.3
 *Tue, 03 Aug 2021 15:10:04 +0000*
 - added static code analysis (phpstan)
+
+
+## Version v1.5.3
+*Wed, 04 Aug 2021 08:43:31 +0000*
+- added static code analysis (phpstan)

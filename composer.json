@@ -33,6 +33,6 @@
   },
   "scripts": {
     "test": "vendor/bin/simple-phpunit",
-    "phpstan": "php -d memory_limit=-1 vendor/bin/phpstan analyse src/ --level 5"
+    "phpstan": "php -d memory_limit=-1 vendor/bin/phpstan analyse src/ --level 5 -c .phpstan.neon"
   }
 }

@@ -19,7 +19,7 @@ _svc_util:
 svc_util:
     mailer:
         # Default sender mail address
-        mail_address:       dev@sv-systems.com
+        mail_address:       test@test.com
         # Default sender name
         mail_name:          TestBundle Sender
 ```
