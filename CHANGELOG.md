@@ -73,3 +73,8 @@
 ## Version v1.5.3
 *Wed, 04 Aug 2021 08:43:31 +0000*
 - added static code analysis (phpstan)
+
+
+## Version v1.5.4
+*Wed, 04 Aug 2021 08:43:40 +0000*
+- removed creation of config file beacause we have a recipe now
