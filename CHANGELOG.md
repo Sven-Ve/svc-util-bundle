@@ -78,3 +78,8 @@
 ## Version v1.6.0
 *Mon, 09 Aug 2021 20:36:17 +0000*
 - added general stimulus javascript controllers
+
+
+## Version v1.6.1
+*Mon, 09 Aug 2021 20:45:48 +0000*
+- define sweetalert2 version >= 10
