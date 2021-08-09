@@ -88,3 +88,8 @@
 ## Version v1.6.2
 *Mon, 09 Aug 2021 20:52:48 +0000*
 - added alert controller
+
+
+## Version v1.6.4
+*Mon, 09 Aug 2021 21:00:45 +0000*
+- added submit-confirm controller
