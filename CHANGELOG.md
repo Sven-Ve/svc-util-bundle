@@ -83,3 +83,8 @@
 ## Version v1.6.1
 *Mon, 09 Aug 2021 20:45:48 +0000*
 - define sweetalert2 version >= 10
+
+
+## Version v1.6.2
+*Mon, 09 Aug 2021 20:52:48 +0000*
+- added alert controller

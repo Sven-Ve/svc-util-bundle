@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -14,11 +14,16 @@
         "main": "src/mclipboard.js",
         "fetch": "lazy",
         "enabled": true
+      },
+      "alert": {
+        "main": "src/alert.js",
+        "fetch": "lazy",
+        "enabled": true
       }
     }
   },
   "peerDependencies": {
-    "sweetalert2": ">=10",
+    "sweetalert2": ">=11",
     "stimulus": "^2.0.0"
   }
 }
