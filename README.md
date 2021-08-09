@@ -8,7 +8,8 @@ Helper package with some utilities (network, environment, mail)
 * [Usage](docs/usage.md)
 
 ## Controller
- * [EnvInfoController.md](docs/envinfocontroller.md)
+ * [EnvInfoController](docs/envinfocontroller.md) (symfony)
+ * [Stimulus controllers](docs/stimulus-controllers.md) (javascript)
 
  
 ## Services:

@@ -1,0 +1,24 @@
+{
+  "name": "@svc/util-bundle",
+  "description": "general stimulus controller for svc bundles",
+  "license": "MIT",
+  "version": "0.1.1",
+  "symfony": {
+    "controllers": {
+      "clipboard": {
+        "main": "src/clipboard.js",
+        "fetch": "lazy",
+        "enabled": true
+      },
+      "mclipboard": {
+        "main": "src/mclipboard.js",
+        "fetch": "lazy",
+        "enabled": true
+      }
+    }
+  },
+  "peerDependencies": {
+    "sweetalert2": "",
+    "stimulus": "^2.0.0"
+  }
+}
