@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "0.1.4",
+  "version": "0.2.2",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -22,6 +22,16 @@
       },
       "submit-confirm": {
         "main": "src/submit-confirm.js",
+        "fetch": "lazy",
+        "enabled": true
+      },
+      "wysiwyg": {
+        "main": "src/wysiwyg.js",
+        "fetch": "lazy",
+        "enabled": true
+      },
+      "show-password": {
+        "main": "src/show-password.js",
         "fetch": "lazy",
         "enabled": true
       }

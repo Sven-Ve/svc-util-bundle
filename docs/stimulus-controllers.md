@@ -4,8 +4,7 @@
 
 Copy a text to the clipboard
 
-Example
-
+_Example_
 ```html
 <span data-controller="svc--util-bundle--clipboard" class="d-none d-grid"
   {{ stimulus_controller('svc--util-bundle--clipboard', { 
@@ -20,8 +19,7 @@ Example
 
 Copy 1-4 texts to the clipboard (with only one instance of the stimulus controller)
 
-Example
-
+_Example_
 ```html
 <span data-controller="svc--util-bundle--mclipboard" class="d-none"
   {{ stimulus_controller('svc--util-bundle--mclipboard', { 
@@ -40,3 +38,25 @@ Example
   </div>
 </span>
 ```
+
+## submit-confirm
+
+Nicer confirmation dialog
+
+![submit-confirm dialog](images/submit-confirm.png "submit-confirm dialog")
+
+_Example_
+```html
+<form method="post" action="{{ path('svc_video_group_delete', {'id': video_group.id}) }}"
+  {{ stimulus_controller('svc--util-bundle--submit-confirm', {
+    title: 'Remove this video group?' | trans,
+    icon: 'warning',
+    confirmButtonText: 'Yes, remove it' | trans,
+    cancelButtonText: 'Cancel' | trans
+  }) }}
+  data-action="svc--util-bundle--submit-confirm#onSubmit"
+>
+```
+
+additional parameters:
+* text: some text in the dialog body
