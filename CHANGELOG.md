@@ -95,6 +95,7 @@
 - added submit-confirm controller
 
 
-## Version v1.6.4
-*Tue, 10 Aug 2021 20:33:26 +0000*
-- added submit-confirm, show-password and wysiwyg stimulus controllers
+
+## Version v1.6.5
+*Tue, 10 Aug 2021 20:34:04 +0000*
+- added show-password and wysiwyg stimulus controllers

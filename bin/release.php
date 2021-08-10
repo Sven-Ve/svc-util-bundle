@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v1.6.4";
-$message = "added submit-confirm, show-password and wysiwyg stimulus controllers";
+$version = "v1.6.5";
+$message = "added show-password and wysiwyg stimulus controllers";
 
 file_put_contents("CHANGELOG.md", "\n\n## Version " . $version, FILE_APPEND);
 file_put_contents("CHANGELOG.md", "\n*" . date("r") . "*", FILE_APPEND);
