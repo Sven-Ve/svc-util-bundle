@@ -6,7 +6,7 @@ Copy a text to the clipboard
 
 _Example_
 ```html
-<span data-controller="svc--util-bundle--clipboard" class="d-none d-grid"
+<span class="d-none d-grid"
   {{ stimulus_controller('svc--util-bundle--clipboard', { 
     'link': copyUrl
   } ) }}
@@ -21,7 +21,7 @@ Copy 1-4 texts to the clipboard (with only one instance of the stimulus controll
 
 _Example_
 ```html
-<span data-controller="svc--util-bundle--mclipboard" class="d-none"
+<span class="d-none"
   {{ stimulus_controller('svc--util-bundle--mclipboard', { 
     'link': url('svc_video_run', {id: video.id} ),
     'link1': url('svc_video_run_hn', {id: video.id} ) 

@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -32,6 +32,11 @@
       },
       "show-password": {
         "main": "src/show-password.js",
+        "fetch": "lazy",
+        "enabled": true
+      },
+      "reload-content": {
+        "main": "src/reload-content.js",
         "fetch": "lazy",
         "enabled": true
       }
