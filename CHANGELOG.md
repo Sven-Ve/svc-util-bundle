@@ -104,3 +104,8 @@
 ## Version v1.6.6
 *Tue, 10 Aug 2021 20:59:24 +0000*
 - added reload-content stimulus controller
+
+
+## Version v1.6.7
+*Wed, 11 Aug 2021 21:01:06 +0000*
+- added ckeditor5 to js dependencies
