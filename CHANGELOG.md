@@ -109,3 +109,8 @@
 ## Version v1.6.7
 *Wed, 11 Aug 2021 21:01:06 +0000*
 - added ckeditor5 to js dependencies
+
+
+## Version v1.7.0
+*Sat, 21 Aug 2021 22:01:33 +0000*
+- added modal stimulus controller

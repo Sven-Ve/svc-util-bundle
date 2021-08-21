@@ -60,3 +60,22 @@ _Example_
 
 additional parameters:
 * text: some text in the dialog body
+
+## modal - show a (bootstrap 5) modal info dialog
+
+_include the modal html code in your twig template_
+
+```html
+{{ include("@SvcUtil/elements/_modal.html.twig") }}
+```
+
+_call the stimulus controller in your code (example)_
+
+```html
+<span 
+  data-controller="svc--util-bundle--modal"
+  data-svc--util-bundle--modal-url-value="{{ path('myMHtmlCode', {id: id}) }}"
+  data-svc--util-bundle--modal-title-value="{% trans %}My title{% endtrans %}"
+  data-action="click->svc--util-bundle--modal#show"
+>...</span>
+```

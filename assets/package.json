@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -37,6 +37,11 @@
       },
       "reload-content": {
         "main": "src/reload-content.js",
+        "fetch": "lazy",
+        "enabled": true
+      },
+      "modal": {
+        "main": "src/modal.js",
         "fetch": "lazy",
         "enabled": true
       }
