@@ -114,3 +114,8 @@
 ## Version v1.7.0
 *Sat, 21 Aug 2021 22:01:33 +0000*
 - added modal stimulus controller
+
+
+## Version v1.7.1
+*Sun, 03 Oct 2021 21:01:57 +0000*
+- added compatibility to stimulus 3
