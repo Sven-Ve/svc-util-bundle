@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 /* stimulusFetch: 'lazy' */

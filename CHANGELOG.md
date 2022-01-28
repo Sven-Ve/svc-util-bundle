@@ -119,3 +119,8 @@
 ## Version v1.7.1
 *Sun, 03 Oct 2021 21:01:57 +0000*
 - added compatibility to stimulus 3
+
+
+## Version v2.0.0
+*Fri, 28 Jan 2022 21:07:42 +0000*
+- added initial compatibility to stimulus 3

@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
 import Swal from 'sweetalert2';
 
 /* stimulusFetch: 'lazy' */
