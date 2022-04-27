@@ -123,3 +123,8 @@
 ## Version v2.0.1
 *Fri, 28 Jan 2022 21:18:06 +0000*
 - alert.js ready for stimulus 3, fixed unit test error
+
+
+## Version v2.1.0
+*Wed, 27 Apr 2022 16:05:19 +0000*
+- ready for symfony 6.0

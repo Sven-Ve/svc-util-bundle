@@ -13,11 +13,11 @@
     "symfony-ux"
   ],
   "require": {
-    "php": "^7.3.0 | ^8.0.0",
-    "symfony/framework-bundle": "^5",
-    "symfony/options-resolver": "^5",
-    "symfony/mailer": "^5",
-    "symfony/twig-bundle": "^5"
+    "php": "^7.3.0 | ^8",
+    "symfony/framework-bundle": "^5|^6",
+    "symfony/options-resolver": "^5|^6",
+    "symfony/mailer": "^5|^6",
+    "symfony/twig-bundle": "^5|^6"
   },
   "autoload": {
     "psr-4": {
@@ -30,8 +30,8 @@
     }
   },
   "require-dev": {
-    "symfony/phpunit-bridge": "^5",
-    "symfony/browser-kit": "^5",
+    "symfony/phpunit-bridge": "^5|^6",
+    "symfony/browser-kit": "^5|^6",
     "phpstan/phpstan": "^1"
   },
   "scripts": {
