@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -50,6 +50,6 @@
   "peerDependencies": {
     "sweetalert2": ">=11",
     "@hotwired/stimulus": "^3.0.0",
-    "@ckeditor/ckeditor5-build-classic": "^29.1.0"
+    "@ckeditor/ckeditor5-build-classic": ">=30"
   }
 }

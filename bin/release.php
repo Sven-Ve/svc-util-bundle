@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v2.1.0";
-$message = "ready for symfony 6.0";
+$version = "v2.2.0";
+$message = "@ckeditor/ckeditor5-build-classic to version >=30";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

@@ -128,3 +128,8 @@
 ## Version v2.1.0
 *Wed, 27 Apr 2022 16:05:19 +0000*
 - ready for symfony 6.0
+
+
+## Version v2.2.0
+*Thu, 28 Apr 2022 19:45:49 +0000*
+- @ckeditor/ckeditor5-build-classic to version >=30
