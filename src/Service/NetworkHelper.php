@@ -12,8 +12,6 @@ class NetworkHelper
 
   /**
    * give client IP adress
-   *
-   * @return string|null
    */
   public static function getIP(): ?string
   {
@@ -34,8 +32,6 @@ class NetworkHelper
 
   /**
    * give client user agent
-   *
-   * @return string|null
    */
   public static function getUserAgent(): ?string
   {
@@ -47,8 +43,6 @@ class NetworkHelper
 
   /**
    * give client referer
-   *
-   * @return string|null
    */
   public static function getReferer(): ?string
   {
@@ -69,7 +63,7 @@ class NetworkHelper
     }
     $result  = array('country' => '', 'city' => '');
 
-    $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ip));
+    $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ip), null, 512, JSON_THROW_ON_ERROR);
 
     if ($ip_data && $ip_data->geoplugin_countryName != null) {
       $result['country'] = $ip_data->geoplugin_countryCode;

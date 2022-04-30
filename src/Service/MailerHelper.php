@@ -16,19 +16,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class MailerHelper
 {
 
-  private $mailer;
-  private $fromAdr;
-  private $fromName;
-
-  private $enableSendWithTemplate = false;
+  private bool $enableSendWithTemplate = false;
   private $htmlTemplate = null;
   private $htmlContext = null;
 
-  public function __construct(string $fromAdr, string $fromName = null, MailerInterface $mailer)
+  public function __construct(private MailerInterface $mailer, private string $fromAdr, private ?string $fromName = null)
   {
-    $this->fromAdr = $fromAdr;
-    $this->fromName = $fromName;
-    $this->mailer = $mailer;
   }
 
   /**
@@ -135,7 +128,7 @@ class MailerHelper
 
     try {
       $this->mailer->send($email);
-    } catch (\Exception $e) {
+    } catch (\Exception) {
       return false;
     }
 

@@ -133,3 +133,8 @@
 ## Version v2.2.0
 *Thu, 28 Apr 2022 19:45:49 +0000*
 - @ckeditor/ckeditor5-build-classic to version >=30
+
+
+## Version v3.0.0
+*Sat, 30 Apr 2022 19:47:24 +0000*
+- runs only with symfony 5.4 and >6 und php8

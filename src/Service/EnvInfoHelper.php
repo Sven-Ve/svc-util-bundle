@@ -12,8 +12,6 @@ class EnvInfoHelper
 
   /**
    * give protocoll and servername
-   *
-   * @return string
    */
   public static function getRootURL(): string
   {
@@ -31,8 +29,6 @@ class EnvInfoHelper
 
   /**
    * give protokoll, servername and prefix (if server not installed in "/" )
-   *
-   * @return string
    */
   public static function getRootURLandPrefix(): string
   {
@@ -44,8 +40,6 @@ class EnvInfoHelper
 
   /**
    * URL to index.php
-   *
-   * @return string
    */
   public static function getURLtoIndexPhp(): string
   {
@@ -59,7 +53,6 @@ class EnvInfoHelper
    * get the subdomain for a url or '' if no subdomain exists
    *
    * @param string|null $url if null the current host is used
-   * @return string
    */
   public static function getSubDomain(?string $url = null): string
   {
