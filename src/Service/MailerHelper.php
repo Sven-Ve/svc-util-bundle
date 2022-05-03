@@ -141,7 +141,7 @@ class MailerHelper
    * @param OptionsResolver $resolver
    * @return void
    */
-  private function configureOptions(OptionsResolver $resolver)
+  private function configureOptions(OptionsResolver $resolver): void
   {
     $resolver->setDefaults([
       'priority' => Email::PRIORITY_NORMAL,
