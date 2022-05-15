@@ -138,3 +138,8 @@
 ## Version v3.0.0
 *Sat, 30 Apr 2022 19:47:24 +0000*
 - runs only with symfony 5.4 and >6 und php8
+
+
+## Version v3.0.1
+*Sun, 15 May 2022 08:06:23 +0000*
+- format code

@@ -13,7 +13,7 @@
     "symfony-ux"
   ],
   "require": {
-    "php": "^8",
+    "php": "^8.0.2",
     "symfony/framework-bundle": "5.4.*|^6",
     "symfony/options-resolver": "5.4.*|^6",
     "symfony/mailer": "5.4.*|^6",

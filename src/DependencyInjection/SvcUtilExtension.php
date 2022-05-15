@@ -19,7 +19,7 @@ class SvcUtilExtension extends Extension
 
     // set arguments for __construct in services (mailhelper)
     $definition = $container->getDefinition('svc_util.service.mailhelper');
-    $definition->setArgument(1, $config["mailer"]['mail_address']);
-    $definition->setArgument(2, $config["mailer"]['mail_name'] ?? null);
+    $definition->setArgument(1, $config['mailer']['mail_address']);
+    $definition->setArgument(2, $config['mailer']['mail_name'] ?? null);
   }
 }
