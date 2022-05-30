@@ -143,3 +143,8 @@
 ## Version v3.0.1
 *Sun, 15 May 2022 08:06:23 +0000*
 - format code
+
+
+## Version v3.0.2
+*Mon, 30 May 2022 08:56:19 +0000*
+- exception handling if http://www.geoplugin.net not available

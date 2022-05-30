@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v3.0.1";
-$message = "format code";
+$version = "v3.0.2";
+$message = "exception handling if http://www.geoplugin.net not available";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

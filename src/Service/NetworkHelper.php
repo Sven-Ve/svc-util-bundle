@@ -2,6 +2,8 @@
 
 namespace Svc\UtilBundle\Service;
 
+use Exception;
+
 /**
  * Helper class to give network information.
  *
@@ -63,11 +65,14 @@ class NetworkHelper
     }
     $result = ['country' => '', 'city' => ''];
 
-    $ip_data = @json_decode(file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip), null, 512, JSON_THROW_ON_ERROR);
+    try {
+      $ip_data = @json_decode(file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip), null, 512, JSON_THROW_ON_ERROR);
 
-    if ($ip_data && $ip_data->geoplugin_countryName != null) {
-      $result['country'] = $ip_data->geoplugin_countryCode;
-      $result['city'] = $ip_data->geoplugin_city;
+      if ($ip_data && $ip_data->geoplugin_countryName != null) {
+        $result['country'] = $ip_data->geoplugin_countryCode;
+        $result['city'] = $ip_data->geoplugin_city;
+      }
+    } catch (Exception) {
     }
 
     return $result;
