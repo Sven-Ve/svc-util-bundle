@@ -62,6 +62,7 @@ class SvcUtilTestingKernel extends Kernel
         'framework',
         [
           'secret' => 'foo',
+          'http_method_override' => false,
           'router' => [
             'resource' => 'kernel::loadRoutes',
             'type' => 'service',
