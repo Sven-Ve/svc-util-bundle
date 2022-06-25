@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v3.0.3";
-$message = "fix test scripts";
+$version = "v3.1.0";
+$message = "added UIHelper";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

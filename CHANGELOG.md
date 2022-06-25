@@ -153,3 +153,8 @@
 ## Version v3.0.3
 *Mon, 30 May 2022 19:27:18 +0000*
 - fix test scripts
+
+
+## Version v3.1.0
+*Sat, 25 Jun 2022 08:20:30 +0000*
+- added UIHelper
