@@ -15,8 +15,8 @@ export default class extends Controller {
   }
 
   toogleVisibility() {
-    var type;
-    var text;
+    let type;
+    let text;
     if (this.passwordFldTarget.getAttribute('type') === 'password') {
       type = 'text';
       text = this.hideTextValue || 'Hide password';
@@ -30,7 +30,7 @@ export default class extends Controller {
   }
 
   createToogleNode(parent) {
-    var area = document.createElement("i");
+    const area = document.createElement("i");
     area.setAttribute('data-action', "click->svc--util-bundle--show-password#toogleVisibility");
     area.setAttribute('data-svc--util-bundle--show-password-target', "toggleBtn");
     area.className='fas fa-eye float-end';

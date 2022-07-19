@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   async refreshContent(event) {
-    var url = this.urlValue;
+    let url = this.urlValue;
     if (event.detail.url) {
       url = event.detail.url;
     }
@@ -19,7 +19,7 @@ export default class extends Controller {
       const target = this.hasContentTarget ? this.contentTarget : this.element;
       target.style.opacity = .5;
 
-      var response;
+      let response;
       try {
         response = await fetch(url);
       }

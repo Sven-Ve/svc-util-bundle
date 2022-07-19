@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "symfony": {
     "controllers": {
       "clipboard": {

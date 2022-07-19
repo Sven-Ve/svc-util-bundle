@@ -15,7 +15,7 @@ class MailHelperTest extends TestCase
 
   /**
    * check if a call to send possible and all options are resolved
-   * 
+   *
    * use a dry run, not sending real mail
    *
    * @return void
@@ -25,7 +25,7 @@ class MailHelperTest extends TestCase
     $kernel = new SvcUtilTestingKernel();
     $kernel->boot();
     $container = $kernel->getContainer();
-    $mail = $container->get('svc_util.service.mailhelper');
+    $mail = $container->get('Svc\UtilBundle\Service\MailerHelper');
 
     $this->assertInstanceOf(MailerHelper::class, $mail);
 
@@ -41,7 +41,7 @@ class MailHelperTest extends TestCase
 
   /**
    * check call with wrong option (should raise an exception)
-   * 
+   *
    *
    * @return void
    */
@@ -50,7 +50,7 @@ class MailHelperTest extends TestCase
     $kernel = new SvcUtilTestingKernel();
     $kernel->boot();
     $container = $kernel->getContainer();
-    $mail = $container->get('svc_util.service.mailhelper');
+    $mail = $container->get('Svc\UtilBundle\Service\MailerHelper');
 
     $this->expectException("Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException");
     $mail->send('dev@sv-systems.com', 'Hallo', '<h2>Test</h2>', null, [

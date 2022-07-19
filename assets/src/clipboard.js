@@ -15,7 +15,7 @@ export default class extends Controller {
   connect() {
     if (navigator.clipboard) {
       this.element.classList.remove("d-none");
-    };
+    }
   }
 
   copy() {

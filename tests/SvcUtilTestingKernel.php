@@ -70,7 +70,7 @@ class SvcUtilTestingKernel extends Kernel
           ],
         ]
       );
-      
+
       $container->register(AppKernel::class)
       ->setAutoconfigured(true)
       ->setAutowired(true);
@@ -90,7 +90,7 @@ class SvcUtilTestingKernel extends Kernel
    */
   protected function configureRoutes(RoutingConfigurator $routes)
   {
-    $routes->import(__DIR__ . '/../src/Resources/config/routes.xml')->prefix('/api/{_locale}');
+    $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/api/{_locale}');
   }
 
   protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader)

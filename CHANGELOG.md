@@ -158,3 +158,8 @@
 ## Version v3.1.0
 *Sat, 25 Jun 2022 08:20:30 +0000*
 - added UIHelper
+
+
+## Version 4.0.0
+*Tue, 19 Jul 2022 15:39:39 +0000*
+- build with Symfony 6.1 bundle features, runs only with symfony 6.1

@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Svc\UtilBundle\Service\NetworkHelper:
+  Svc\UtilBundle\Service\EnvInfoHelper:
+  Svc\UtilBundle\Service\MailerHelper:
+    public: true
+
+  Svc\UtilBundle\Service\UIHelper:
+  Svc\UtilBundle\Controller\EnvInfoController:

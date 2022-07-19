@@ -14,7 +14,7 @@ export default class extends Controller {
 
   async loadData(url) {
 
-    var response;
+    let response;
     try {
       response = await fetch(url);
     } catch (err) {
@@ -40,7 +40,7 @@ export default class extends Controller {
       model.querySelector('.modal-title').textContent = this.titleValue;
     }
 
-    var myModal = new Modal(model);
+    const myModal = new Modal(model);
     myModal.show();
   }
 
