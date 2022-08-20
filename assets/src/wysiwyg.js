@@ -1,4 +1,4 @@
-import { Controller } from '@hotwired/stimulus';
+import {Controller} from '@hotwired/stimulus';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 /* stimulusFetch: 'lazy' */
@@ -14,13 +14,13 @@ export default class extends Controller {
             // 'fontfamily', 'fontsize', '|',
             // 'alignment', '|',
             // 'fontColor', 'fontBackgroundColor', '|',
-            'bold', 'italic', 
-            //'strikethrough', 'underline', 'subscript', 'superscript', 
+            'bold', 'italic',
+            //'strikethrough', 'underline', 'subscript', 'superscript',
             '|',
             'link', '|',
             'outdent', 'indent', '|',
             'bulletedList', 'numberedList',
-            //'todoList', 
+            //'todoList',
             '|',
             //      'code', 'codeBlock', '|',
             //      'insertTable', '|',
@@ -29,7 +29,7 @@ export default class extends Controller {
           ],
         },
         removePlugins: ['TableToolbar', 'Table', 'MediaEmbed',
-          'Image', 'CKFinder', 'EasyImage', 'ImageCaption', 'ImageStyle', 'ImageToolbar', 'ImageUpload', 'CKFinderUploadAdapter', 'CloudServices',
+          'Image', 'CKFinder', 'EasyImage', 'ImageCaption', 'ImageStyle', 'ImageToolbar', 'ImageUpload', 'CKFinderUploadAdapter',
           'Heading'],
         link: {
           decorators: {

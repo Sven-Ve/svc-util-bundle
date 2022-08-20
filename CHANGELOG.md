@@ -168,3 +168,8 @@
 ## Version 4.0.1
 *Thu, 21 Jul 2022 18:40:03 +0000*
 - licence year update
+
+
+## Version 4.0.2
+*Sat, 20 Aug 2022 20:15:44 +0000*
+- fix javascript for wysiwig controller
