@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "4.0.2";
-$message = "fix javascript for wysiwig controller";
+$version = "4.1.0";
+$message = "tested for symfony 6.2";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

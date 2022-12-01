@@ -173,3 +173,8 @@
 ## Version 4.0.2
 *Sat, 20 Aug 2022 20:15:44 +0000*
 - fix javascript for wysiwig controller
+
+
+## Version 4.1.0
+*Thu, 01 Dec 2022 21:10:38 +0000*
+- tested for symfony 6.2
