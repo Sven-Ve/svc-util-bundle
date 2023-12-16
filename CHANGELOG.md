@@ -183,3 +183,8 @@
 ## Version 5
 *Sat, 16 Dec 2023 16:01:51 +0000*
 - ready for symfony 6.4 and 7
+
+
+## Version 5.0.1
+*Sat, 16 Dec 2023 16:04:53 +0000*
+- ready for symfony 6.4 and 7

@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5";
+$version = "5.0.1";
 $message = "ready for symfony 6.4 and 7";
 
 echo("Running phpstan:\n");
