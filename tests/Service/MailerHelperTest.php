@@ -10,7 +10,7 @@ use Symfony\Component\Mime\Email;
 /**
  * testing the MailHelper class
  */
-class MailHelperTest extends TestCase
+class MailerHelperTest extends TestCase
 {
 
   /**

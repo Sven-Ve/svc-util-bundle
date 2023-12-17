@@ -44,7 +44,7 @@ class EnvInfoHelperTest extends TestCase
   {
     $helper = new EnvInfoHelper();
     $result = $helper->getURLtoIndexPhp();
-    $this->assertEquals("http://vendor/bin/simple-phpunit", $result); // should be path to simple-phpunit
+    $this->assertEquals("http://vendor/bin/phpunit", $result); // should be path to simple-phpunit
   }
 
   /**
