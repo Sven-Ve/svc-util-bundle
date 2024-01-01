@@ -193,3 +193,8 @@
 ## Version 5.0.2
 *Sun, 17 Dec 2023 18:51:00 +0000*
 - ready for symfony 6.4 and 7 - fixed test errors
+
+
+## Version 5.1.0
+*Mon, 01 Jan 2024 13:58:01 +0000*
+- ready for assetmapper

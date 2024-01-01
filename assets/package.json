@@ -2,11 +2,12 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "2.0.3",
+  "version": "2.1.1",
   "symfony": {
     "controllers": {
       "clipboard": {
         "main": "src/clipboard.js",
+        "webpackMode": "eager",
         "fetch": "lazy",
         "enabled": true
       },
@@ -45,9 +46,19 @@
         "fetch": "lazy",
         "enabled": true
       }
+    },
+    "importmap": {
+      "@hotwired/stimulus": "^3.2.0",
+      "sweetalert2": "*",
+      "@ckeditor/ckeditor5-build-classic": "*"
     }
   },
   "peerDependencies": {
+    "sweetalert2": ">=11",
+    "@hotwired/stimulus": "^3.0.0",
+    "@ckeditor/ckeditor5-build-classic": ">=30"
+  },
+  "devDependencies": {
     "sweetalert2": ">=11",
     "@hotwired/stimulus": "^3.0.0",
     "@ckeditor/ckeditor5-build-classic": ">=30"
