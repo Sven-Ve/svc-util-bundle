@@ -2,8 +2,6 @@
 
 namespace Svc\UtilBundle\Service;
 
-use Exception;
-
 /**
  * Helper class to give network information.
  *
@@ -72,7 +70,7 @@ class NetworkHelper
         $result['country'] = $ip_data->geoplugin_countryCode;
         $result['city'] = $ip_data->geoplugin_city;
       }
-    } catch (Exception) {
+    } catch (\Exception) {
     }
 
     return $result;

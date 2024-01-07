@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -43,6 +43,11 @@
       },
       "modal": {
         "main": "src/modal.js",
+        "fetch": "lazy",
+        "enabled": true
+      },
+      "toast": {
+        "main": "src/toast_controller.js",
         "fetch": "lazy",
         "enabled": true
       }

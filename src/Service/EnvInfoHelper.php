@@ -56,7 +56,7 @@ class EnvInfoHelper
    *
    * @param string|null $url if null the current host is used
    */
-  public static function getSubDomain(?string $url = null): string
+  public static function getSubDomain(string $url = null): string
   {
     if (!$url) {
       $url = $_SERVER['HTTP_HOST'];

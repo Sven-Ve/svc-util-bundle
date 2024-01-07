@@ -17,9 +17,9 @@ class MailerHelper
 {
   private bool $enableSendWithTemplate = false;
 
-  private $htmlTemplate = null;
+  private $htmlTemplate;
 
-  private $htmlContext = null;
+  private $htmlContext;
 
   public function __construct(private MailerInterface $mailer, private string $fromAdr, private ?string $fromName = null)
   {
@@ -56,7 +56,7 @@ class MailerHelper
    *
    * @return bool if mail sent
    */
-  public function send(string $to, string $subject, string $html, ?string $text = null, ?array $options = []): bool
+  public function send(string $to, string $subject, string $html, string $text = null, ?array $options = []): bool
   {
     $resolver = new OptionsResolver();
     $this->configureOptions($resolver);

@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.1.0";
-$message = "ready for assetmapper";
+$version = "5.2.0";
+$message = "twig template (and JS controller) added for flash messages";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

@@ -19,7 +19,9 @@ Please use version 3.x for older Symfony installations.<br/>
  * [EnvInfoController](docs/envinfocontroller.md) (symfony)
  * [Stimulus controllers](docs/stimulus-controllers.md) (javascript)
 
- 
+ ### Twig components
+ * [Flash messages](docs/twig_flash.md)
+
 ### Services:
 * [EnvInfoHelper](docs/envinfohelper.md)
 * [NetworkHelper](docs/networkhelper.md)

@@ -198,3 +198,8 @@
 ## Version 5.1.0
 *Mon, 01 Jan 2024 13:58:01 +0000*
 - ready for assetmapper
+
+
+## Version 5.2.0
+*Sun, 07 Jan 2024 14:38:06 +0000*
+- twig template (and JS controller) added for flash messages
