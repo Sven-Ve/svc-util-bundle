@@ -203,3 +203,8 @@
 ## Version 5.2.0
 *Sun, 07 Jan 2024 14:38:06 +0000*
 - twig template (and JS controller) added for flash messages
+
+
+## Version 5.3.0
+*Sun, 21 Jan 2024 15:50:25 +0000*
+- added stimulus controller autosubmit

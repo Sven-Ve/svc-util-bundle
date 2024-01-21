@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controller for svc bundles",
   "license": "MIT",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -50,12 +50,18 @@
         "main": "src/toast_controller.js",
         "fetch": "lazy",
         "enabled": true
+      },
+      "autosubmit": {
+        "main": "src/autosubmit_controller.js",
+        "fetch": "lazy",
+        "enabled": true
       }
     },
     "importmap": {
       "@hotwired/stimulus": "^3.2.0",
       "sweetalert2": "*",
-      "@ckeditor/ckeditor5-build-classic": "*"
+      "@ckeditor/ckeditor5-build-classic": "*",
+      "debounce": "*"
     }
   },
   "peerDependencies": {

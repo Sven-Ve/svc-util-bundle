@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.2.0";
-$message = "twig template (and JS controller) added for flash messages";
+$version = "5.3.0";
+$message = "added stimulus controller autosubmit";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);
