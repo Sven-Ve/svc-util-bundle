@@ -1,3 +1,4 @@
 parameters:
-	ignoreErrors:
-		- '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition.*#'
+  ignoreErrors:
+    - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition.*#'
+    - '#Attribute class Symfony\\UX\\TwigComponent\\Attribute\\AsTwigComponent does not exist.#'

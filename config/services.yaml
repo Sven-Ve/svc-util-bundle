@@ -11,3 +11,4 @@ services:
 
   Svc\UtilBundle\Service\UIHelper:
   Svc\UtilBundle\Controller\EnvInfoController:
+  Svc\UtilBundle\Twig\Components\ModalDialog:

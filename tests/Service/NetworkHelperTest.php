@@ -19,7 +19,7 @@ class NetworkHelperTest extends TestCase
     $helper = new NetworkHelper();
     $result = $helper->getLocationInfoByIp('178.197.235.71'); // IP is in Bern...
     $this->assertEquals('CH', $result['country']);
-    $this->assertEquals('Lausanne', $result['city']);
+    $this->assertEquals('Zurich', $result['city']);
   }
 
   /**

@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.3.0";
-$message = "added stimulus controller autosubmit";
+$version = "5.4.0";
+$message = "added twig component for bootstrap modal dialog, needs symfony/ux-twig-component";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

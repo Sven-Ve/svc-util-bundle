@@ -208,3 +208,8 @@
 ## Version 5.3.0
 *Sun, 21 Jan 2024 15:50:25 +0000*
 - added stimulus controller autosubmit
+
+
+## Version 5.4.0
+*Sun, 16 Jun 2024 16:01:06 +0000*
+- added twig component for bootstrap modal dialog, needs symfony/ux-twig-component

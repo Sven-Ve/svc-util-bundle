@@ -56,7 +56,7 @@ class MailerHelper
    *
    * @return bool if mail sent
    */
-  public function send(string $to, string $subject, string $html, string $text = null, ?array $options = []): bool
+  public function send(string $to, string $subject, string $html, ?string $text = null, ?array $options = []): bool
   {
     $resolver = new OptionsResolver();
     $this->configureOptions($resolver);

@@ -69,6 +69,14 @@ _include the modal html code in your twig template_
 {{ include("@SvcUtil/elements/_modal.html.twig") }}
 ```
 
+_or if you prefere the twig component (needs symfony/ux-twig-component)_
+```html
+<twig:SvcUtil-ModalDialog title="Create..." modalSize="sm">
+  {# include('...') #}
+  or some static text
+</twig:SvcUtil-ModalDialog>
+```
+
 _call the stimulus controller in your code (example)_
 
 ```html

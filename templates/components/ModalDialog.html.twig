@@ -1,0 +1,24 @@
+<div
+    {{ attributes.defaults({
+        'data-controller': 'svc--util-bundle--modal',
+        'data-action': 'turbo:before-cache@window->svc--util-bundle--modal#close',
+    }) }}
+>
+	<div class="modal fade" id="svcModal" tabindex="-1" aria-labelledby="svcModalLabel" aria-hidden="true">
+		<div class="modal-dialog {{ this.bsModalSize }}">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" id="svcModalLabel">{{ title }}</h2>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body"> {% block content %}{% endblock %}<span class="modal-details"></span></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          {% if saveButton %}
+            <button type="button" class="btn btn-primary">{{ saveButtonText }}</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
