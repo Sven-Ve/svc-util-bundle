@@ -5,7 +5,7 @@ namespace Svc\UtilBundle\Twig\Components;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent('SvcUtil-Table', '@SvcUtil/components/Table.html.twig')]
-final class Table
+class Table
 {
   public bool $hasHeader = true;
   public bool $isResponsive = true;
