@@ -21,7 +21,7 @@ class MailerHelper
 
   private $htmlContext;
 
-  public function __construct(private MailerInterface $mailer, private string $fromAdr, private ?string $fromName = null)
+  public function __construct(private MailerInterface $mailer, private ?string $fromAdr = null, private ?string $fromName = null)
   {
   }
 

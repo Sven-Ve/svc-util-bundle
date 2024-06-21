@@ -1,12 +1,17 @@
 <div class='{{ isResponsive ? "table-responsive-md" }}'>
-  <table{{ attributes.defaults({ class: this.getSmall  ~ this.getStriped ~ this.getBordered ~ 'table table-hover'}) }} >
+  <table{{ attributes.defaults({ class: this.getSmall  ~ this.getStriped ~ this.getBordered ~ this.getDark ~ 'table table-hover'}) }} >
     {% if hasHeader %}
-    <thead class='thead-light'>
-      <tr>{% block header_rows%}{% endblock %}</tr>
+    <thead class='table-light'>
+      <tr>{% block header_row%}{% endblock %}</tr>
     </thead>
     {% endif %}
-    <tbody>
+    <tbody class='{{ hasHeader ? "table-group-divider " }}'>
       {% block content%}{% endblock %}
     </tbody>
+    {% if hasFooter %}
+    <tfoot class='table-group-divider'>
+      <tr>{% block footer_row%}{% endblock %}</tr>
+    </tfoot>
+    {% endif %}
   </table>
 </div>

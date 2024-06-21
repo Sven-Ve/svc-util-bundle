@@ -13,4 +13,3 @@ services:
   Svc\UtilBundle\Controller\EnvInfoController:
   Svc\UtilBundle\Twig\Components\ModalDialog:
   Svc\UtilBundle\Twig\Components\Table:
-  Svc\UtilBundle\Twig\Components\TableType1:

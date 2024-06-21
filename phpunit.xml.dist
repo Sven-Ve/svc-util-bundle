@@ -6,6 +6,12 @@
       <directory>./tests</directory>
     </testsuite>
   </testsuites>
+
+
+  <php>
+      <server name="KERNEL_CLASS" value="Svc\UtilBundle\Tests\SvcUtilTestingKernel"/>
+  </php>
+
   <source>
     <include>
       <directory suffix=".php">./src</directory>

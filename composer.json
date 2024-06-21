@@ -42,6 +42,6 @@
   },
   "scripts": {
     "test": "vendor/bin/phpunit --testdox",
-    "phpstan": "php -d memory_limit=-1 vendor/bin/phpstan analyse src/ --level 5 -c .phpstan.neon"
+    "phpstan": "php -d memory_limit=-1 vendor/bin/phpstan analyse -c .phpstan.neon"
   }
 }

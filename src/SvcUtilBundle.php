@@ -25,6 +25,13 @@ class SvcUtilBundle extends AbstractBundle
             ->scalarNode('mail_name')->cannotBeEmpty()->defaultValue('Test User')->info('Default sender name')->end()
           ->end()
         ->end()
+
+        ->arrayNode('twig_components')->addDefaultsIfNotSet()
+          ->children()
+            ->integerNode('table_default_type')->defaultNull()->info('Default table type')->end()
+          ->end()
+        ->end()
+
       ->end();
   }
 
@@ -36,6 +43,11 @@ class SvcUtilBundle extends AbstractBundle
       ->get('Svc\UtilBundle\Service\MailerHelper')
       ->arg(1, $config['mailer']['mail_address'])
       ->arg(2, $config['mailer']['mail_name'] ?? null);
+
+    $container->services()
+      ->get('Svc\UtilBundle\Twig\Components\Table')
+      ->arg(1, $config['twig_components']['table_default_type'] ?? null)
+    ;
   }
 
   public function prependExtension(ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
