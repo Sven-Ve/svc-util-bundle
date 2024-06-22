@@ -213,3 +213,8 @@
 ## Version 5.4.0
 *Sun, 16 Jun 2024 16:01:06 +0000*
 - added twig component for bootstrap modal dialog, needs symfony/ux-twig-component
+
+
+## Version 5.5.0
+*Sat, 22 Jun 2024 14:09:51 +0000*
+- added twig component for tables, needs symfony/ux-twig-component; better test kernel, more tests

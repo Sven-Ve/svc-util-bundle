@@ -10,6 +10,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use Symfony\UX\TwigComponent\TwigComponentBundle;
 
 /**
  * Test kernel.
@@ -23,6 +24,7 @@ final class SvcUtilTestingKernel extends Kernel
     yield new FrameworkBundle();
     yield new TwigBundle();
     yield new SvcUtilBundle();
+    yield new TwigComponentBundle();
   }
 
   protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
@@ -30,6 +32,8 @@ final class SvcUtilTestingKernel extends Kernel
     $config = [
       'http_method_override' => false,
       'secret' => 'foo-secret',
+      'test' => true,
+      'property_access' => [],
     ];
 
     $container->loadFromExtension('framework', $config);

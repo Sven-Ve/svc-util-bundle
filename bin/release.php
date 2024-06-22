@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.4.0";
-$message = "added twig component for bootstrap modal dialog, needs symfony/ux-twig-component";
+$version = "5.5.0";
+$message = "added twig component for tables, needs symfony/ux-twig-component; better test kernel, more tests";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

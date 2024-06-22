@@ -7,5 +7,4 @@ parameters:
     - tests/
   ignoreErrors:
     - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition.*#'
-    - '#Attribute class Symfony\\UX\\TwigComponent\\Attribute\\AsTwigComponent does not exist.#'
     - '#Method Svc\\UtilBundle\\Tests\\SvcUtilTestingKernel::configureRoutes\(\) is unused.#'
