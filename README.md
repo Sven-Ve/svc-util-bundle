@@ -26,3 +26,4 @@ Please use version 3.x for older Symfony installations.<br/>
 * [EnvInfoHelper](docs/envinfohelper.md)
 * [NetworkHelper](docs/networkhelper.md)
 * [MailHelper](docs/mailhelper.md)
+* [BotChecker](docs/botchecker.md)

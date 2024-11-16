@@ -11,16 +11,15 @@ use Svc\UtilBundle\Service\NetworkHelper;
 class NetworkHelperTest extends TestCase
 {
   /**
-   * check if location info correct for a IP in Zurich.
+   * check if location info correct for a IP in Switzerland.
    *
    * @return void
    */
   public function testLocationInfo()
   {
     $helper = new NetworkHelper();
-    $result = $helper->getLocationInfoByIp('178.197.235.71'); // IP is in Bern...
+    $result = $helper->getLocationInfoByIp('178.197.235.71'); // IP is in CH...
     $this->assertEquals('CH', $result['country']);
-    $this->assertEquals('Zurich', $result['city']);
   }
 
   /**

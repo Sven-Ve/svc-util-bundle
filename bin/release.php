@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.5.0";
-$message = "added twig component for tables, needs symfony/ux-twig-component; better test kernel, more tests";
+$version = "5.6.0";
+$message = "Added Class BotChecker to get information if UserAgent a bot";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

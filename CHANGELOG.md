@@ -218,3 +218,8 @@
 ## Version 5.5.0
 *Sat, 22 Jun 2024 14:09:51 +0000*
 - added twig component for tables, needs symfony/ux-twig-component; better test kernel, more tests
+
+
+## Version 5.6.0
+*Sat, 16 Nov 2024 18:57:34 +0000*
+- Added Class BotChecker to get information if UserAgent a bot
