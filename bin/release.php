@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.7.0";
-$message = "Removed Class BotChecker, please use matomo/device-detector bundle";
+$version = "5.8.0";
+$message = "update to phpstan 2 and phpunit 11";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);
