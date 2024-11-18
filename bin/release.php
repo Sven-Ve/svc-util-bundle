@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.6.0";
-$message = "Added Class BotChecker to get information if UserAgent a bot";
+$version = "5.7.0";
+$message = "Removed Class BotChecker, please use matomo/device-detector bundle";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

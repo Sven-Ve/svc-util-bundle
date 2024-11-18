@@ -5,7 +5,6 @@ services:
     public: false
 
   Svc\UtilBundle\Service\NetworkHelper:
-  Svc\UtilBundle\Service\BotChecker:
   Svc\UtilBundle\Service\EnvInfoHelper:
   Svc\UtilBundle\Service\MailerHelper:
     public: true
