@@ -228,3 +228,8 @@
 ## Version 5.7.0
 *Mon, 18 Nov 2024 20:43:22 +0000*
 - Removed Class BotChecker, please use matomo/device-detector bundle
+
+
+## Version 5.7.0
+*Mon, 18 Nov 2024 21:07:06 +0000*
+- Removed Class BotChecker, please use matomo/device-detector bundle
