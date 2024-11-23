@@ -230,11 +230,6 @@
 - Removed Class BotChecker, please use matomo/device-detector bundle
 
 
-## Version 5.7.0
-*Mon, 18 Nov 2024 21:07:06 +0000*
-- Removed Class BotChecker, please use matomo/device-detector bundle
-
-
 ## Version 5.8.0
 *Mon, 18 Nov 2024 21:08:32 +0000*
 - update to phpstan 2 and phpunit 11
