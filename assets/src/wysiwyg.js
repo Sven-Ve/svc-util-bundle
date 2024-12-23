@@ -8,6 +8,7 @@ export default class extends Controller {
   connect() {
     ClassicEditor
       .create(this.element, {
+        licenseKey: 'GPL',
         toolbar: {
           items: [
             //      'heading', '|',

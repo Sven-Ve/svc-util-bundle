@@ -233,3 +233,8 @@
 ## Version 5.8.0
 *Mon, 18 Nov 2024 21:08:32 +0000*
 - update to phpstan 2 and phpunit 11
+
+
+## Version 5.9.0
+*Mon, 23 Dec 2024 20:42:00 +0000*
+- add GPL licence key for CKEditor

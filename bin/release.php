@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.8.0";
-$message = "update to phpstan 2 and phpunit 11";
+$version = "5.9.0";
+$message = "add GPL licence key for CKEditor";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);
