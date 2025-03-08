@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the svc/util-bundle.
+ *
+ * (c) Sven Vetter <dev@sv-systems.com>.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Svc\UtilBundle\Service;
 
 /**
@@ -24,9 +33,10 @@ class NetworkHelper
     // whether ip is from remote address
     elseif (!empty($_SERVER['REMOTE_ADDR'])) {
       return $_SERVER['REMOTE_ADDR'];
-    } else {
-      return null;
     }
+
+    return null;
+
   }
 
   /**
