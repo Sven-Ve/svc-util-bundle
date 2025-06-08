@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "5.9.0";
-$message = "add GPL licence key for CKEditor";
+$version = "5.9.1";
+$message = "add getLastSendError method to MailerHelper";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

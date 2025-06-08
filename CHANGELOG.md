@@ -238,3 +238,8 @@
 ## Version 5.9.0
 *Mon, 23 Dec 2024 20:42:00 +0000*
 - add GPL licence key for CKEditor
+
+
+## Version 5.9.1
+*Sun, 08 Jun 2025 07:39:02 +0000*
+- add getLastSendError method to MailerHelper

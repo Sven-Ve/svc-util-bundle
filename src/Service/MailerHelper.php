@@ -30,6 +30,8 @@ class MailerHelper
 
   private $htmlContext;
 
+  private ?string $lastSendError = null;
+
   public function __construct(private MailerInterface $mailer, private ?string $fromAdr = null, private ?string $fromName = null)
   {
   }
@@ -67,6 +69,7 @@ class MailerHelper
    */
   public function send(string $to, string $subject, string $html, ?string $text = null, ?array $options = []): bool
   {
+    $this->lastSendError = null;
     $resolver = new OptionsResolver();
     $this->configureOptions($resolver);
     $options = $resolver->resolve($options);
@@ -137,7 +140,8 @@ class MailerHelper
 
     try {
       $this->mailer->send($email);
-    } catch (\Exception) {
+    } catch (\Exception $e) {
+      $this->lastSendError = $e->getMessage();
       return false;
     }
 
@@ -170,5 +174,10 @@ class MailerHelper
     $resolver->setAllowedTypes('dryRun', 'bool');
     $resolver->setAllowedTypes('debug', 'bool');
     $resolver->setAllowedTypes('attachFromPath', ['string', 'null']);
+  }
+
+  public function getLastSendError(): ?string
+  {
+    return $this->lastSendError;
   }
 }
