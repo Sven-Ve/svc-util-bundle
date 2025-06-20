@@ -26,36 +26,36 @@ use Symfony\UX\TwigComponent\TwigComponentBundle;
  */
 final class SvcUtilTestingKernel extends Kernel
 {
-  use MicroKernelTrait;
+    use MicroKernelTrait;
 
-  public function registerBundles(): iterable
-  {
-    yield new FrameworkBundle();
-    yield new TwigBundle();
-    yield new SvcUtilBundle();
-    yield new TwigComponentBundle();
-  }
+    public function registerBundles(): iterable
+    {
+        yield new FrameworkBundle();
+        yield new TwigBundle();
+        yield new SvcUtilBundle();
+        yield new TwigComponentBundle();
+    }
 
-  protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
-  {
-    $config = [
-      'http_method_override' => false,
-      'secret' => 'foo-secret',
-      'test' => true,
-      'property_access' => [],
-    ];
+    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+    {
+        $config = [
+            'http_method_override' => false,
+            'secret' => 'foo-secret',
+            'test' => true,
+            'property_access' => [],
+        ];
 
-    $container->loadFromExtension('framework', $config);
-  }
+        $container->loadFromExtension('framework', $config);
+    }
 
-  /**
-   * load bundle routes.
-   *
-   * @return void
-   */
-  private function configureRoutes(RoutingConfigurator $routes)
-  {
-    $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/api/{_locale}');
-    // $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/api/en');
-  }
+    /**
+     * load bundle routes.
+     *
+     * @return void
+     */
+    private function configureRoutes(RoutingConfigurator $routes)
+    {
+        $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/api/{_locale}');
+        // $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/api/en');
+    }
 }

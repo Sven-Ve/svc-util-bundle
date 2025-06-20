@@ -19,16 +19,16 @@ use Svc\UtilBundle\Service\UIHelper;
  */
 class UIHelperTest extends TestCase
 {
-  /**
-   * check function getRandomColor.
-   *
-   * @return void
-   */
-  public function testGetRandomColor()
-  {
-    $helper = new UIHelper();
-    $result = $helper->getRandomColor();
-    $this->assertNotEmpty($result);
-    $this->assertStringStartsWith('rgb', $result);
-  }
+    /**
+     * check function getRandomColor.
+     *
+     * @return void
+     */
+    public function testGetRandomColor()
+    {
+        $helper = new UIHelper();
+        $result = $helper->getRandomColor();
+        $this->assertNotEmpty($result);
+        $this->assertStringStartsWith('rgb', $result);
+    }
 }
