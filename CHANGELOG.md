@@ -243,3 +243,8 @@
 ## Version 5.9.1
 *Sun, 08 Jun 2025 07:39:02 +0000*
 - add getLastSendError method to MailerHelper
+
+
+## Version 5.9.2
+*Sat, 21 Jun 2025 21:00:39 +0000*
+- new mail test added

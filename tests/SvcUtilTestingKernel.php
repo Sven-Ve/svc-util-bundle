@@ -43,6 +43,9 @@ final class SvcUtilTestingKernel extends Kernel
             'secret' => 'foo-secret',
             'test' => true,
             'property_access' => [],
+            'mailer' => [
+                'dsn' => 'null://default',
+            ],
         ];
 
         $container->loadFromExtension('framework', $config);

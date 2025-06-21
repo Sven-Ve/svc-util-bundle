@@ -10,8 +10,8 @@
  * file that was distributed with this source code.
  */
 
-$version = '5.9.1';
-$message = 'add getLastSendError method to MailerHelper';
+$version = '5.9.2';
+$message = 'new mail test added';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);
