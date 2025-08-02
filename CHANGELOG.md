@@ -248,3 +248,8 @@
 ## Version 5.9.2
 *Sat, 21 Jun 2025 21:00:39 +0000*
 - new mail test added
+
+
+## Version 5.10.0
+*Sat, 02 Aug 2025 20:25:47 +0000*
+- improve EnvInfoController and security, add copyright year

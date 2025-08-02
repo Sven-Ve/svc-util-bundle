@@ -1,5 +1,6 @@
 <?php
 
+$year = date('Y');
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('var')
@@ -22,7 +23,7 @@ return $config
         'concat_space' => ["spacing" => "one"],
         'class_attributes_separation' => ['elements' => ['property' => 'one', 'method' => 'one']],
         'header_comment' => [
-          'header' => "This file is part of the svc/util-bundle.\n\n(c) Sven Vetter <dev@sv-systems.com>.\n\nFor the full copyright and license information, please view the LICENSE\nfile that was distributed with this source code.",
+          'header' => "This file is part of the svc/util-bundle.\n\n(c) " . $year . " Sven Vetter <dev@sv-systems.com>.\n\nFor the full copyright and license information, please view the LICENSE\nfile that was distributed with this source code.",
           'separate' => 'both'
       ]
     ])
