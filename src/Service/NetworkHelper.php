@@ -23,20 +23,35 @@ class NetworkHelper
      */
     public static function getIP(): ?string
     {
-        if (!empty($_SERVER['HTTP_CLIENT_IP']) and filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP)) {
-            return $_SERVER['HTTP_CLIENT_IP'];
-        }
-        // whether ip is from proxy
-        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']) and filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP)) {
-            return $_SERVER['HTTP_X_FORWARDED_FOR'];
-        }
-        // whether ip is from remote address
-        elseif (!empty($_SERVER['REMOTE_ADDR'])) {
-            return $_SERVER['REMOTE_ADDR'];
+        // Priority order: client IP, forwarded IP, remote address
+        $headers = [
+            'HTTP_CLIENT_IP',
+            'HTTP_X_FORWARDED_FOR',
+            'REMOTE_ADDR',
+        ];
+
+        foreach ($headers as $header) {
+            if (!empty($_SERVER[$header])) {
+                $ip = $_SERVER[$header];
+
+                // Handle comma-separated IPs from X-Forwarded-For
+                if ($header === 'HTTP_X_FORWARDED_FOR' && str_contains($ip, ',')) {
+                    $ip = trim(explode(',', $ip)[0]);
+                }
+
+                // Validate IP and exclude private/reserved ranges for security
+                if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+                    return $ip;
+                }
+
+                // If it's a valid IP but private/reserved, still return it for local development
+                if (filter_var($ip, FILTER_VALIDATE_IP)) {
+                    return $ip;
+                }
+            }
         }
 
         return null;
-
     }
 
     /**
@@ -73,14 +88,39 @@ class NetworkHelper
         }
         $result = ['country' => '', 'city' => ''];
 
-        try {
-            $ip_data = @json_decode(file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip), null, 512, JSON_THROW_ON_ERROR);
+        // Validate IP address to prevent SSRF attacks
+        if (!$ip || !filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+            return $result;
+        }
 
-            if ($ip_data && $ip_data->geoplugin_countryName != null) {
+        try {
+            // Use HTTP and add timeout for security and performance
+            // TODO: use ssl, but needs and account and an api key
+            $context = stream_context_create([
+                'http' => [
+                    'timeout' => 5,
+                    'method' => 'GET',
+                    'header' => 'User-Agent: SvcUtilBundle/1.0',
+                ],
+                // 'ssl' => [
+                //     'verify_peer' => true,
+                //     'verify_peer_name' => true,
+                // ],
+            ]);
+
+            $response = @file_get_contents('http://www.geoplugin.net/json.gp?ip=' . urlencode($ip), false, $context);
+            if ($response === false) {
+                return $result;
+            }
+
+            $ip_data = json_decode($response, null, 512, JSON_THROW_ON_ERROR);
+
+            if ($ip_data && isset($ip_data->geoplugin_countryCode) && $ip_data->geoplugin_countryCode !== null) {
                 $result['country'] = $ip_data->geoplugin_countryCode;
-                $result['city'] = $ip_data->geoplugin_city;
+                $result['city'] = $ip_data->geoplugin_city ?? '';
             }
         } catch (\Exception) {
+            // Silently fail and return empty result
         }
 
         return $result;

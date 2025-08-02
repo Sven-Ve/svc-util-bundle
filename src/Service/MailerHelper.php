@@ -168,8 +168,8 @@ class MailerHelper
 
         $resolver->setAllowedTypes('priority', 'int');
         $resolver->setAllowedTypes('toName', ['string', 'null']);
-        $resolver->setAllowedTypes('toName', ['string', 'null']);
         $resolver->setAllowedTypes('cc', ['string', 'null']);
+        $resolver->setAllowedTypes('ccName', ['string', 'null']);
         $resolver->setAllowedTypes('bcc', ['string', 'null']);
         $resolver->setAllowedTypes('replyTo', ['string', 'null']);
         $resolver->setAllowedTypes('dryRun', 'bool');

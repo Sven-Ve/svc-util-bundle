@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(composer:*)"
+      "Bash(composer:*)",
+      "Bash(/opt/homebrew/bin/php-cs-fixer fix)"
     ],
     "deny": []
   }

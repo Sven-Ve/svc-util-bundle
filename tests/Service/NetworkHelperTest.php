@@ -28,6 +28,10 @@ class NetworkHelperTest extends TestCase
     {
         $helper = new NetworkHelper();
         $result = $helper->getLocationInfoByIp('178.197.235.71'); // IP is in CH...
+        // Due to enhanced security validation, this might return empty for tests
+        // The important thing is that the method doesn't fail
+        $this->assertArrayHasKey('country', $result);
+        $this->assertArrayHasKey('city', $result);
         $this->assertEquals('CH', $result['country']);
     }
 

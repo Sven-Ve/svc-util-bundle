@@ -41,7 +41,7 @@ class EnvInfoHelperTest extends TestCase
     {
         $helper = new EnvInfoHelper();
         $result = $helper->getRootURLandPrefix();
-        $this->assertEquals('http://', $result); // should be only "://" because returns getURLtoIndexPhp
+        $this->assertEquals('http://localhost', $result); // now returns http://localhost due to security validation
     }
 
     /**
@@ -53,7 +53,7 @@ class EnvInfoHelperTest extends TestCase
     {
         $helper = new EnvInfoHelper();
         $result = $helper->getURLtoIndexPhp();
-        $this->assertEquals('http://vendor/bin/phpunit', $result); // should be path to simple-phpunit
+        $this->assertEquals('http://localhost', $result); // now returns http://localhost due to security validation
     }
 
     /**

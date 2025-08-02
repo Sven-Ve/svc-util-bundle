@@ -31,7 +31,18 @@ class EnvInfoHelper
                 $prot = 'http';
             }
         }
-        $host = $_SERVER['HTTP_HOST'] ?? null;
+
+        // Validate protocol to prevent header injection
+        if (!in_array($prot, ['http', 'https'], true)) {
+            $prot = 'http';
+        }
+
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+
+        // Validate and sanitize host to prevent header injection
+        if (!preg_match('/^[a-zA-Z0-9.-]+(?::[0-9]+)?$/', $host)) {
+            $host = 'localhost';
+        }
 
         return $prot . '://' . $host;
     }
@@ -42,7 +53,11 @@ class EnvInfoHelper
     public static function getRootURLandPrefix(): string
     {
         if (array_key_exists('CONTEXT_PREFIX', $_SERVER)) {
-            return self::getRootURL() . $_SERVER['CONTEXT_PREFIX'];
+            $prefix = $_SERVER['CONTEXT_PREFIX'];
+            // Validate prefix to prevent path injection
+            if (preg_match('/^\/[a-zA-Z0-9\/_-]*$/', $prefix)) {
+                return self::getRootURL() . $prefix;
+            }
         }
 
         return self::getRootURL();
@@ -54,7 +69,11 @@ class EnvInfoHelper
     public static function getURLtoIndexPhp(): string
     {
         if (array_key_exists('SCRIPT_NAME', $_SERVER)) {
-            return self::getRootURL() . $_SERVER['SCRIPT_NAME'];
+            $scriptName = $_SERVER['SCRIPT_NAME'];
+            // Validate script name to prevent path injection
+            if (preg_match('/^\/[a-zA-Z0-9\/_.-]*\.php$/', $scriptName)) {
+                return self::getRootURL() . $scriptName;
+            }
         }
 
         return self::getRootURL();
@@ -68,8 +87,14 @@ class EnvInfoHelper
     public static function getSubDomain(?string $url = null): string
     {
         if (!$url) {
-            $url = $_SERVER['HTTP_HOST'];
+            $url = $_SERVER['HTTP_HOST'] ?? '';
         }
+
+        // Validate URL format to prevent injection
+        if (!preg_match('/^[a-zA-Z0-9.-]+(?::[0-9]+)?$/', $url)) {
+            return '';
+        }
+
         if (str_starts_with($url, '127.0.0.1')) {
             return '';
         }
