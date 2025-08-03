@@ -37,7 +37,7 @@
     <table class="table table-striped table-sm mb-0">
       <tr><th style="width: 25%;">Environment</th><td>{{ debugInfo.environment | default('n/a') | e('html') }}</td></tr>
       <tr><th>Debug mode</th><td>{{ debugInfo.debug_mode ? 'Enabled' : 'Disabled' }}</td></tr>
-      <tr><th>SYMFONY_DOTENV_VARS</th><td>{{ server.SYMFONY_DOTENV_VARS | default('n/a') | e('html') }}</td></tr>
+      <tr><th>SYMFONY_DOTENV_VARS</th><td style="word-break: break-all; white-space: pre-wrap;">{{ server.SYMFONY_DOTENV_VARS | default('n/a') | replace({',': ',\n'}) | e('html') }}</td></tr>
       <tr><th>APP_LOG_DIR (Env)</th><td>{{ server.APP_LOG_DIR | default('') | e('html') }}</td></tr>
       <tr><th>APP_CACHE_DIR (Env)</th><td>{{ server.APP_CACHE_DIR | default('') | e('html') }}</td></tr>
       <tr><th>Project root</th><td>{{ projectRoot | default('n/a') | e('html') }}</td></tr>
