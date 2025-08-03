@@ -25,4 +25,12 @@ Get information about the current environment
    * @return string
    */
   public static function getURLtoIndexPhp(): string {} 
+
+  /**
+   * get the subdomain for a url or '' if no subdomain exists
+   *
+   * @param string|null $url if null the current host is used
+   * @return string
+   */
+  public static function getSubDomain(?string $url = null): string {}
 ```

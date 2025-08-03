@@ -20,9 +20,11 @@ Please use version 3.x for older Symfony installations.<br/>
  * [Stimulus controllers](docs/stimulus-controllers.md) (javascript)
 
  ### Twig components
+ * [Twig Components (Table, Modal)](docs/twig-components.md)
  * [Flash messages](docs/twig_flash.md)
 
 ### Services:
 * [EnvInfoHelper](docs/envinfohelper.md)
 * [NetworkHelper](docs/networkhelper.md)
 * [MailHelper](docs/mailhelper.md)
+* [UIHelper](docs/uihelper.md)

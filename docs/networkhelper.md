@@ -2,6 +2,12 @@
 
 Helper class to give network information
 
+## Important Security Notes
+
+- **Geolocation API**: Uses HTTP (not HTTPS) due to licensing limitations. Consider this for production use.
+- **IP Validation**: Public IP detection filters out private and reserved IP ranges for security.
+- **External Dependency**: Location information depends on external service (geoplugin.net) with 5-second timeout.
+
 ## Signatures
 
 ```php
