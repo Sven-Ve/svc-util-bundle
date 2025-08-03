@@ -10,8 +10,8 @@
  * file that was distributed with this source code.
  */
 
-$version = '5.10.0';
-$message = 'improve EnvInfoController and security, add copyright year';
+$version = '5.10.1';
+$message = 'improve EnvInfoController layout and documentation';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

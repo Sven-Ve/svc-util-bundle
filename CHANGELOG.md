@@ -253,3 +253,8 @@
 ## Version 5.10.0
 *Sat, 02 Aug 2025 20:25:47 +0000*
 - improve EnvInfoController and security, add copyright year
+
+
+## Version 5.10.1
+*Sun, 03 Aug 2025 19:32:26 +0000*
+- improve EnvInfoController layout and documentation
