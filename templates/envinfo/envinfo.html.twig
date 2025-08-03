@@ -5,74 +5,110 @@
 {% block body %}
 <h2>{% trans %}Admin Info{% endtrans %}</h2>
 
-<h4>Server</h4>
-<table class='table'>
-  <tr><th>DOCUMENT_ROOT</th><td>{{ server.DOCUMENT_ROOT | default('n/a') | e('html') }}</td></tr>
-  <tr><th>SERVER_SIGNATURE</th><td>{{ server.SERVER_SIGNATURE | default('n/a') | e('html') }}</td></tr>
-  <tr><th>SERVER_SOFTWARE</th><td>{{ server.SERVER_SOFTWARE | default('n/a') | e('html') }}</td></tr>
-  <tr><th>SERVER_ADMIN</th><td>{{ server.SERVER_ADMIN | default('n/a') | e('html') }}</td></tr>
-  <tr><th>PHP OS</th><td>{{ constant('PHP_OS') | default('n/a') | e('html') }}</td></tr>
-  <tr><th>PHP version</th><td>{{ constant('PHP_VERSION') | default('n/a') | e('html') }}</td></tr>
-  <tr><th>PHP binary</th><td>{{ constant('PHP_BINARY') | default('n/a') | e('html') }}</td></tr>
-  <tr><th>PHP SAPI</th><td>{{ phpInfo.sapi | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Memory limit</th><td>{{ phpInfo.memory_limit | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Max execution time</th><td>{{ phpInfo.max_execution_time | default('n/a') | e('html') }}s</td></tr>
-  <tr><th>Upload max filesize</th><td>{{ phpInfo.upload_max_filesize | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Post max size</th><td>{{ phpInfo.post_max_size | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Timezone</th><td>{{ phpInfo.timezone | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Server time</th><td>{{ phpInfo.server_time | default('n/a') | e('html') }}</td></tr>
-</table>
+<div class="card mb-4">
+  <div class="card-header bg-primary text-white">
+    <h5 class="card-title mb-0">Server Information</h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-sm mb-0">
+      <tr><th style="width: 25%;">DOCUMENT_ROOT</th><td>{{ server.DOCUMENT_ROOT | default('n/a') | e('html') }}</td></tr>
+      <tr><th>SERVER_SIGNATURE</th><td>{{ server.SERVER_SIGNATURE | default('n/a') | e('html') }}</td></tr>
+      <tr><th>SERVER_SOFTWARE</th><td>{{ server.SERVER_SOFTWARE | default('n/a') | e('html') }}</td></tr>
+      <tr><th>SERVER_ADMIN</th><td>{{ server.SERVER_ADMIN | default('n/a') | e('html') }}</td></tr>
+      <tr><th>PHP OS</th><td>{{ constant('PHP_OS') | default('n/a') | e('html') }}</td></tr>
+      <tr><th>PHP version</th><td>{{ constant('PHP_VERSION') | default('n/a') | e('html') }}</td></tr>
+      <tr><th>PHP binary</th><td>{{ constant('PHP_BINARY') | default('n/a') | e('html') }}</td></tr>
+      <tr><th>PHP SAPI</th><td>{{ phpInfo.sapi | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Memory limit</th><td>{{ phpInfo.memory_limit | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Max execution time</th><td>{{ phpInfo.max_execution_time | default('n/a') | e('html') }}s</td></tr>
+      <tr><th>Upload max filesize</th><td>{{ phpInfo.upload_max_filesize | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Post max size</th><td>{{ phpInfo.post_max_size | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Timezone</th><td>{{ phpInfo.timezone | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Server time</th><td>{{ phpInfo.server_time | default('n/a') | e('html') }}</td></tr>
+    </table>
+  </div>
+</div>
 
-<h4>Application</h4>
-<table class='table'>
-  <tr><th>Environment</th><td>{{ debugInfo.environment | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Debug mode</th><td>{{ debugInfo.debug_mode ? 'Enabled' : 'Disabled' }}</td></tr>
-  <tr><th>SYMFONY_DOTENV_VARS</th><td>{{ server.SYMFONY_DOTENV_VARS | default('n/a') | e('html') }}</td></tr>
-  <tr><th>APP_LOG_DIR (Env)</th><td>{{ server.APP_LOG_DIR | default('') | e('html') }}</td></tr>
-  <tr><th>APP_CACHE_DIR (Env)</th><td>{{ server.APP_CACHE_DIR | default('') | e('html') }}</td></tr>
-  <tr><th>Project root</th><td>{{ projectRoot | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Log dir (real)</th><td>{{ logDir | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Cache dir (real)</th><td>{{ cacheDir | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Symfony version</th><td>{{ symfonyversion | default('n/a') | e('html') }}</td></tr>
-</table>
+<div class="card mb-4">
+  <div class="card-header bg-success text-white">
+    <h5 class="card-title mb-0">Application Information</h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-sm mb-0">
+      <tr><th style="width: 25%;">Environment</th><td>{{ debugInfo.environment | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Debug mode</th><td>{{ debugInfo.debug_mode ? 'Enabled' : 'Disabled' }}</td></tr>
+      <tr><th>SYMFONY_DOTENV_VARS</th><td>{{ server.SYMFONY_DOTENV_VARS | default('n/a') | e('html') }}</td></tr>
+      <tr><th>APP_LOG_DIR (Env)</th><td>{{ server.APP_LOG_DIR | default('') | e('html') }}</td></tr>
+      <tr><th>APP_CACHE_DIR (Env)</th><td>{{ server.APP_CACHE_DIR | default('') | e('html') }}</td></tr>
+      <tr><th>Project root</th><td>{{ projectRoot | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Log dir (real)</th><td>{{ logDir | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Cache dir (real)</th><td>{{ cacheDir | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Symfony version</th><td>{{ symfonyversion | default('n/a') | e('html') }}</td></tr>
+    </table>
+  </div>
+</div>
 
-<h4>Client</h4>
-<table class='table'>
-  <tr><th>IP</th><td>{{ netInfo.ip | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Country</th><td>{{ netInfo.country | default('n/a') | e('html') }}</td></tr>
-  <tr><th>City</th><td>{{ netInfo.city | default('n/a') | e('html') }}</td></tr>
-  <tr><th>User agent</th><td>{{ netInfo.ua | default('n/a') | e('html') | slice(0, 100) }}</td></tr>
-  <tr><th>Referer</th><td>{{ netInfo.referer | default('n/a') | e('html') | slice(0, 100) }}</td></tr>
-</table>
+<div class="card mb-4">
+  <div class="card-header bg-info text-white">
+    <h5 class="card-title mb-0">Client Information</h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-sm mb-0">
+      <tr><th style="width: 25%;">IP</th><td>{{ netInfo.ip | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Country</th><td>{{ netInfo.country | default('n/a') | e('html') }}</td></tr>
+      <tr><th>City</th><td>{{ netInfo.city | default('n/a') | e('html') }}</td></tr>
+      <tr><th>User agent</th><td>{{ netInfo.ua | default('n/a') | e('html') | slice(0, 100) }}</td></tr>
+      <tr><th>Referer</th><td>{{ netInfo.referer | default('n/a') | e('html') | slice(0, 100) }}</td></tr>
+    </table>
+  </div>
+</div>
 
-<h4>SSL/HTTPS</h4>
-<table class='table'>
-  <tr><th>Secure connection</th><td>{{ sslInfo.is_secure ? 'Yes' : 'No' }}</td></tr>
-  <tr><th>Scheme</th><td>{{ sslInfo.scheme | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Port</th><td>{{ sslInfo.port | default('n/a') | e('html') }}</td></tr>
-  <tr><th>HTTPS header</th><td>{{ sslInfo.https_header | default('n/a') | e('html') }}</td></tr>
-</table>
+<div class="card mb-4">
+  <div class="card-header bg-warning text-dark">
+    <h5 class="card-title mb-0">SSL/HTTPS Information</h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-sm mb-0">
+      <tr><th style="width: 25%;">Secure connection</th><td>{{ sslInfo.is_secure ? 'Yes' : 'No' }}</td></tr>
+      <tr><th>Scheme</th><td>{{ sslInfo.scheme | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Port</th><td>{{ sslInfo.port | default('n/a') | e('html') }}</td></tr>
+      <tr><th>HTTPS header</th><td>{{ sslInfo.https_header | default('n/a') | e('html') }}</td></tr>
+    </table>
+  </div>
+</div>
 
-<h4>OPcache</h4>
-<table class='table'>
-  <tr><th>Status</th><td>{{ opcacheInfo.status | default('n/a') | e('html') }}</td></tr>
-  {% if opcacheInfo.opcache_enabled is defined %}
-  <tr><th>Enabled</th><td>{{ opcacheInfo.opcache_enabled ? 'Yes' : 'No' }}</td></tr>
-  <tr><th>Cache full</th><td>{{ opcacheInfo.cache_full ? 'Yes' : 'No' }}</td></tr>
-  {% if opcacheInfo.memory_usage.used_memory is defined %}
-  <tr><th>Memory used</th><td>{{ (opcacheInfo.memory_usage.used_memory / 1024 / 1024) | round(2) }} MB</td></tr>
-  <tr><th>Memory free</th><td>{{ (opcacheInfo.memory_usage.free_memory / 1024 / 1024) | round(2) }} MB</td></tr>
-  {% endif %}
-  {% if opcacheInfo.opcache_statistics.hits is defined %}
-  <tr><th>Cache hits</th><td>{{ opcacheInfo.opcache_statistics.hits | number_format }}</td></tr>
-  <tr><th>Cache misses</th><td>{{ opcacheInfo.opcache_statistics.misses | number_format }}</td></tr>
-  {% endif %}
-  {% endif %}
-</table>
+<div class="card mb-4">
+  <div class="card-header bg-secondary text-white">
+    <h5 class="card-title mb-0">OPcache Information</h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-sm mb-0">
+      <tr><th style="width: 25%;">Status</th><td>{{ opcacheInfo.status | default('n/a') | e('html') }}</td></tr>
+      {% if opcacheInfo.opcache_enabled is defined %}
+      <tr><th>Enabled</th><td>{{ opcacheInfo.opcache_enabled ? 'Yes' : 'No' }}</td></tr>
+      <tr><th>Cache full</th><td>{{ opcacheInfo.cache_full ? 'Yes' : 'No' }}</td></tr>
+      {% if opcacheInfo.memory_usage.used_memory is defined %}
+      <tr><th>Memory used</th><td>{{ (opcacheInfo.memory_usage.used_memory / 1024 / 1024) | round(2) }} MB</td></tr>
+      <tr><th>Memory free</th><td>{{ (opcacheInfo.memory_usage.free_memory / 1024 / 1024) | round(2) }} MB</td></tr>
+      {% endif %}
+      {% if opcacheInfo.opcache_statistics.hits is defined %}
+      <tr><th>Cache hits</th><td>{{ opcacheInfo.opcache_statistics.hits | number_format }}</td></tr>
+      <tr><th>Cache misses</th><td>{{ opcacheInfo.opcache_statistics.misses | number_format }}</td></tr>
+      {% endif %}
+      {% endif %}
+    </table>
+  </div>
+</div>
 
-<h4>Cache</h4>
-<table class='table'>
-  <tr><th>Status</th><td>{{ cacheInfo.status | default('n/a') | e('html') }}</td></tr>
-  <tr><th>Type</th><td>{{ cacheInfo.type | default('n/a') | e('html') }}</td></tr>
-</table>
+<div class="card mb-4">
+  <div class="card-header bg-dark text-white">
+    <h5 class="card-title mb-0">Cache Information</h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-sm mb-0">
+      <tr><th style="width: 25%;">Status</th><td>{{ cacheInfo.status | default('n/a') | e('html') }}</td></tr>
+      <tr><th>Type</th><td>{{ cacheInfo.type | default('n/a') | e('html') }}</td></tr>
+    </table>
+  </div>
+</div>
 {% endblock %}
