@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Svc\ProfileBundle\Tests\Components;
+namespace Svc\UtilBundle\Tests\Components;
 
 use Svc\UtilBundle\Twig\Components\Table;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

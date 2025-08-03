@@ -50,3 +50,7 @@ The bundle uses Symfony's new Bundle Configuration System (requires Symfony >=6.
 ### Test Architecture
 
 Uses PHPUnit with a custom testing kernel (`SvcUtilTestingKernel`) for isolated bundle testing.
+
+### Info
+
+the geolocation API works only with http because of licence issues.

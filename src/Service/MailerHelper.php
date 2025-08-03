@@ -85,7 +85,7 @@ class MailerHelper
                 $from = $this->fromAdr;
             }
         } else {
-            $from = new Address('dev@sv-systems.com', 'Test User');
+            throw new \InvalidArgumentException('No sender email address configured. Please configure mailer.mail_address in your bundle configuration.');
         }
 
         $email = (new TemplatedEmail())
