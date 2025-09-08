@@ -18,7 +18,7 @@ use Symfony\Component\Mime\Email;
 /**
  * testing the MailHelper class.
  */
-class MailerHelperTest extends KernelTestCase
+final class MailerHelperTest extends KernelTestCase
 {
     public static function setUpBeforeClass(): void
     {

@@ -18,8 +18,7 @@
     "symfony/framework-bundle": "^6.3|^7",
     "symfony/options-resolver": "^6.3|^7",
     "symfony/mailer": "^6.3|^7",
-    "symfony/twig-bundle": "^6.3|^7",
-    "symfony/yaml": "^6.3|^7"
+    "symfony/twig-bundle": "^6.3|^7"
   },
   "suggest": {
     "symfony/ux-twig-component": "if you want to use the twig component for modal dialog"

@@ -18,7 +18,7 @@ use Svc\UtilBundle\Service\EnvInfoHelper;
  * Unit tests for class EnvInfo
  * Helper.
  */
-class EnvInfoHelperTest extends TestCase
+final class EnvInfoHelperTest extends TestCase
 {
     /**
      * check root url, should by empty in tests.

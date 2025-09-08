@@ -258,3 +258,8 @@
 ## Version 5.10.1
 *Sun, 03 Aug 2025 19:32:26 +0000*
 - improve EnvInfoController layout and documentation
+
+
+## Version 6.0.0
+*Mon, 08 Sep 2025 19:44:48 +0000*
+- breaking change, now it use php as route configuration. You have to import the routes in your project manually. See docs for more information.

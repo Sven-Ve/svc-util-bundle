@@ -13,7 +13,7 @@ You can adapt the route in config/routes/svc_util.yaml:
 ```yaml
 # config/routes/svc_util.yaml
 _svc_util:
-    resource: '@SvcUtilBundle/config/routes.yaml'
+    resource: '@SvcUtilBundle/config/routes.php'
     prefix: /svc-profile/{_locale}
 ```
 

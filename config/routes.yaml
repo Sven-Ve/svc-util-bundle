@@ -1,3 +1,0 @@
-svc_envinfo_info:
-  path: /envinfo
-  controller: Svc\UtilBundle\Controller\EnvInfoController::info

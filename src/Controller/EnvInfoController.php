@@ -11,7 +11,6 @@
 
 namespace Svc\UtilBundle\Controller;
 
-// use App\Kernel;
 use Psr\Cache\CacheItemPoolInterface;
 use Svc\UtilBundle\Service\NetworkHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Kernel;
 
-class EnvInfoController extends AbstractController
+final class EnvInfoController extends AbstractController
 {
     public function info(Request $request): Response
     {

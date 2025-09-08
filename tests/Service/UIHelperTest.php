@@ -17,7 +17,7 @@ use Svc\UtilBundle\Service\UIHelper;
 /**
  * Unit tests for class UIHelper.
  */
-class UIHelperTest extends TestCase
+final class UIHelperTest extends TestCase
 {
     /**
      * check function getRandomColor.

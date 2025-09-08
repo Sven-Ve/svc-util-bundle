@@ -32,6 +32,12 @@ svc_util:
 
 **Critical**: The `MailerHelper` service will throw `InvalidArgumentException` if `mailer.mail_address` is not configured.
 
+### Configuration Validation
+
+The bundle validates that required configuration values are properly set:
+- `mailer.mail_address` must be provided (has default 'test@test.com' but should be overridden in production)
+- Defaults exist for testing but production apps should override with real values
+
 ### Core Services Architecture
 
 **NetworkHelper** (static methods):

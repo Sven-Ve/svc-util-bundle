@@ -58,7 +58,6 @@ final class SvcUtilTestingKernel extends Kernel
      */
     private function configureRoutes(RoutingConfigurator $routes)
     {
-        $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/api/{_locale}');
-        // $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/api/en');
+        $routes->import(__DIR__ . '/../config/routes.php')->prefix('/api/{_locale}');
     }
 }
