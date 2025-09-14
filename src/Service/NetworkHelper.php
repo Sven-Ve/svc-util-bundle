@@ -115,7 +115,7 @@ class NetworkHelper
 
             $ip_data = json_decode($response, null, 512, JSON_THROW_ON_ERROR);
 
-            if ($ip_data && isset($ip_data->geoplugin_countryCode) && $ip_data->geoplugin_countryCode !== null) {
+            if ($ip_data && isset($ip_data->geoplugin_countryCode)) {
                 $result['country'] = $ip_data->geoplugin_countryCode;
                 $result['city'] = $ip_data->geoplugin_city ?? '';
             }
