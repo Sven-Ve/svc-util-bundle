@@ -263,3 +263,8 @@
 ## Version 6.0.0
 *Mon, 08 Sep 2025 19:44:48 +0000*
 - breaking change, now it use php as route configuration. You have to import the routes in your project manually. See docs for more information.
+
+
+## Version 6.0.1
+*Sun, 14 Sep 2025 08:49:02 +0000*
+- breaking change, now it use php as route configuration. You have to import the routes in your project manually. See docs for more information.

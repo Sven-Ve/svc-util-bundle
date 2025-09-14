@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-$version = '6.0.0';
+$version = '6.0.1';
 $message = 'breaking change, now it use php as route configuration. You have to import the routes in your project manually. See docs for more information.';
 
 echo "Running phpstan:\n";
