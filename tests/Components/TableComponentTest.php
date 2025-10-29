@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the svc/util-bundle.
  *
@@ -39,10 +41,10 @@ class TableComponentTest extends KernelTestCase
             name: Table::class,
         );
 
-        $this->assertStringContainsString('<thead', $rendered);
-        $this->assertStringContainsString('table-responsive', $rendered);
-        $this->assertStringContainsString('table-hover', $rendered);
-        $this->assertStringContainsString('table-light', $rendered);
+        $this->assertStringContainsString('<thead', (string) $rendered);
+        $this->assertStringContainsString('table-responsive', (string) $rendered);
+        $this->assertStringContainsString('table-hover', (string) $rendered);
+        $this->assertStringContainsString('table-light', (string) $rendered);
 
         // use the crawler
         $this->assertCount(1, $rendered->crawler()->filter('table'));
@@ -58,7 +60,7 @@ class TableComponentTest extends KernelTestCase
             blocks: ['header_row' => $title]
         );
 
-        $this->assertStringContainsString('<thead', $rendered);
-        $this->assertStringContainsString($title, $rendered);
+        $this->assertStringContainsString('<thead', (string) $rendered);
+        $this->assertStringContainsString($title, (string) $rendered);
     }
 }

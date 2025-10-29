@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the svc/util-bundle.
  *
@@ -27,21 +29,21 @@ final class SvcUtilBundle extends AbstractBundle
     public function configure(DefinitionConfigurator $definition): void
     {
         $definition->rootNode()
-          ->children()
-            ->arrayNode('mailer')->addDefaultsIfNotSet()
-              ->children()
-                ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('test@test.com')->info('Default sender mail address')->end()
-                ->scalarNode('mail_name')->cannotBeEmpty()->defaultValue('Test User')->info('Default sender name')->end()
-              ->end()
+            ->children()
+                ->arrayNode('mailer')->addDefaultsIfNotSet()
+                ->children()
+                    ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('test@test.com')->info('Default sender mail address')->end()
+                    ->scalarNode('mail_name')->cannotBeEmpty()->defaultValue('Test User')->info('Default sender name')->end()
+                ->end()
             ->end()
 
             ->arrayNode('twig_components')->addDefaultsIfNotSet()
-              ->children()
-                ->integerNode('table_default_type')->defaultNull()->info('Default table type')->end()
-              ->end()
+                ->children()
+                    ->integerNode('table_default_type')->defaultNull()->info('Default table type')->end()
+                ->end()
             ->end()
 
-          ->end();
+            ->end();
     }
 
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
@@ -49,13 +51,13 @@ final class SvcUtilBundle extends AbstractBundle
         $container->import('../config/services.php');
 
         $container->services()
-          ->get('Svc\UtilBundle\Service\MailerHelper')
-          ->arg(1, $config['mailer']['mail_address'])
-          ->arg(2, $config['mailer']['mail_name'] ?? null);
+            ->get('Svc\UtilBundle\Service\MailerHelper')
+            ->arg(1, $config['mailer']['mail_address'])
+            ->arg(2, $config['mailer']['mail_name'] ?? null);
 
         $container->services()
-          ->get('Svc\UtilBundle\Twig\Components\Table')
-          ->arg(1, $config['twig_components']['table_default_type'] ?? null)
+            ->get('Svc\UtilBundle\Twig\Components\Table')
+            ->arg(1, $config['twig_components']['table_default_type'] ?? null)
         ;
     }
 
@@ -65,10 +67,15 @@ final class SvcUtilBundle extends AbstractBundle
             return;
         }
 
+        if ($this->isTwigAvailable($containerBuilder)) {
+            $containerBuilder->prependExtensionConfig('twig', ['form_themes' => ['@SvcUtil/form_theme.html.twig']]);
+        }
+
         $containerBuilder->prependExtensionConfig('framework', [
             'asset_mapper' => [
                 'paths' => [
                     __DIR__ . '/../assets/src' => '@svc/util-bundle',
+                    __DIR__ . '/../assets/styles' => '@svc/util-bundle',
                 ],
             ],
         ]);
@@ -87,5 +94,15 @@ final class SvcUtilBundle extends AbstractBundle
         }
 
         return is_file($bundlesMetadata['FrameworkBundle']['path'] . '/Resources/config/asset_mapper.php');
+    }
+
+    private function isTwigAvailable(ContainerBuilder $container): bool
+    {
+
+
+        // check that TwigBundle is installed
+        $bundlesMetadata = $container->getParameter('kernel.bundles_metadata');
+
+        return isset($bundlesMetadata['TwigBundle']);
     }
 }

@@ -19,6 +19,9 @@ Please use version 3.x for older Symfony installations.<br/>
  * [EnvInfoController](docs/envinfocontroller.md) (symfony)
  * [Stimulus controllers](docs/stimulus-controllers.md) (javascript)
 
+### Forms
+ * [Toggle Password](docs/toggle-password.md)
+
  ### Twig components
  * [Twig Components (Table, Modal)](docs/twig-components.md)
  * [Flash messages](docs/twig_flash.md)

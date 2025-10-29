@@ -1,8 +1,12 @@
 {
   "name": "@svc/util-bundle",
-  "description": "general stimulus controller for svc bundles",
+  "description": "general stimulus controllers for svc bundles",
   "license": "MIT",
-  "version": "2.4.0",
+  "version": "2.5.0",
+  "keywords": [
+    "symfony-ux"
+  ],
+  "repository": "https://github.com/Sven-Ve/svc-util-bundle",
   "symfony": {
     "controllers": {
       "clipboard": {
@@ -55,6 +59,14 @@
         "main": "src/autosubmit_controller.js",
         "fetch": "lazy",
         "enabled": true
+      },
+      "toggle-password": {
+        "main": "src/toggle_password.js",
+        "fetch": "eager",
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/toggle_password.css": true
+        }
       }
     },
     "importmap": {

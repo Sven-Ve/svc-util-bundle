@@ -59,6 +59,24 @@ The bundle validates that required configuration values are properly set:
 - Whitelisted server variables to prevent information disclosure
 - XSS protection via `htmlspecialchars()` and Twig escaping
 
+### Form Extensions
+
+**TogglePasswordTypeExtension** (`src/Form/Extension/TogglePasswordTypeExtension.php`):
+- Extends Symfony's `PasswordType` to add show/hide toggle functionality
+- Automatically integrates Stimulus controller (`svc--util-bundle--toggle-password`)
+- Options resolver pattern with strict type validation
+- Key options:
+  - `toggle` (bool): Enable/disable toggle functionality
+  - `visible_label`/`hidden_label` (string|null): Button text when password is hidden/shown
+  - `visible_icon`/`hidden_icon` (string|null): HTML for icons (default: built-in SVG eye icons)
+  - `button_classes` (array): CSS classes for toggle button
+  - `toggle_container_classes` (array): CSS classes for wrapper container
+  - `use_toggle_form_theme` (bool): Apply form theme (adds `toggle_password` block prefix)
+- Form theme: `templates/form_theme.html.twig` wraps password widget in container
+- Stimulus controller: `assets/src/toggle_password.js` with custom events (connect, show, hide)
+- CSS: `assets/styles/toggle_password.css` with absolute positioning for toggle button
+- Test coverage: `tests/Form/Extension/TogglePasswordTypeExtensionTest.php` (15 tests)
+
 ### Frontend Asset Integration
 
 AssetMapper integration automatically maps `assets/src/` to `@svc/util-bundle` namespace. Stimulus controllers use lazy loading pattern (`stimulusFetch: 'lazy'`) and external dependencies (SweetAlert2, Bootstrap).
@@ -70,6 +88,17 @@ Uses custom `SvcUtilTestingKernel` that:
 - Configures null mailer transport for testing
 - Routes with `/api/{_locale}` prefix for internationalization testing
 - PHPStan ignores testing kernel method as unused (intentional)
+
+**Form Extension Tests**:
+- Use standalone `Forms::createFormFactoryBuilder()` instead of kernel container
+- Directly register type extensions via `addTypeExtension()`
+- Extend `PHPUnit\Framework\TestCase` (not `KernelTestCase`)
+- Test all options, validation, Stimulus integration, and form theme behavior
+
+**Code Style**:
+- All PHP files use `declare(strict_types=1)` at the top
+- PHPUnit assertions with `RenderedComponent` objects must cast to string: `(string) $rendered`
+- PHPStan level enforces strict type checking
 
 ### Security Considerations
 

@@ -268,3 +268,8 @@
 ## Version 6.0.1
 *Sun, 14 Sep 2025 08:49:02 +0000*
 - breaking change, now it use php as route configuration. You have to import the routes in your project manually. See docs for more information.
+
+
+## Version 6.1.0
+*Wed, 29 Oct 2025 14:29:18 +0000*
+- Add Toggle Password functionality with Stimulus integration.

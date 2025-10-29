@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the svc/util-bundle.
  *
@@ -48,7 +50,7 @@ class ModalComponentTest extends KernelTestCase
             data: ['title' => $title],
         );
 
-        $this->assertStringContainsString($title, $rendered);
+        $this->assertStringContainsString($title, (string) $rendered);
 
         // use the crawler
         $this->assertCount(1, $rendered->crawler()->filter('h2'));
@@ -62,7 +64,7 @@ class ModalComponentTest extends KernelTestCase
             data: ['saveButton' => true, 'saveButtonText' => $btnText],
         );
 
-        $this->assertStringContainsString($btnText, $rendered);
+        $this->assertStringContainsString($btnText, (string) $rendered);
     }
 
     public function testModelSaveButtonNotExists(): void
@@ -73,6 +75,6 @@ class ModalComponentTest extends KernelTestCase
             data: ['saveButton' => false, 'saveButtonText' => $btnText],
         );
 
-        $this->assertStringNotContainsString($btnText, $rendered);
+        $this->assertStringNotContainsString($btnText, (string) $rendered);
     }
 }

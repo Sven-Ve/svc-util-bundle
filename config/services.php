@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 use Svc\UtilBundle\Controller\EnvInfoController;
+use Svc\UtilBundle\Form\Extension\TogglePasswordTypeExtension;
 use Svc\UtilBundle\Service\EnvInfoHelper;
 use Svc\UtilBundle\Service\MailerHelper;
 use Svc\UtilBundle\Service\NetworkHelper;
@@ -36,4 +37,6 @@ return static function (ContainerConfigurator $container): void {
     $services->set(EnvInfoController::class);
     $services->set(ModalDialog::class);
     $services->set(Table::class);
+
+    $services->set(TogglePasswordTypeExtension::class);
 };

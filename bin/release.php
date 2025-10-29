@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the svc/util-bundle.
  *
@@ -10,8 +12,8 @@
  * file that was distributed with this source code.
  */
 
-$version = '6.0.1';
-$message = 'breaking change, now it use php as route configuration. You have to import the routes in your project manually. See docs for more information.';
+$version = '6.1.0';
+$message = 'Add Toggle Password functionality with Stimulus integration.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);
