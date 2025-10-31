@@ -32,8 +32,8 @@ final class SvcUtilBundle extends AbstractBundle
             ->children()
                 ->arrayNode('mailer')->addDefaultsIfNotSet()
                 ->children()
-                    ->scalarNode('mail_address')->cannotBeEmpty()->defaultValue('test@test.com')->info('Default sender mail address')->end()
-                    ->scalarNode('mail_name')->cannotBeEmpty()->defaultValue('Test User')->info('Default sender name')->end()
+                    ->stringNode('mail_address')->cannotBeEmpty()->defaultValue('test@test.com')->info('Default sender mail address')->end()
+                    ->stringNode('mail_name')->cannotBeEmpty()->defaultValue('Test User')->info('Default sender name')->end()
                 ->end()
             ->end()
 
