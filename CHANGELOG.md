@@ -273,3 +273,8 @@
 ## Version 6.1.0
 *Wed, 29 Oct 2025 14:29:18 +0000*
 - Add Toggle Password functionality with Stimulus integration.
+
+
+## Version 6.1.1
+*Wed, 05 Nov 2025 09:00:08 +0000*
+- fix(Table): remove 'table-light' class from thead for improved styling consistency.

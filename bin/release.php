@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '6.1.0';
-$message = 'Add Toggle Password functionality with Stimulus integration.';
+$version = '6.1.1';
+$message = 'fix(Table): remove \'table-light\' class from thead for improved styling consistency.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

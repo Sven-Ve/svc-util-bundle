@@ -1,7 +1,7 @@
 <div class='{{ isResponsive ? "table-responsive-md" }}'>
   <table{{ attributes.defaults({ class: this.getSmall  ~ this.getStriped ~ this.getBordered ~ this.getDark ~ 'table table-hover'}) }} >
     {% if hasHeader %}
-    <thead class='table-light'>
+    <thead>
       <tr>{% block header_row%}{% endblock %}</tr>
     </thead>
     {% endif %}

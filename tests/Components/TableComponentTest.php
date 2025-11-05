@@ -44,7 +44,6 @@ class TableComponentTest extends KernelTestCase
         $this->assertStringContainsString('<thead', (string) $rendered);
         $this->assertStringContainsString('table-responsive', (string) $rendered);
         $this->assertStringContainsString('table-hover', (string) $rendered);
-        $this->assertStringContainsString('table-light', (string) $rendered);
 
         // use the crawler
         $this->assertCount(1, $rendered->crawler()->filter('table'));
