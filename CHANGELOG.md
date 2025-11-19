@@ -278,3 +278,8 @@
 ## Version 6.1.1
 *Wed, 05 Nov 2025 09:00:08 +0000*
 - fix(Table): remove 'table-light' class from thead for improved styling consistency.
+
+
+## Version 7.0.0
+*Wed, 19 Nov 2025 15:23:59 +0000*
+- BREAKING: Replace SweetAlert2 with native Popover API (~42KB bundle size reduction). All alert/confirm dialogs now use browser-native popovers with emoji icons. See MIGRATION_SWEETALERT_TO_POPOVER.md for details.

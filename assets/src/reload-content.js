@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus';
-import Swal from 'sweetalert2';
+import { PopoverHelper } from './popover-helper.js';
 
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
@@ -40,7 +40,7 @@ export default class extends Controller {
   }
 
   handleError(error) {
-    Swal.fire({
+    PopoverHelper.fire({
       title: "Error",
       html: '<strong>Cannot load page</strong><br /><br />Please try reload it.<br /><br /><small>error: "' + error + '"</small>',
       icon: 'error',
@@ -51,6 +51,6 @@ export default class extends Controller {
       if (result.isConfirmed) {
         location.reload();
       }
-    })
+    });
   }
 }

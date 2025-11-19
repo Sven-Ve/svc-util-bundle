@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus';
-import Swal from 'sweetalert2';
+import { PopoverHelper } from './popover-helper.js';
 
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
@@ -13,13 +13,13 @@ export default class extends Controller {
   onSubmit(event) {
     event.preventDefault();
 
-    Swal.fire({
+    PopoverHelper.fire({
       title: this.titleValue || null,
       text: this.textValue || null,
       icon: this.iconValue || 'error',
       showCancelButton: false,
       confirmButtonText: this.confirmButtonTextValue || 'OK',
       allowOutsideClick: false,
-    })
+    });
   }
 }

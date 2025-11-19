@@ -5,7 +5,11 @@
       "Bash(/opt/homebrew/bin/php-cs-fixer fix)",
       "Bash(/opt/homebrew/bin/php-cs-fixer fix --dry-run --diff)",
       "Bash(find:*)",
-      "Bash(vendor/bin/phpunit:*)"
+      "Bash(vendor/bin/phpunit:*)",
+      "WebFetch(domain:medium.com)",
+      "WebSearch",
+      "WebFetch(domain:127.0.0.1)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }

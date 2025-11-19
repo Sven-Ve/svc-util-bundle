@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus';
-import Swal from 'sweetalert2';
+import { PopoverHelper } from './popover-helper.js';
 
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
@@ -14,13 +14,11 @@ export default class extends Controller {
   onSubmit(event) {
     event.preventDefault();
 
-    Swal.fire({
+    PopoverHelper.fire({
       title: this.titleValue || null,
       text: this.textValue || null,
       icon: this.iconValue || null,
       showCancelButton: true,
-      //      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
       confirmButtonText: this.confirmButtonTextValue || 'Yes',
       cancelButtonText: this.cancelButtonTextValue || 'Cancel',
       allowOutsideClick: false,
@@ -28,6 +26,6 @@ export default class extends Controller {
       if (result.isConfirmed) {
         this.element.submit();
       }
-    })
+    });
   }
 }

@@ -6,7 +6,7 @@
  */
 
 import { Controller } from '@hotwired/stimulus';
-import Swal from 'sweetalert2';
+import { PopoverHelper } from './popover-helper.js';
 
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
@@ -24,13 +24,9 @@ export default class extends Controller {
 
   updateClipboard(newClip) {
     try {
-      navigator.clipboard.writeText(newClip).then(function () {
-        Swal.fire({
-          title: "Copied.",
-          icon: 'success',
-          timer: 1500
-        })
-      }, function() {
+      navigator.clipboard.writeText(newClip).then(() => {
+        PopoverHelper.showToast("Copied.", 'success', 1500);
+      }, () => {
         this.displayError();
       });
     } catch (err) {
@@ -39,10 +35,6 @@ export default class extends Controller {
   }
 
   displayError() {
-    Swal.fire({
-      title: "Copy failed",
-      icon: 'error',
-      timer: 1500
-    });
+    PopoverHelper.showToast("Copy failed", 'error', 1500);
   }
 }

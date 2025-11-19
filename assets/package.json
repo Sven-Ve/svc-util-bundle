@@ -13,22 +13,34 @@
         "main": "src/clipboard.js",
         "webpackMode": "eager",
         "fetch": "lazy",
-        "enabled": true
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/popover.css": true
+        }
       },
       "mclipboard": {
         "main": "src/mclipboard.js",
         "fetch": "lazy",
-        "enabled": true
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/popover.css": true
+        }
       },
       "alert": {
         "main": "src/alert.js",
         "fetch": "lazy",
-        "enabled": true
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/popover.css": true
+        }
       },
       "submit-confirm": {
         "main": "src/submit-confirm.js",
         "fetch": "lazy",
-        "enabled": true
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/popover.css": true
+        }
       },
       "wysiwyg": {
         "main": "src/wysiwyg.js",
@@ -43,7 +55,10 @@
       "reload-content": {
         "main": "src/reload-content.js",
         "fetch": "lazy",
-        "enabled": true
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/popover.css": true
+        }
       },
       "modal": {
         "main": "src/modal.js",
@@ -71,18 +86,15 @@
     },
     "importmap": {
       "@hotwired/stimulus": "^3.2.0",
-      "sweetalert2": "*",
       "@ckeditor/ckeditor5-build-classic": "*",
       "debounce": "*"
     }
   },
   "peerDependencies": {
-    "sweetalert2": ">=11",
     "@hotwired/stimulus": "^3.0.0",
     "@ckeditor/ckeditor5-build-classic": ">=30"
   },
   "devDependencies": {
-    "sweetalert2": ">=11",
     "@hotwired/stimulus": "^3.0.0",
     "@ckeditor/ckeditor5-build-classic": ">=30"
   }

@@ -1,13 +1,37 @@
 # Stimulus controllers
 
+## alert
+
+Display a simple alert dialog using the native Popover API (emoji icons: ✅ ❌ ⚠️ ℹ️ ❓).
+
+_Example_
+```html
+<form {{ stimulus_controller('svc--util-bundle--alert', {
+    'title': 'Success!',
+    'text': 'Operation completed successfully.',
+    'icon': 'success',
+    'confirmButtonText': 'OK'
+  }) }}
+  data-action="submit->svc--util-bundle--alert#onSubmit"
+>
+  <button type="submit" class="btn btn-success">Show Alert</button>
+</form>
+```
+
+**Parameters:**
+* `title` (string, optional): Alert dialog title
+* `text` (string, optional): Message text to display
+* `icon` (string, optional): Icon type - `success`, `error`, `warning`, `info`, or `question`
+* `confirmButtonText` (string, optional): Text for confirm button (default: 'OK')
+
 ## clipboard
 
-Copy a text to the clipboard
+Copy a text to the clipboard and show a toast notification.
 
 _Example_
 ```html
 <span class="d-none d-grid"
-  {{ stimulus_controller('svc--util-bundle--clipboard', { 
+  {{ stimulus_controller('svc--util-bundle--clipboard', {
     'link': copyUrl
   } ) }}
 >
@@ -15,16 +39,19 @@ _Example_
 </span>
 ```
 
+**Parameters:**
+* `link` (string, required): The text/URL to copy to clipboard
+
 ## mclipboard
 
-Copy 1-4 texts to the clipboard (with only one instance of the stimulus controller)
+Copy 1-4 texts to the clipboard with toast notifications (multiple copy actions with one controller instance).
 
 _Example_
 ```html
 <span class="d-none"
-  {{ stimulus_controller('svc--util-bundle--mclipboard', { 
+  {{ stimulus_controller('svc--util-bundle--mclipboard', {
     'link': url('svc_video_run', {id: video.id} ),
-    'link1': url('svc_video_run_hn', {id: video.id} ) 
+    'link1': url('svc_video_run_hn', {id: video.id} )
   } ) }}
 >
   <div class="btn-group">
@@ -39,9 +66,15 @@ _Example_
 </span>
 ```
 
+**Parameters:**
+* `link` (string, required): First text/URL to copy (action: `#copy`)
+* `link1` (string, optional): Second text/URL to copy (action: `#copy1`)
+* `link2` (string, optional): Third text/URL to copy (action: `#copy2`)
+* `link3` (string, optional): Fourth text/URL to copy (action: `#copy3`)
+
 ## submit-confirm
 
-Nicer confirmation dialog
+Show a confirmation dialog before submitting a form using the native Popover API.
 
 ![submit-confirm dialog](images/submit-confirm.png "submit-confirm dialog")
 
@@ -58,8 +91,49 @@ _Example_
 >
 ```
 
-additional parameters:
-* text: some text in the dialog body
+**Parameters:**
+* `title` (string, optional): Confirmation dialog title
+* `text` (string, optional): Message text in the dialog body
+* `html` (string, optional): HTML content (use instead of text for formatted content)
+* `icon` (string, optional): Icon type - `success`, `error`, `warning`, `info`, or `question`
+* `confirmButtonText` (string, optional): Text for confirm button (default: 'OK')
+* `cancelButtonText` (string, optional): Text for cancel button (default: 'Cancel')
+
+## reload-content
+
+Reload content via AJAX or page reload. Shows error dialog with reload button if fetch fails.
+
+_Example_
+```html
+<div {{ stimulus_controller('svc--util-bundle--reload-content', {
+    'url': path('my_content_route'),
+    'refreshAjax': true
+  }) }}
+  data-svc--util-bundle--reload-content-target="content"
+>
+  <!-- Content will be replaced here -->
+</div>
+
+<!-- Trigger reload from outside -->
+<button data-action="click->svc--util-bundle--reload-content#refreshContent">
+  Refresh Content
+</button>
+```
+
+**Parameters:**
+* `url` (string, required): URL to fetch content from
+* `refreshAjax` (boolean, optional): If true, fetch via AJAX. If false, reload entire page (default: false)
+
+**Targets:**
+* `content` (optional): Element where fetched content will be inserted. If not specified, controller element is used.
+
+**Custom Events:**
+* Dispatch custom event with detail.url to override URL:
+  ```javascript
+  element.dispatchEvent(new CustomEvent('reload-content:refresh', {
+    detail: { url: '/new/url' }
+  }));
+  ```
 
 ## modal - show a (bootstrap 5) modal info dialog
 

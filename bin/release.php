@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '6.1.1';
-$message = 'fix(Table): remove \'table-light\' class from thead for improved styling consistency.';
+$version = '7.0.0';
+$message = 'BREAKING: Replace SweetAlert2 with native Popover API (~42KB bundle size reduction). All alert/confirm dialogs now use browser-native popovers with emoji icons. See MIGRATION_SWEETALERT_TO_POPOVER.md for details.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

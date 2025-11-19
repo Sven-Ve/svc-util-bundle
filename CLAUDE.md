@@ -79,7 +79,22 @@ The bundle validates that required configuration values are properly set:
 
 ### Frontend Asset Integration
 
-AssetMapper integration automatically maps `assets/src/` to `@svc/util-bundle` namespace. Stimulus controllers use lazy loading pattern (`stimulusFetch: 'lazy'`) and external dependencies (SweetAlert2, Bootstrap).
+AssetMapper integration automatically maps `assets/src/` to `@svc/util-bundle` namespace. Stimulus controllers use lazy loading pattern (`stimulusFetch: 'lazy'`).
+
+**Native Popover API** (`assets/src/popover-helper.js`):
+- Replaces SweetAlert2 with native browser Popover API
+- Zero external dependencies for modal dialogs and toast notifications
+- Emoji-based icons (✅ success, ❌ error, ⚠️ warning, ℹ️ info, ❓ question)
+- API-compatible replacement: `PopoverHelper.fire()` for modals, `PopoverHelper.showToast()` for notifications
+- Automatic focus management, keyboard navigation (ESC), and accessibility
+- CSS animations with `@starting-style` and `::backdrop` pseudo-element
+- Styling: `assets/styles/popover.css` with dark mode support
+
+**Stimulus Controllers using PopoverHelper**:
+- `alert.js` - Simple alert dialogs
+- `submit-confirm.js` - Form confirmation dialogs (shows before submit)
+- `clipboard.js` / `mclipboard.js` - Toast notifications after clipboard operations
+- `reload-content.js` - Error dialogs with reload button
 
 ### Test Architecture
 
