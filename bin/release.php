@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '7.0.0';
-$message = 'BREAKING: Replace SweetAlert2 with native Popover API (~42KB bundle size reduction). All alert/confirm dialogs now use browser-native popovers with emoji icons. See MIGRATION_SWEETALERT_TO_POPOVER.md for details.';
+$version = '7.1.0';
+$message = 'feat(Popover): Add Bootstrap 5.3+ dark mode support. Popovers now automatically adapt to data-bs-theme="dark" with system preference fallback for non-Bootstrap apps.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

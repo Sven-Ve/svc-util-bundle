@@ -129,6 +129,22 @@ Edit `assets/styles/popover.css` to customize:
 - Animations: Modify transition timings
 - Dark Mode: Already supported via `@media (prefers-color-scheme: dark)`
 
+### Dark Mode Support
+
+The bundle supports dark mode through two methods:
+
+1. **Bootstrap 5.3+ Dark Mode (Primary)**
+   - Automatically detects `data-bs-theme="dark"` on `<html>` element
+   - Works with Bootstrap's native color mode system
+   - No additional configuration needed
+
+2. **System Preference (Fallback)**
+   - Uses `prefers-color-scheme: dark` media query
+   - Activates only when Bootstrap theme is NOT set
+   - Works in non-Bootstrap applications
+
+This dual approach ensures dark mode works in both Bootstrap and non-Bootstrap apps.
+
 ### Integration with Your Design System
 
 If you use Bootstrap, Tailwind, or another framework:

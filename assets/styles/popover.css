@@ -226,41 +226,80 @@
   }
 }
 
-/* === Dark Mode Support (optional) === */
+/* === Dark Mode Support === */
+
+/* Bootstrap 5.3+ Dark Mode (Primary) */
+[data-bs-theme="dark"] .svc-popover-modal {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-bs-theme="dark"] .svc-popover-title {
+  color: #f9fafb;
+}
+
+[data-bs-theme="dark"] .svc-popover-content {
+  color: #d1d5db;
+}
+
+[data-bs-theme="dark"] .svc-popover-actions {
+  background: #111827;
+  border-color: #374151;
+}
+
+[data-bs-theme="dark"] .svc-popover-btn-cancel {
+  background: #374151;
+  color: #f9fafb;
+}
+
+[data-bs-theme="dark"] .svc-popover-btn-cancel:hover {
+  background: #4b5563;
+}
+
+[data-bs-theme="dark"] .svc-popover-toast {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-bs-theme="dark"] .svc-popover-toast-message {
+  color: #f9fafb;
+}
+
+/* System Preference Dark Mode (Fallback for non-Bootstrap apps) */
 @media (prefers-color-scheme: dark) {
-  .svc-popover-modal {
+  html:not([data-bs-theme]) .svc-popover-modal {
     background: #1f2937;
     border-color: #374151;
   }
 
-  .svc-popover-title {
+  html:not([data-bs-theme]) .svc-popover-title {
     color: #f9fafb;
   }
 
-  .svc-popover-content {
+  html:not([data-bs-theme]) .svc-popover-content {
     color: #d1d5db;
   }
 
-  .svc-popover-actions {
+  html:not([data-bs-theme]) .svc-popover-actions {
     background: #111827;
     border-color: #374151;
   }
 
-  .svc-popover-btn-cancel {
+  html:not([data-bs-theme]) .svc-popover-btn-cancel {
     background: #374151;
     color: #f9fafb;
   }
 
-  .svc-popover-btn-cancel:hover {
+  html:not([data-bs-theme]) .svc-popover-btn-cancel:hover {
     background: #4b5563;
   }
 
-  .svc-popover-toast {
+  html:not([data-bs-theme]) .svc-popover-toast {
     background: #1f2937;
     border-color: #374151;
   }
 
-  .svc-popover-toast-message {
+  html:not([data-bs-theme]) .svc-popover-toast-message {
     color: #f9fafb;
   }
 }

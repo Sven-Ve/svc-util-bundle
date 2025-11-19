@@ -283,3 +283,8 @@
 ## Version 7.0.0
 *Wed, 19 Nov 2025 15:23:59 +0000*
 - BREAKING: Replace SweetAlert2 with native Popover API (~42KB bundle size reduction). All alert/confirm dialogs now use browser-native popovers with emoji icons. See MIGRATION_SWEETALERT_TO_POPOVER.md for details.
+
+
+## Version 7.1.0
+*Wed, 19 Nov 2025 15:56:04 +0000*
+- feat(Popover): Add Bootstrap 5.3+ dark mode support. Popovers now automatically adapt to data-bs-theme="dark" with system preference fallback for non-Bootstrap apps.
