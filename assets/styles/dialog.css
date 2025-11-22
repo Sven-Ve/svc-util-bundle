@@ -1,0 +1,277 @@
+/*
+ * This file is part of the svc/util-bundle.
+ *
+ * (c) Sven Vetter <dev@sv-systems.com>
+ *
+ * Native Dialog Styling - Replacement for Bootstrap Modal
+ * Zero dependencies, fully accessible, Bootstrap 5.3+ compatible
+ */
+
+/* === Modal Dialog === */
+dialog.svc-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: white;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* Animation */
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.2s, transform 0.2s,
+              overlay 0.2s allow-discrete,
+              display 0.2s allow-discrete;
+}
+
+dialog.svc-dialog[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  dialog.svc-dialog[open] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Backdrop */
+dialog.svc-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+
+  /* Backdrop animation */
+  opacity: 0;
+  transition: opacity 0.2s,
+              overlay 0.2s allow-discrete,
+              display 0.2s allow-discrete;
+}
+
+dialog.svc-dialog[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  dialog.svc-dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/* Header (Bootstrap modal-header compatible) */
+.svc-dialog-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  background: #fff;
+}
+
+.svc-dialog-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #212529;
+}
+
+.svc-dialog-close {
+  padding: 0.5rem;
+  margin: -0.5rem -0.5rem -0.5rem auto;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.svc-dialog-close:hover {
+  opacity: 0.75;
+}
+
+.svc-dialog-close:focus {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+/* Body (Bootstrap modal-body compatible) */
+.svc-dialog-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Footer (Bootstrap modal-footer compatible) */
+.svc-dialog-footer {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  background: #fff;
+}
+
+/* Loading Spinner */
+.svc-dialog-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #6c757d;
+}
+
+/* Size Variants (Bootstrap modal sizes) */
+dialog.svc-dialog-sm {
+  max-width: 300px;
+}
+
+dialog.svc-dialog-lg {
+  max-width: 800px;
+}
+
+dialog.svc-dialog-xl {
+  max-width: 1140px;
+}
+
+/* Fullscreen */
+dialog.svc-dialog-fullscreen {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  border-radius: 0;
+  top: 0;
+  left: 0;
+  translate: 0 0;
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 576px) {
+  dialog.svc-dialog {
+    width: 95%;
+    max-width: none;
+  }
+
+  dialog.svc-dialog-lg,
+  dialog.svc-dialog-xl {
+    max-width: none;
+  }
+}
+
+/* === Dark Mode Support (Bootstrap 5.3+) === */
+
+/* Bootstrap 5.3+ Dark Mode (Primary) */
+[data-bs-theme="dark"] dialog.svc-dialog {
+  background: #212529;
+  color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .svc-dialog-header {
+  background: #212529;
+  border-color: #495057;
+}
+
+[data-bs-theme="dark"] .svc-dialog-footer {
+  background: #212529;
+  border-color: #495057;
+}
+
+[data-bs-theme="dark"] .svc-dialog-title {
+  color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .svc-dialog-close {
+  color: #fff;
+  opacity: 0.5;
+}
+
+[data-bs-theme="dark"] .svc-dialog-close:hover {
+  opacity: 0.75;
+}
+
+[data-bs-theme="dark"] .svc-dialog-loading {
+  color: #adb5bd;
+}
+
+/* System Preference Dark Mode (Fallback for non-Bootstrap apps) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-bs-theme]) dialog.svc-dialog {
+    background: #212529;
+    color: #f8f9fa;
+  }
+
+  html:not([data-bs-theme]) .svc-dialog-header {
+    background: #212529;
+    border-color: #495057;
+  }
+
+  html:not([data-bs-theme]) .svc-dialog-footer {
+    background: #212529;
+    border-color: #495057;
+  }
+
+  html:not([data-bs-theme]) .svc-dialog-title {
+    color: #f8f9fa;
+  }
+
+  html:not([data-bs-theme]) .svc-dialog-close {
+    color: #fff;
+    opacity: 0.5;
+  }
+
+  html:not([data-bs-theme]) .svc-dialog-close:hover {
+    opacity: 0.75;
+  }
+
+  html:not([data-bs-theme]) .svc-dialog-loading {
+    color: #adb5bd;
+  }
+}
+
+/* === Scrollbar Styling (Optional) === */
+.svc-dialog-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.svc-dialog-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.svc-dialog-body::-webkit-scrollbar-thumb {
+  background: #dee2e6;
+  border-radius: 4px;
+}
+
+.svc-dialog-body::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
+}
+
+[data-bs-theme="dark"] .svc-dialog-body::-webkit-scrollbar-thumb {
+  background: #495057;
+}
+
+[data-bs-theme="dark"] .svc-dialog-body::-webkit-scrollbar-thumb:hover {
+  background: #6c757d;
+}

@@ -63,7 +63,18 @@
       "modal": {
         "main": "src/modal.js",
         "fetch": "lazy",
-        "enabled": true
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/dialog.css": true
+        }
+      },
+      "modal-component": {
+        "main": "src/modal-component.js",
+        "fetch": "lazy",
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/dialog.css": true
+        }
       },
       "toast": {
         "main": "src/toast_controller.js",

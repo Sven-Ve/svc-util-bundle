@@ -135,29 +135,52 @@ _Example_
   }));
   ```
 
-## modal - show a (bootstrap 5) modal info dialog
+## modal
 
-_include the modal html code in your twig template_
+Show modal dialog with dynamically loaded content using native HTML `<dialog>` element.
 
+**MIGRATED:** This controller now uses the native `<dialog>` element instead of Bootstrap Modal. The API remains 100% compatible - no changes needed in your code!
+
+**Benefits:**
+- ✅ Zero dependencies (no Bootstrap Modal JS needed, ~45KB saved)
+- ✅ Better accessibility (WCAG 2.1 compliant by default)
+- ✅ Native backdrop, focus trap, ESC key handling
+- ✅ Bootstrap 5.3+ dark mode support
+- ✅ Automatic cleanup on close
+
+**Note:** The old Bootstrap templates (`@SvcUtil/elements/_modal.html.twig` and `SvcUtil-ModalDialog` component) are **no longer required**. The dialog is created dynamically by the controller.
+
+_Example_
 ```html
-{{ include("@SvcUtil/elements/_modal.html.twig") }}
-```
-
-_or if you prefere the twig component (needs symfony/ux-twig-component)_
-```html
-<twig:SvcUtil-ModalDialog title="Create..." modalSize="sm">
-  {# include('...') #}
-  or some static text
-</twig:SvcUtil-ModalDialog>
-```
-
-_call the stimulus controller in your code (example)_
-
-```html
-<span 
+<span
   data-controller="svc--util-bundle--modal"
-  data-svc--util-bundle--modal-url-value="{{ path('myMHtmlCode', {id: id}) }}"
-  data-svc--util-bundle--modal-title-value="{% trans %}My title{% endtrans %}"
+  data-svc--util-bundle--modal-url-value="{{ path('my_content_route', {id: item.id}) }}"
+  data-svc--util-bundle--modal-title-value="{% trans %}Item Details{% endtrans %}"
   data-action="click->svc--util-bundle--modal#show"
->...</span>
+>
+  <button type="button" class="btn btn-primary">Show Details</button>
+</span>
 ```
+
+**Parameters:**
+* `url` (string, required): URL to fetch modal content from (HTML fragment)
+* `title` (string, optional): Modal dialog title (default: 'Dialog')
+* `size` (string, optional): Modal size - `sm`, `lg`, `xl`, or `fullscreen`
+
+**Optional Size Example:**
+```html
+<span
+  {{ stimulus_controller('svc--util-bundle--modal', {
+    'url': path('my_content_route', {id: item.id}),
+    'title': 'Large Dialog',
+    'size': 'lg'
+  }) }}
+  data-action="click->svc--util-bundle--modal#show"
+>
+  <button type="button" class="btn btn-primary">Show Large Dialog</button>
+</span>
+```
+
+**Server Response:** The URL should return an HTML fragment (not a full page) that will be inserted into the dialog body.
+
+**Turbo Integration:** The controller automatically closes all open dialogs on `turbo:before-cache` events.

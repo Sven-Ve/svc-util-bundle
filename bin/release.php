@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '7.1.0';
-$message = 'feat(Popover): Add Bootstrap 5.3+ dark mode support. Popovers now automatically adapt to data-bs-theme="dark" with system preference fallback for non-Bootstrap apps.';
+$version = '8.0.0';
+$message = 'BREAKING: Replace Bootstrap Modal with native <dialog> element (~45KB bundle size reduction). Dynamic modals (modal.js) remain 100% API compatible. Static modals (SvcUtil-ModalDialog component) now require id attribute and onclick triggers. See MIGRATION_MODAL_TO_DIALOG.md for details.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

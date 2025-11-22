@@ -39,4 +39,13 @@ final class ModalDialog
 
         return 'modal-' . $this->intModalSize;
     }
+
+    public function dialogSizeClass(): string
+    {
+        if (!$this->intModalSize) {
+            return '';
+        }
+
+        return 'svc-dialog-' . $this->intModalSize;
+    }
 }
