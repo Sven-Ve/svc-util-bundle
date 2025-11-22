@@ -228,6 +228,23 @@ If you want to **roll back** to Bootstrap Modal:
 ✅ **System preference fallback** - works without Bootstrap
 ✅ **XSS protection** - automatic HTML escaping
 
+### Automatic Scroll Prevention
+
+✅ **Prevents background scrolling** - The background page cannot scroll when the dialog is open (using CSS `overflow: hidden`)
+
+This prevents a common issue where keyboard or mouse scrolling in the dialog unintentionally scrolls the page in the background.
+
+**Behavior:**
+- Dialog open: Background page scrolling is completely blocked
+- Dialog open: Scrolling within the dialog works normally (mouse wheel and keyboard)
+- Dialog with long content: Dialog body automatically receives focus for keyboard scrolling
+- Dialog closed: Normal browser scrolling behavior restored
+
+**Implementation:**
+- CSS `overflow: hidden` on `document.body` when dialog opens (modal.js:173)
+- Automatic focus management for scrollable content (modal.js:142-146)
+- Original overflow style restored on dialog close (modal.js:177)
+
 ### Browser Support
 
 | Browser | Version | Support |

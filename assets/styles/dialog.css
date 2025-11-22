@@ -117,6 +117,8 @@ dialog.svc-dialog[open]::backdrop {
   flex: 1 1 auto;
   padding: 1rem;
   overflow-y: auto;
+  /* Make scrollable with keyboard focus */
+  outline: none;
 }
 
 /* Footer (Bootstrap modal-footer compatible) */

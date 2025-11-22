@@ -135,14 +135,31 @@ export default class extends Controller {
 
     if (response.ok) {
       const html = await response.text();
-      dialog.querySelector('.svc-dialog-body').innerHTML = html;
+      const dialogBody = dialog.querySelector('.svc-dialog-body');
+      dialogBody.innerHTML = html;
       dialog.showModal();
+
+      // Make dialog body focusable if it has scrollable content
+      if (dialogBody.scrollHeight > dialogBody.clientHeight) {
+        dialogBody.setAttribute('tabindex', '0');
+        dialogBody.focus();
+      }
     } else {
       this.showError(dialog, `Error during load. Please try again. (${response.status})`);
       dialog.showModal();
     }
   }
 
+  /**
+   * Setup event handlers for the dialog
+   *
+   * Includes:
+   * - Close button handler
+   * - Backdrop click to close
+   * - Scroll prevention: Prevents background page scrolling when dialog is open
+   *   (arrow keys, space, home/end keys are blocked from scrolling the background)
+   * - Cleanup on dialog close
+   */
   setupDialogHandlers(dialog) {
     // Close button
     const closeBtn = dialog.querySelector('.svc-dialog-close');
@@ -155,8 +172,16 @@ export default class extends Controller {
       }
     });
 
+    // Prevent background page scrolling when dialog is open
+    // Store original overflow style
+    const originalOverflow = document.body.style.overflow;
+
+    // Prevent scroll on background
+    document.body.style.overflow = 'hidden';
+
     // Cleanup on close
     dialog.addEventListener('close', () => {
+      document.body.style.overflow = originalOverflow;
       setTimeout(() => dialog.remove(), 300); // Wait for animation
     });
   }

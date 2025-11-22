@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.0.0';
-$message = 'BREAKING: Replace Bootstrap Modal with native <dialog> element (~45KB bundle size reduction). Dynamic modals (modal.js) remain 100% API compatible. Static modals (SvcUtil-ModalDialog component) now require id attribute and onclick triggers. See MIGRATION_MODAL_TO_DIALOG.md for details.';
+$version = '8.0.1';
+$message = 'fix(Modal): Prevent background scrolling when dialog is open. Dialog body auto-focuses for keyboard scrolling with long content.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);
