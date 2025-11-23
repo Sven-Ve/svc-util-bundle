@@ -301,3 +301,8 @@
 ## Version 8.0.1
 *Sat, 22 Nov 2025 22:22:51 +0000*
 - fix(Modal): Prevent background scrolling when dialog is open. Dialog body auto-focuses for keyboard scrolling with long content.
+
+
+## Version 8.0.2
+*Sun, 23 Nov 2025 19:17:10 +0000*
+- fix(Modal): Fix Turbo back/forward navigation bug. Dialogs now close automatically before page caching to prevent broken event listeners.

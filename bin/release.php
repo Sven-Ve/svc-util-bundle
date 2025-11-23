@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.0.1';
-$message = 'fix(Modal): Prevent background scrolling when dialog is open. Dialog body auto-focuses for keyboard scrolling with long content.';
+$version = '8.0.2';
+$message = 'fix(Modal): Fix Turbo back/forward navigation bug. Dialogs now close automatically before page caching to prevent broken event listeners.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

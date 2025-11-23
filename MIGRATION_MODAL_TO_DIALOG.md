@@ -241,9 +241,34 @@ This prevents a common issue where keyboard or mouse scrolling in the dialog uni
 - Dialog closed: Normal browser scrolling behavior restored
 
 **Implementation:**
-- CSS `overflow: hidden` on `document.body` when dialog opens (modal.js:173)
-- Automatic focus management for scrollable content (modal.js:142-146)
-- Original overflow style restored on dialog close (modal.js:177)
+- CSS `overflow: hidden` on `document.body` when dialog opens (modal.js:180)
+- Automatic focus management for scrollable content (modal.js:143-146)
+- Original overflow style restored on dialog close (modal.js:184)
+
+### Turbo Integration
+
+✅ **Automatic dialog cleanup on navigation** - Prevents dialogs from breaking when using browser back/forward buttons
+
+**The Problem:**
+When using Hotwired Turbo and navigating with browser back/forward buttons:
+1. User opens a dialog
+2. User clicks browser "Back" button
+3. Turbo caches the page with the open dialog
+4. User clicks browser "Forward" button
+5. Dialog is restored from cache but event listeners are broken (ESC key, close button don't work)
+
+**The Solution:**
+Both modal controllers (`modal.js` and `modal-component.js`) now listen to Turbo's `turbo:before-cache` event and automatically close all open dialogs before the page is cached.
+
+**Implementation:**
+- Event listener registration in `connect()` method (modal.js:89-95, modal-component.js:18-26)
+- Automatic cleanup via `handleTurboCache()` (modal.js:101-103, modal-component.js:32-34)
+- Event listener removal in `disconnect()` (modal.js:97-99, modal-component.js:28-30)
+
+**Behavior:**
+- Dialog open + Back button → Dialog closes automatically before cache
+- Forward button → Page restored without dialog (clean state)
+- No broken event listeners, no "dead" dialogs
 
 ### Browser Support
 

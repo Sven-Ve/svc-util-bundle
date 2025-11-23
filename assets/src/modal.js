@@ -86,6 +86,22 @@ export default class extends Controller {
 
   static idCounter = 0;
 
+  connect() {
+    // Turbo integration: Close all open dialogs before caching
+    // This prevents the back/forward navigation bug where dialogs are
+    // restored from cache but event listeners are broken
+    this.handleTurboCache = this.handleTurboCache.bind(this);
+    document.addEventListener('turbo:before-cache', this.handleTurboCache);
+  }
+
+  disconnect() {
+    document.removeEventListener('turbo:before-cache', this.handleTurboCache);
+  }
+
+  handleTurboCache() {
+    this.close();
+  }
+
   show() {
     this.loadData(this.urlValue);
   }
