@@ -24,6 +24,59 @@ _Example_
 * `icon` (string, optional): Icon type - `success`, `error`, `warning`, `info`, or `question`
 * `confirmButtonText` (string, optional): Text for confirm button (default: 'OK')
 
+## toast
+
+Display flash messages as toast notifications using the native Popover API.
+
+**MIGRATED:** This controller now uses the native Popover API instead of Bootstrap Toast. The integration is automatic via the flash message template.
+
+**Features:**
+- ✅ Zero Bootstrap dependency (no Bootstrap Toast JS needed)
+- ✅ Native browser popovers with automatic positioning (top-right)
+- ✅ Close button (×) for manual dismissal
+- ✅ Auto-dismiss after 6 seconds
+- ✅ Multiline support with `\n`
+- ✅ Bootstrap 5.3+ dark mode support
+- ✅ Mobile responsive (full-width on small screens)
+
+_Usage in Controller_
+```php
+// Simple flash message
+$this->addFlash('success', 'Your profile has been updated!');
+$this->addFlash('error', 'Unable to save changes.');
+$this->addFlash('warning', 'Your session will expire soon.');
+$this->addFlash('info', 'New features available!');
+
+// Multiline flash message (use \n for line breaks)
+$this->addFlash('success', "Operation completed!\nAll files processed.\nYou can continue.");
+```
+
+_Template Integration_
+```twig
+{# In your base.html.twig #}
+{% include '@SvcUtil/elements/_flashes.html.twig' %}
+```
+
+**Supported Flash Types:**
+* `success` - ✅ Green checkmark
+* `error` - ❌ Red X
+* `warning` - ⚠️ Yellow triangle
+* `info` - ℹ️ Blue info circle
+* `question` - ❓ Question mark
+
+**Parameters (passed automatically by template):**
+* `message` (string, required): The flash message text
+* `icon` (string, required): Icon type matching flash type
+* `duration` (number, optional): Auto-dismiss duration in milliseconds (default: 6000)
+
+**Technical Details:**
+* Controller: `assets/src/toast_controller.js`
+* Helper: Uses `PopoverHelper.showToast()`
+* CSS: `assets/styles/popover.css` (auto-imported via package.json)
+* XSS Protection: Messages are HTML-escaped, `\n` converted to `<br>` safely
+
+See [docs/twig_flash.md](twig_flash.md) for detailed documentation.
+
 ## clipboard
 
 Copy a text to the clipboard and show a toast notification.

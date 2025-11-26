@@ -9,7 +9,9 @@
       "WebFetch(domain:medium.com)",
       "WebSearch",
       "WebFetch(domain:127.0.0.1)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(bin/console cache:clear:*)",
+      "Bash(bin/console importmap:list:*)"
     ],
     "deny": []
   }

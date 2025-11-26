@@ -123,7 +123,7 @@ export class PopoverHelper {
   }
 
   /**
-   * Show a toast notification (auto-dismiss)
+   * Show a toast notification (auto-dismiss with manual close option)
    */
   static showToast(message, icon = 'success', duration = 1500) {
     const popoverId = `svc-toast-${++this.idCounter}`;
@@ -133,19 +133,34 @@ export class PopoverHelper {
     toast.className = `svc-popover-toast svc-popover-toast-${icon}`;
 
     const iconEmoji = this.icons[icon] || icon;
+    // Escape HTML first, then convert \n to <br> for safe multiline support
+    const escapedMessage = this.escapeHtml(message).replace(/\n/g, '<br>');
+
     toast.innerHTML = `
       <span class="svc-popover-toast-icon">${iconEmoji}</span>
-      <span class="svc-popover-toast-message">${this.escapeHtml(message)}</span>
+      <span class="svc-popover-toast-message">${escapedMessage}</span>
+      <button type="button" class="svc-popover-toast-close" aria-label="Close">×</button>
     `;
 
     document.body.appendChild(toast);
     toast.showPopover();
 
-    // Auto-close
-    setTimeout(() => {
+    // Close button handler
+    const closeBtn = toast.querySelector('.svc-popover-toast-close');
+    const closeToast = () => {
       toast.hidePopover();
       setTimeout(() => toast.remove(), 300);
-    }, duration);
+    };
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeToast);
+    }
+
+    // Auto-close
+    const autoCloseTimer = setTimeout(closeToast, duration);
+
+    // Store timer so it can be cancelled if manually closed
+    toast.dataset.autoCloseTimer = autoCloseTimer;
 
     return toast;
   }

@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.0.2';
-$message = 'fix(Modal): Fix Turbo back/forward navigation bug. Dialogs now close automatically before page caching to prevent broken event listeners.';
+$version = '8.1.0';
+$message = 'feat(Toast): Replace Bootstrap Toast with native Popover API. Flash messages now use browser-native popovers with close button, auto-hide after 6s, positioned top-right. See MIGRATION_TOAST_TO_POPOVER.md.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

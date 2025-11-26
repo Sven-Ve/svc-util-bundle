@@ -2,7 +2,7 @@
   "name": "@svc/util-bundle",
   "description": "general stimulus controllers for svc bundles",
   "license": "MIT",
-  "version": "2.5.0",
+  "version": "8.1.0",
   "keywords": [
     "symfony-ux"
   ],
@@ -79,7 +79,10 @@
       "toast": {
         "main": "src/toast_controller.js",
         "fetch": "lazy",
-        "enabled": true
+        "enabled": true,
+        "autoimport": {
+          "@svc/util-bundle/styles/popover.css": true
+        }
       },
       "autosubmit": {
         "main": "src/autosubmit_controller.js",
