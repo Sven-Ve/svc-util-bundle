@@ -311,3 +311,8 @@
 ## Version 8.1.0
 *Wed, 26 Nov 2025 14:23:51 +0000*
 - feat(Toast): Replace Bootstrap Toast with native Popover API. Flash messages now use browser-native popovers with close button, auto-hide after 6s, positioned top-right. See MIGRATION_TOAST_TO_POPOVER.md.
+
+
+## Version 8.2.0
+*Sat, 29 Nov 2025 15:49:34 +0000*
+- tested with symfony 7.4 and symfony 8.
