@@ -321,3 +321,8 @@
 ## Version 8.2.1
 *Thu, 11 Dec 2025 18:23:56 +0000*
 - add .gitattributes to exclude non-essential files from the package
+
+
+## Version 8.2.2
+*Thu, 11 Dec 2025 18:42:45 +0000*
+- update .gitignore
