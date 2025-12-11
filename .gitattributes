@@ -1,0 +1,4 @@
+/tests export-ignore
+/.claude export-ignore
+/.github export-ignore
+/bin export-ignore

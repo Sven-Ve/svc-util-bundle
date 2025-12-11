@@ -316,3 +316,8 @@
 ## Version 8.2.0
 *Sat, 29 Nov 2025 15:49:34 +0000*
 - tested with symfony 7.4 and symfony 8.
+
+
+## Version 8.2.1
+*Thu, 11 Dec 2025 18:23:56 +0000*
+- add .gitattributes to exclude non-essential files from the package

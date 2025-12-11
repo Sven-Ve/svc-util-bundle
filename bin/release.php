@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.2.0';
-$message = 'tested with symfony 7.4 and symfony 8.';
+$version = '8.2.1';
+$message = 'add .gitattributes to exclude non-essential files from the package';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);
