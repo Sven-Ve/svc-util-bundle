@@ -42,7 +42,7 @@ The bundle validates that required configuration values are properly set:
 
 **NetworkHelper** (static methods):
 - IP detection with security validation (filters private/reserved ranges)
-- External geolocation API calls to geoplugin.net (HTTP only, 5-second timeout)
+- External geolocation API calls to IP-API.com (HTTP, 5-second timeout, 45 requests/minute limit)
 - User agent and referer extraction
 
 **MailerHelper** (service with DI):
@@ -117,7 +117,7 @@ Uses custom `SvcUtilTestingKernel` that:
 
 ### Security Considerations
 
-- External API calls to geoplugin.net use HTTP (not HTTPS) - known limitation
+- External API calls to IP-API.com use HTTP (HTTPS requires paid API key)
 - Server variable whitelisting in EnvInfoController prevents information disclosure
 - Input validation via regex patterns in EnvInfoHelper methods
 - Network IP validation excludes private/reserved ranges for public IP detection

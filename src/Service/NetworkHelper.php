@@ -96,30 +96,26 @@ class NetworkHelper
         }
 
         try {
-            // Use HTTP and add timeout for security and performance
-            // TODO: use ssl, but needs and account and an api key
+            // Use HTTP (HTTPS requires paid API key)
+            // IP-API.com provides free geolocation API (45 requests/minute)
             $context = stream_context_create([
                 'http' => [
                     'timeout' => 5,
                     'method' => 'GET',
                     'header' => 'User-Agent: SvcUtilBundle/1.0',
                 ],
-                // 'ssl' => [
-                //     'verify_peer' => true,
-                //     'verify_peer_name' => true,
-                // ],
             ]);
 
-            $response = @file_get_contents('http://www.geoplugin.net/json.gp?ip=' . urlencode($ip), false, $context);
+            $response = @file_get_contents('http://ip-api.com/json/' . urlencode($ip), false, $context);
             if ($response === false) {
                 return $result;
             }
 
             $ip_data = json_decode($response, null, 512, JSON_THROW_ON_ERROR);
 
-            if ($ip_data && isset($ip_data->geoplugin_countryCode)) {
-                $result['country'] = $ip_data->geoplugin_countryCode;
-                $result['city'] = $ip_data->geoplugin_city ?? '';
+            if ($ip_data && isset($ip_data->countryCode)) {
+                $result['country'] = $ip_data->countryCode;
+                $result['city'] = $ip_data->city ?? '';
             }
         } catch (\Exception) {
             // Silently fail and return empty result

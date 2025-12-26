@@ -326,3 +326,8 @@
 ## Version 8.2.2
 *Thu, 11 Dec 2025 18:42:45 +0000*
 - update .gitignore
+
+
+## Version 8.3.0
+*Fri, 26 Dec 2025 21:09:16 +0000*
+- Migrated NetworkHelper from geoplugin.net to ip-api.com for IP geolocation

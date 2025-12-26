@@ -4,9 +4,10 @@ Helper class to give network information
 
 ## Important Security Notes
 
-- **Geolocation API**: Uses HTTP (not HTTPS) due to licensing limitations. Consider this for production use.
+- **Geolocation API**: Uses HTTP (HTTPS requires paid API key at ip-api.com). Consider this for production use.
+- **Rate Limiting**: Free tier allows 45 requests per minute from the same IP address.
 - **IP Validation**: Public IP detection filters out private and reserved IP ranges for security.
-- **External Dependency**: Location information depends on external service (geoplugin.net) with 5-second timeout.
+- **External Dependency**: Location information depends on external service (ip-api.com) with 5-second timeout.
 
 ## Signatures
 

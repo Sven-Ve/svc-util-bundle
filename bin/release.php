@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.2.2';
-$message = 'update .gitignore';
+$version = '8.3.0';
+$message = 'Migrated NetworkHelper from geoplugin.net to ip-api.com for IP geolocation';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

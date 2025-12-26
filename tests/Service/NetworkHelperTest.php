@@ -38,6 +38,25 @@ final class NetworkHelperTest extends TestCase
     }
 
     /**
+     * Test geolocation with Google DNS IP (8.8.8.8) which has stable location data.
+     * This test makes a real API call to ip-api.com.
+     *
+     * @return void
+     */
+    public function testLocationInfoWithGoogleDNS()
+    {
+        $helper = new NetworkHelper();
+        $result = $helper->getLocationInfoByIp('8.8.8.8'); // Google Public DNS
+
+        $this->assertArrayHasKey('country', $result);
+        $this->assertArrayHasKey('city', $result);
+
+        // Google DNS is consistently located in US
+        $this->assertEquals('US', $result['country'], 'Google DNS should be geolocated to US');
+        $this->assertNotEmpty($result['city'], 'City should not be empty for Google DNS');
+    }
+
+    /**
      * check if ip info correct.
      *
      * @return void
