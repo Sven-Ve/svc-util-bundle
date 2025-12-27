@@ -331,3 +331,8 @@
 ## Version 8.3.0
 *Fri, 26 Dec 2025 21:09:16 +0000*
 - Migrated NetworkHelper from geoplugin.net to ip-api.com for IP geolocation
+
+
+## Version 8.4.0
+*Sat, 27 Dec 2025 16:02:37 +0000*
+- Add NetworkInfo DTO for type-safe network data access, deprecate NetworkHelper::getAll()

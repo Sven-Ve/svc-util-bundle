@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.3.0';
-$message = 'Migrated NetworkHelper from geoplugin.net to ip-api.com for IP geolocation';
+$version = '8.4.0';
+$message = 'Add NetworkInfo DTO for type-safe network data access, deprecate NetworkHelper::getAll()';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

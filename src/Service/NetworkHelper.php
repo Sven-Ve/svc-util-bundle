@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Svc\UtilBundle\Service;
 
+use Svc\UtilBundle\Model\NetworkInfo;
+
 /**
  * Helper class to give network information.
  *
@@ -125,9 +127,22 @@ class NetworkHelper
     }
 
     /**
+     * Give info about current client as NetworkInfo object.
+     *
+     * This is the recommended method to get client information.
+     * Use this instead of the deprecated getAll() method.
+     */
+    public static function getAllAsObject(): NetworkInfo
+    {
+        return NetworkInfo::fromCurrentClient();
+    }
+
+    /**
      * give info about current client.
      *
-     * @return array ['ip', 'country', 'city', 'ua', 'referer']
+     * @return array{ip: ?string, country: string, city: string, ua: ?string, referer: ?string}
+     *
+     * @deprecated since 8.4, use getAllAsObject() instead which returns a NetworkInfo object for better type safety
      */
     public static function getAll(): array
     {

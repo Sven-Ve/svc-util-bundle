@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Svc\UtilBundle\Tests\Service;
 
 use PHPUnit\Framework\TestCase;
+use Svc\UtilBundle\Model\NetworkInfo;
 use Svc\UtilBundle\Service\NetworkHelper;
 
 /**
@@ -90,5 +91,42 @@ final class NetworkHelperTest extends TestCase
         $helper = new NetworkHelper();
         $result = $helper->getUserAgent();
         $this->assertNull($result, 'UserAgent should by null in test environements');
+    }
+
+    /**
+     * Test getAllAsObject returns NetworkInfo instance.
+     *
+     * @return void
+     */
+    public function testGetAllAsObject()
+    {
+        $result = NetworkHelper::getAllAsObject();
+
+        $this->assertInstanceOf(NetworkInfo::class, $result);
+        $this->assertNull($result->ip);
+        $this->assertSame('', $result->country);
+        $this->assertSame('', $result->city);
+        $this->assertNull($result->userAgent);
+        $this->assertNull($result->referer);
+    }
+
+    /**
+     * Test that getAllAsObject and getAll return equivalent data.
+     *
+     * @return void
+     */
+    public function testGetAllAsObjectMatchesGetAll()
+    {
+        $arrayResult = NetworkHelper::getAll();
+        $objectResult = NetworkHelper::getAllAsObject();
+
+        $this->assertSame($arrayResult['ip'], $objectResult->ip);
+        $this->assertSame($arrayResult['country'], $objectResult->country);
+        $this->assertSame($arrayResult['city'], $objectResult->city);
+        $this->assertSame($arrayResult['ua'], $objectResult->userAgent);
+        $this->assertSame($arrayResult['referer'], $objectResult->referer);
+
+        // Also test toArray() conversion matches
+        $this->assertSame($arrayResult, $objectResult->toArray());
     }
 }
