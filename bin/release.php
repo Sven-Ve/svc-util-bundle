@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.4.0';
-$message = 'Add NetworkInfo DTO for type-safe network data access, deprecate NetworkHelper::getAll()';
+$version = '8.4.1';
+$message = 'Refactor NetworkHelper and EnvInfoController for improved type safety and clarity.';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

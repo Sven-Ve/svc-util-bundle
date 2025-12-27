@@ -336,3 +336,8 @@
 ## Version 8.4.0
 *Sat, 27 Dec 2025 16:02:37 +0000*
 - Add NetworkInfo DTO for type-safe network data access, deprecate NetworkHelper::getAll()
+
+
+## Version 8.4.1
+*Sat, 27 Dec 2025 20:22:15 +0000*
+- Refactor NetworkHelper and EnvInfoController for improved type safety and clarity.
