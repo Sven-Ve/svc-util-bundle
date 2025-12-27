@@ -141,20 +141,10 @@ class NetworkHelper
      * give info about current client.
      *
      * @return array{ip: ?string, country: string, city: string, ua: ?string, referer: ?string}
-     *
-     * @deprecated since 8.4, use getAllAsObject() instead which returns a NetworkInfo object for better type safety
      */
+    #[\Deprecated(message: 'use getAllAsObject() instead which returns a NetworkInfo object for better type safety', since: 'SvcUtilBundle version 8.4')]
     public static function getAll(): array
     {
-        $ip = static::getIP();
-        $loc = static::getLocationInfoByIp($ip);
-        $ret = [];
-        $ret['ip'] = $ip;
-        $ret['country'] = $loc['country'];
-        $ret['city'] = $loc['city'];
-        $ret['ua'] = static::getUserAgent();
-        $ret['referer'] = static::getReferer();
-
-        return $ret;
+        return NetworkInfo::fromCurrentClient()->toArray();
     }
 }

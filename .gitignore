@@ -7,4 +7,4 @@
 /var
 /.php-cs-fixer.cache
 /.phpunit.cache
-/config/reference.php
+config/reference.php

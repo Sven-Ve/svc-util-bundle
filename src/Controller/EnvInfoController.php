@@ -51,7 +51,7 @@ final class EnvInfoController extends AbstractController
         return $this->render('@SvcUtil/envinfo/envinfo.html.twig', [
             'server' => $filteredServer,
             'symfonyversion' => Kernel::VERSION,
-            'netInfo' => NetworkHelper::getAll(),
+            'netInfo' => NetworkHelper::getAllAsObject(),
             'cacheDir' => $this->getParameter('kernel.cache_dir'),
             'projectRoot' => $this->getParameter('kernel.project_dir'),
             'logDir' => $this->getParameter('kernel.logs_dir'),

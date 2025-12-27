@@ -57,7 +57,7 @@
       <tr><th style="width: 25%;">IP</th><td>{{ netInfo.ip | default('n/a') | e('html') }}</td></tr>
       <tr><th>Country</th><td>{{ netInfo.country | default('n/a') | e('html') }}</td></tr>
       <tr><th>City</th><td>{{ netInfo.city | default('n/a') | e('html') }}</td></tr>
-      <tr><th>User agent</th><td>{{ netInfo.ua | default('n/a') | e('html') | slice(0, 100) }}</td></tr>
+      <tr><th>User agent</th><td>{{ netInfo.userAgent | default('n/a') | e('html') | slice(0, 100) }}</td></tr>
       <tr><th>Referer</th><td>{{ netInfo.referer | default('n/a') | e('html') | slice(0, 100) }}</td></tr>
     </table>
   </div>
