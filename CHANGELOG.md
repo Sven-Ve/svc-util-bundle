@@ -341,3 +341,8 @@
 ## Version 8.4.1
 *Sat, 27 Dec 2025 20:22:15 +0000*
 - Refactor NetworkHelper and EnvInfoController for improved type safety and clarity.
+
+
+## Version 8.5.0
+*Thu, 01 Jan 2026 14:56:28 +0000*
+- add audit command before release and as github action, update license year to 2026

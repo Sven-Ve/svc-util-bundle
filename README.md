@@ -5,6 +5,9 @@
 [![License](https://poser.pugx.org/svc/util-bundle/license)](https://packagist.org/packages/svc/util-bundle)
 [![Total Downloads](https://poser.pugx.org/svc/util-bundle/downloads)](https://packagist.org/packages/svc/util-bundle)
 [![PHP Version Require](http://poser.pugx.org/svc/util-bundle/require/php)](https://packagist.org/packages/svc/util-bundle)
+[![Symfony](https://img.shields.io/badge/symfony-7.2%2B%20%7C%208-green)](https://symfony.com/)
+![Last commit](https://img.shields.io/github/last-commit/Sven-Ve/svc-util-bundle)"
+
 
 :warning: **Attention:** <br/>
 From version 4.0 the bundle works only with Symfony >=6.1, because the new Bundle Configuration System is used.<br/>

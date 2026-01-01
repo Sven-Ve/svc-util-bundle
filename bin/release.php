@@ -6,14 +6,14 @@ declare(strict_types=1);
 /*
  * This file is part of the svc/util-bundle.
  *
- * (c) 2025 Sven Vetter <dev@sv-systems.com>.
+ * (c) 2026 Sven Vetter <dev@sv-systems.com>.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-$version = '8.4.1';
-$message = 'Refactor NetworkHelper and EnvInfoController for improved type safety and clarity.';
+$version = '8.5.0';
+$message = 'add audit command before release and as github action, update license year to 2026';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);
@@ -27,6 +27,14 @@ echo "Running tests:\n";
 system('composer run-script test', $res);
 if ($res > 0) {
     echo "\nError during execution test scripts. Releasing cannceled.\n";
+
+    return 1;
+}
+
+echo "Running audit:\n";
+system('composer audit', $res);
+if ($res > 0) {
+    echo "\nError during execution audit. Releasing cannceled.\n";
 
     return 1;
 }
