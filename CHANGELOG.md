@@ -346,3 +346,8 @@
 ## Version 8.5.0
 *Thu, 01 Jan 2026 14:56:28 +0000*
 - add audit command before release and as github action, update license year to 2026
+
+
+## Version 8.5.1
+*Tue, 13 Oct 2026 13:27:18 +0000*
+- improve assets/src/modal.js, fix errors in phpstan for newer symfony versions, update github actions

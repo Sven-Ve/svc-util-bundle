@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '8.5.0';
-$message = 'add audit command before release and as github action, update license year to 2026';
+$version = '8.5.1';
+$message = 'improve assets/src/modal.js, fix errors in phpstan for newer symfony versions, update github actions';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

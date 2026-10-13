@@ -5,5 +5,10 @@ parameters:
     - config/
     - src/
     - tests/
+  excludePaths:
+    - config/reference.php (?)
   ignoreErrors:
-    - '#Method Svc\\UtilBundle\\Tests\\SvcUtilTestingKernel::configureRoutes\(\) is unused.#'
+    # Needed for older Symfony versions; newer versions no longer report this error
+    -
+      message: '#Method Svc\\UtilBundle\\Tests\\SvcUtilTestingKernel::configureRoutes\(\) is unused.#'
+      reportUnmatched: false
