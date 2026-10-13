@@ -151,6 +151,7 @@ export default class extends Controller {
 
     if (response.ok) {
       const html = await response.text();
+      if (!dialog.isConnected) return;
       const dialogBody = dialog.querySelector('.svc-dialog-body');
       dialogBody.innerHTML = html;
       dialog.showModal();
