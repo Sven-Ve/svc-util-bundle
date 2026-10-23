@@ -351,3 +351,8 @@
 ## Version 8.5.1
 *Tue, 13 Oct 2026 13:27:18 +0000*
 - improve assets/src/modal.js, fix errors in phpstan for newer symfony versions, update github actions
+
+
+## Version 8.5.1
+*Fri, 23 Oct 2026 19:14:43 +0000*
+- improve assets/src/modal.js, fix errors in phpstan for newer symfony versions, update github actions
