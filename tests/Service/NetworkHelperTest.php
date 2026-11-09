@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Svc\UtilBundle\Tests\Service;
 
+use PHPUnit\Framework\Attributes\IgnoreDeprecations;
 use PHPUnit\Framework\TestCase;
 use Svc\UtilBundle\Model\NetworkInfo;
 use Svc\UtilBundle\Service\NetworkHelper;
@@ -115,8 +116,11 @@ final class NetworkHelperTest extends TestCase
      *
      * @return void
      */
+    #[IgnoreDeprecations]
     public function testGetAllAsObjectMatchesGetAll()
     {
+        $this->expectUserDeprecationMessageMatches('/NetworkHelper::getAll\(\) is deprecated/');
+
         $arrayResult = NetworkHelper::getAll();
         $objectResult = NetworkHelper::getAllAsObject();
 
